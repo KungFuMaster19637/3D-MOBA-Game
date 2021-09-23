@@ -27,6 +27,11 @@ public class ToDo : MonoBehaviour
     Potions
     Fix Castle Outside
     Castle functions
+    Make Camera Roam
+    ----Teleporters
+    Environment Fix
+    ----Environment Music
+
 
 
     

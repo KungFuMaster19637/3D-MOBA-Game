@@ -66,7 +66,6 @@ public class EnemyCombat : MonoBehaviour
         //}
         if (returnPosition < 0.4)
         {
-            Debug.Log("here");
             anim.SetBool("IsIdle", true);
             anim.SetBool("IsInRange", false);
             isReturning = false;
@@ -114,7 +113,7 @@ public class EnemyCombat : MonoBehaviour
     {
         float totalDamage;
         totalDamage = 100 / (100 + targetedPlayer.GetComponent<PlayerStats>().defence) * incomingDamage;
-        Debug.Log(totalDamage);
+        Debug.Log("Enemy damage: " + totalDamage);
         return totalDamage;
     }
 

@@ -28,6 +28,7 @@ public class ToDo : MonoBehaviour
     Fix Castle Outside
     Castle functions
     Make Camera Roam
+    Camera Fix wilderniss
     ----Teleporters
     Environment Fix
     ----Environment Music

@@ -31,7 +31,7 @@ public class ArthurHoverUI : MonoBehaviour
             " healthpoints, and increases his own health regeneration by " + abilityManager.regenerationBuff + 
             " for " + abilityManager.totalDuration2 + " seconds";
         ability3 = "Arthur blocks all incoming damage for " + abilityManager.totalDuration3 + " seconds";
-        ability4 = "Arthur calls out Excalibur for 2 seoncds, and gains " + (abilityManager.attackSpeedBuff - 1) * 100 +
+        ability4 = "Arthur calls out Excalibur for 2 seconds, and gains " + (abilityManager.attackSpeedBuff - 1) * 100 +
             "% attack speed and increases range by " + abilityManager.attackRangeBuff + " for " + 
             abilityManager.totalDuration4 + " seconds";
     }

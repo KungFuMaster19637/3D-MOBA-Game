@@ -12,7 +12,6 @@ public class MusicHandler : MonoBehaviour
     private bool isPlayingWild;
     private void Update()
     {
-        Debug.Log(teleporter.isInCity);
         if (teleporter.isInCity)
         {
             if (wildMusic.isPlaying && isPlayingWild)

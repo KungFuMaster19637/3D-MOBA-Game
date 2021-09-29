@@ -22,9 +22,9 @@ public class ToDo : MonoBehaviour
     sound fx
     Story line
     New map
-    Inventory
-    Items
-    Potions
+    ----Inventory
+    ----Items
+    ----Potions
     Fix Castle Outside
     Castle functions
     Make Camera Roam

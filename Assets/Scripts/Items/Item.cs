@@ -6,13 +6,13 @@ using System;
 [Serializable]
 public class Item : MonoBehaviour
 {
-    [SerializeField] private Inventory inventory;
     [SerializeField] private ItemDisplay itemDisplay;
     public enum ItemType
     {
         Sword,
         HealthPotion,
         ManaPotion,
+        StrengthPotion,
         Coin,
         Medkit,
     }
@@ -20,55 +20,26 @@ public class Item : MonoBehaviour
     public ItemType itemType;
     public int amount;
 
-
-    public Sprite GetSprite()
-    {
-        switch (itemType)
-        {
-            default:
-            case ItemType.Sword: return ItemAssets.Instance.swordSprite;
-            case ItemType.HealthPotion: return ItemAssets.Instance.healthPotionSprite;
-            case ItemType.ManaPotion: return ItemAssets.Instance.manaPotionSprite;
-            case ItemType.Coin: return ItemAssets.Instance.coinSprite;
-            case ItemType.Medkit: return ItemAssets.Instance.medkitSprite;
-        }
-    }
-
-    public Color GetColor()
-    {
-        switch (itemType)
-        {
-            default:
-            case ItemType.Sword: return new Color(1, 1, 1);
-            case ItemType.HealthPotion: return new Color(1, 0, 0);
-            case ItemType.ManaPotion: return new Color(0, 0, 1);
-            case ItemType.Coin: return new Color(1, 1, 0);
-            case ItemType.Medkit: return new Color(1, 0, 1);
-        }
-    }
-
-    public bool IsStackable()
-    {
-        switch (itemType)
-        {
-            default:
-            case ItemType.Coin:
-            case ItemType.HealthPotion:
-            case ItemType.ManaPotion:
-                return true;
-            case ItemType.Sword:
-            case ItemType.Medkit:
-                return false;
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            if (this.name == "HealthPotion")
+            if (this.name == "HealthPotion" && itemDisplay.itemAmount[0] < 9)
             {
                 itemDisplay.AddItem(0);
+                Destroy(gameObject);
+            }
+
+            if (this.name == "ManaPotion" && itemDisplay.itemAmount[1] < 9)
+            {
+                itemDisplay.AddItem(1);
+                Destroy(gameObject);
+            }
+
+            if (this.name == "StrengthPotion" && itemDisplay.itemAmount[2] < 9)
+            {
+                itemDisplay.AddItem(2);
+                Destroy(gameObject);
             }
         }
     }

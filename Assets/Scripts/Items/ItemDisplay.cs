@@ -13,8 +13,7 @@ public class ItemDisplay : MonoBehaviour
     StregnthPotion
      
     */
-    [SerializeField] private Inventory inventory;
-    private static int[] itemAmount = new int[12];
+    public int[] itemAmount = new int[12];
     [SerializeField] private TMP_Text[] itemAmountText;
 
     private void Awake()
@@ -31,13 +30,18 @@ public class ItemDisplay : MonoBehaviour
         for (int i = 0; i < itemAmount.Length; i++)
         {
             itemAmountText[i].text = itemAmount[i].ToString();
-            Debug.Log(itemAmountText[i].text);
         }
     }
 
     public void AddItem(int index)
     {
         itemAmount[index]++;
+        RefreshInventoryItems();
+    }
+
+    public void UseItem(int index)
+    {
+        itemAmount[index]--;
         RefreshInventoryItems();
     }
 }

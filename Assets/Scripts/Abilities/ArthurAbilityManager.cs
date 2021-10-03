@@ -108,6 +108,8 @@ public class ArthurAbilityManager : MonoBehaviour
     //Abiity 1
     public void ActivateAbility1()
     {
+        attackBuff += (statsScript.attackDamage * 0.1f);
+
         ability1Pressed = true;
         statsScript.attackDamage += attackBuff;
         agent.speed += movementSpeedBuff;
@@ -119,6 +121,9 @@ public class ArthurAbilityManager : MonoBehaviour
         statsScript.attackDamage -= attackBuff;
         agent.speed -= movementSpeedBuff;
         duration1 = 0;
+
+        attackBuff -= (statsScript.attackDamage * 0.1f);
+
     }
 
     //Ability 2
@@ -126,6 +131,7 @@ public class ArthurAbilityManager : MonoBehaviour
     {
         Instantiate(healingBase, new Vector3(transform.position.x, transform.position.y + 0.4f, transform.position.z), gameObject.transform.rotation);
 
+        healAmount += (statsScript.spellPower * 0.5f);
 
         Collider[] alliesInRange = Physics.OverlapSphere(transform.position, healRange);
         foreach (Collider ally in alliesInRange)

@@ -28,5 +28,6 @@ public class Mana : MonoBehaviour
         playerSlider2D.value = statsScript.mana;
 
         currentManaText.text = statsScript.mana.ToString("0");
+        maxManaText.text = statsScript.maxMana.ToString();
     }
 }

@@ -4416,6 +4416,7 @@ MonoBehaviour:
   attackSpeed: 1
   attackTime: 1.4
   attackRange: 3
+  spellPower: 10
   defence: 50
   healthBar: {fileID: 0}
   expValue: 0

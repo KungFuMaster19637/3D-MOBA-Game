@@ -13,6 +13,13 @@ public class LevelUpStats : MonoBehaviour
     //public Text lvlText;
     public Image expBarImage;
 
+    private PlayerStats playerStats;
+
+
+    private void Start()
+    {
+        playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+    }
     public static int ExpNeedToLvlUp(int currentLevel)
     {
         if (currentLevel == 0)
@@ -47,6 +54,17 @@ public class LevelUpStats : MonoBehaviour
     public void LevelUp()
     {
         level++;
+        playerStats.attackDamage += 5;
+        playerStats.maxHealth += 30;
+        playerStats.healthRegeneration += 3f;
+        playerStats.health += 30;
+        playerStats.maxMana += 15;
+        playerStats.mana += 15;
+        playerStats.manaRegeneration += 1.5f;
+        playerStats.defence += 5;
+        playerStats.spellPower += 5;
+
+
         lvlText.text = level.ToString("");
     }
 }

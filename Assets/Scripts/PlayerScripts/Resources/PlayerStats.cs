@@ -15,6 +15,7 @@ public class PlayerStats : MonoBehaviour
     public float attackSpeed;
     public float attackTime;
     public float attackRange;
+    public float spellPower;
     public float defence;
 
     HeroCombat heroCombatScript;

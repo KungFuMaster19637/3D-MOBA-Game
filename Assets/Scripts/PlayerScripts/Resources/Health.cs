@@ -32,5 +32,7 @@ public class Health: MonoBehaviour
         playerSlider3D.value = playerSlider2D.value;
 
         currentHealthText.text = statsScript.health.ToString("0");
+        maxHealthText.text = statsScript.maxHealth.ToString();
+
     }
 }

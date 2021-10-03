@@ -9,13 +9,13 @@ public class ToDo : MonoBehaviour
     ----Enemy death animation
     ----Hover UI
     ----Mana for spells
-    Stats per level
+    ----Stats per level
     ----Main menu
     ----Pause menu
     Monster drops (mana and health potions)
     Spawners
     Ability duration icons
-    Turrets
+    ////Turrets
     Buildings
     ----Animation for spells
     ----heal VFX

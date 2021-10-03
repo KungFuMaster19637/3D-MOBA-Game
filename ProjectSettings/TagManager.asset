@@ -9,6 +9,7 @@ TagManager:
   - Ally
   - ItemDisplay
   - NPC
+  - MoneyDisplay
   layers:
   - Default
   - TransparentFX

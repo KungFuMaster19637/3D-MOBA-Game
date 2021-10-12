@@ -26,7 +26,7 @@ public class Teleporter : MonoBehaviour
         StartCoroutine(startTeleporting());
     }
 
-    IEnumerator startTeleporting()
+    public IEnumerator startTeleporting()
     {
         agent.enabled = false;
 

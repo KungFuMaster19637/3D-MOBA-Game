@@ -19,6 +19,7 @@ public class ToDo : MonoBehaviour
     Buildings
     ----Animation for spells
     ----heal VFX
+    ----Player death 
     sound fx
     Story line
     New map
@@ -34,7 +35,7 @@ public class ToDo : MonoBehaviour
     ----Environment Music
 
 
-
+    Don't forget: Sorting Order of UI;
     
 
 

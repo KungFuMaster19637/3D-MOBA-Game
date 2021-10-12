@@ -7,11 +7,25 @@ public class MusicHandler : MonoBehaviour
     [SerializeField] private Teleporter teleporter;
     [SerializeField] private AudioSource camelotMusic;
     [SerializeField] private AudioSource wildMusic;
+    [SerializeField] private GameOver gameOver;
 
     private bool isPlayingCamelot;
     private bool isPlayingWild;
     private void Update()
     {
+        if (gameOver.gameIsOver)
+        {
+            if (teleporter.isInCity)
+            {
+                StartCoroutine(FadeOut(camelotMusic, 2f));
+            }
+
+            if (!teleporter.isInCity)
+            {
+                StartCoroutine(FadeOut(wildMusic, 2f));
+            }
+        }
+
         if (teleporter.isInCity)
         {
             if (wildMusic.isPlaying && isPlayingWild)
@@ -39,9 +53,11 @@ public class MusicHandler : MonoBehaviour
         }
 
 
+
+
     }
 
-    private IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
+    public IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
     {
         float startVolume = audioSource.volume;
 

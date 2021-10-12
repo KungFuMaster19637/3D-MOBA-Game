@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.AI;
 
 public class PlayerStats : MonoBehaviour
@@ -23,6 +24,8 @@ public class PlayerStats : MonoBehaviour
     private GameObject player;
 
     public GameObject healthBar;
+    public GameOver gameOver;
+
     private Animator anim;
     private NavMeshAgent agent;
     private Movement movement;
@@ -37,6 +40,9 @@ public class PlayerStats : MonoBehaviour
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         movement = GetComponent<Movement>();
+
+        health = maxHealth;
+        mana = maxMana;
     }
 
     private void Update()
@@ -81,12 +87,12 @@ public class PlayerStats : MonoBehaviour
         movement.canMove = false;
         mana = 0;
 
-        yield return new WaitForSeconds(2f);
+        //yield return new WaitForSeconds(2f);
         heroCombatScript.isHeroAlive = false;
         anim.SetBool("Dying", false);
-        Destroy(gameObject);
 
+        StartCoroutine(gameOver.PlayerDied());
+        yield return null;
     }
-
 
 }

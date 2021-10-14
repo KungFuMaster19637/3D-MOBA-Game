@@ -12,7 +12,7 @@ public class ToDo : MonoBehaviour
     ----Stats per level
     ----Main menu
     ----Pause menu
-    Monster drops (mana and health potions)
+    Monster drops (mana and health potions + money)
     Spawners
     Ability duration icons
     ////Turrets
@@ -33,6 +33,7 @@ public class ToDo : MonoBehaviour
     ----Teleporters
     Environment Fix
     ----Environment Music
+
 
 
     Don't forget: Sorting Order of UI;

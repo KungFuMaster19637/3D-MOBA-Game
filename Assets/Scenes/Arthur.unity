@@ -6756,6 +6756,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7666371009623559549, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
+      propertyPath: m_isRightToLeft
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8247747707008714631, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
       propertyPath: m_Color.b
       value: 1

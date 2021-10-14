@@ -41,6 +41,7 @@ public class EnemyStats : MonoBehaviour
             if (!giveExpOnce)
             {
                 player.GetComponent<LevelUpStats>().SetExperience(expValue);
+                MoneyDisplay.AddMoney(5);
                 giveExpOnce = true;
             }
             heroCombat.targetedEnemy = null;

@@ -7,8 +7,9 @@ public class MoneyDisplay : MonoBehaviour
 {
     public static MoneyDisplay instance;
 
-    public int moneyAmount;
-    [SerializeField] private TMP_Text moneyAmountText;
+    public static int moneyAmount;
+    [SerializeField] private TMP_Text moneyAmountText;    
+
 
     private void Awake()
     {
@@ -32,20 +33,23 @@ public class MoneyDisplay : MonoBehaviour
         {
             AddMoney(5);
         }
-    }
-    protected void RefreshMoney()
-    {
         moneyAmountText.text = moneyAmount.ToString();
+
     }
 
-    public void AddMoney(int amount)
+    //protected static void RefreshMoney()
+    //{
+    //    moneyAmountText.text = moneyAmount.ToString();
+    //}
+
+    public static void AddMoney(int amount)
     {
         moneyAmount += amount;
-        RefreshMoney();
+        //RefreshMoney();
     }
-    public void UseMoney(int amount)
+    public static void UseMoney(int amount)
     {
         moneyAmount -= amount;
-        RefreshMoney();
+        //RefreshMoney();
     }
 }

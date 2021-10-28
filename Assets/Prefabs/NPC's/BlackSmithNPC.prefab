@@ -865,7 +865,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7010585863780069908}
   - component: {fileID: 8794673984153579427}
-  - component: {fileID: 7473311456143135876}
+  - component: {fileID: 1338425121252889943}
   m_Layer: 2
   m_Name: DialogueTriggerArea
   m_TagString: Untagged
@@ -900,7 +900,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 0.5, z: 4}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &7473311456143135876
+--- !u!114 &1338425121252889943
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -909,10 +909,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3294663608328279042}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28ee4cb416ea0c44a822164ac65a738a, type: 3}
+  m_Script: {fileID: 11500000, guid: 44d99942f16c325469267f15e9906ed6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonToShow: {fileID: 0}
+  InteractButton: {fileID: 0}
+  ClaimRewardButton: {fileID: 0}
 --- !u!1 &3367048833883950516
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,10 +16,14 @@ public class ItemUsage : MonoBehaviour
     private string healthPotionText;
     private string manaPotionText;
     private string strengthPotionText;
+    private string defencePotionText;
+    private string spellPotionText;
+    private string wheatText;
+    private string ironText;
 
     private int healthPotion = 50;
     private int manaPotion = 20;
-    private int strengthPotion = 5;
+    private int strengthPotion, defencePotion, spellPotion = 5;
 
 
     private void Start()
@@ -30,6 +34,10 @@ public class ItemUsage : MonoBehaviour
         healthPotionText = "Restores 50 health (Max 9 storage)";
         manaPotionText = "Restores 20 mana (Max 9 storage)";
         strengthPotionText = "Increase attack permanently by 5 (Max 9 storage)";
+        defencePotionText = "Increase defence permanently by 5 (Max 9 storage)";
+        spellPotionText = "Increase spell power permanently by 5 (Max 9 storage)";
+        wheatText = "Some wheat";
+        ironText = "Piece of iron chunk";
     }
     public void OnMouseOver()
     {
@@ -45,6 +53,22 @@ public class ItemUsage : MonoBehaviour
         if (gameObject.name == "StrengthPotion")
         {
             itemDescription.text = strengthPotionText;
+        }
+        if (gameObject.name == "DefencePotion")
+        {
+            itemDescription.text = defencePotionText;
+        }
+        if (gameObject.name == "SpellPotion")
+        {
+            itemDescription.text = spellPotionText;
+        }
+        if (gameObject.name == "Wheat")
+        {
+            itemDescription.text = wheatText;
+        }
+        if (gameObject.name == "Iron")
+        {
+            itemDescription.text = ironText;
         }
         //if (gameObject.name == "Ability3")
         //{
@@ -82,6 +106,7 @@ public class ItemUsage : MonoBehaviour
             }
             else
             {
+                //Fill in later with warning on screen if time left
                 Debug.Log("your hp bar is full");
             }
 
@@ -110,9 +135,23 @@ public class ItemUsage : MonoBehaviour
         if (gameObject.name == "StrengthPotion" && itemDisplayScript.itemAmount[2] > 0)
         {
             Debug.Log("Drank Strength potion");
-             playerStats.attackDamage += strengthPotion;
+            playerStats.attackDamage += strengthPotion;
 
             itemDisplayScript.UseItem(2);
+        }
+
+        if (gameObject.name == "DefencePotion" && itemDisplayScript.itemAmount[3] > 0)
+        {
+            playerStats.defence += defencePotion;
+
+            itemDisplayScript.UseItem(3);
+        }
+
+        if (gameObject.name == "SpellPotion" && itemDisplayScript.itemAmount[4] > 0)
+        {
+            playerStats.defence += spellPotion;
+
+            itemDisplayScript.UseItem(4);
         }
 
     }

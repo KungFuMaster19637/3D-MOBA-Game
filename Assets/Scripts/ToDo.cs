@@ -33,6 +33,12 @@ public class ToDo : MonoBehaviour
     ----Teleporters
     Environment Fix
     ----Environment Music
+    Quest Notification
+    Quest Finish
+    Quest Doing
+    Chests in wilderness
+    Update Items in hover UI "itemusage script"
+
 
 
 

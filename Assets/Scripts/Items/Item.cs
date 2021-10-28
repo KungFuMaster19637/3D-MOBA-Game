@@ -13,8 +13,11 @@ public class Item : MonoBehaviour
         HealthPotion,
         ManaPotion,
         StrengthPotion,
+        DefencePotion,
+        SpellPotion,
         Coin,
         Medkit,
+        Iron
     }
 
     public ItemType itemType;
@@ -39,6 +42,30 @@ public class Item : MonoBehaviour
             if (this.name == "StrengthPotion" && itemDisplay.itemAmount[2] < 9)
             {
                 itemDisplay.AddItem(2);
+                Destroy(gameObject);
+            }
+
+            if (this.name == "DefencePotion" && itemDisplay.itemAmount[3] < 9)
+            {
+                itemDisplay.AddItem(3);
+                Destroy(gameObject);
+            }
+
+            if (this.name == "SpellPotion" && itemDisplay.itemAmount[4] < 9)
+            {
+                itemDisplay.AddItem(4);
+                Destroy(gameObject);
+            }
+
+            if (this.name == "Wheat" && itemDisplay.itemAmount[5] < 9)
+            {
+                itemDisplay.AddItem(5);
+                Destroy(gameObject);
+            }
+
+            if (this.name == "Iron" && itemDisplay.itemAmount[6] < 9)
+            {
+                itemDisplay.AddItem(6);
                 Destroy(gameObject);
             }
         }

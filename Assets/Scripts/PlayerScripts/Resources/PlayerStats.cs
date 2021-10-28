@@ -31,6 +31,8 @@ public class PlayerStats : MonoBehaviour
     private Movement movement;
     public float expValue;
 
+    public Quest quest;
+    public List<Quest> playerQuests = new List<Quest>();
     private void Start()
     {
         //heroCombatScript = GameObject.FindGameObjectWithTag("Player").GetComponent<HeroCombat>();
@@ -56,6 +58,18 @@ public class PlayerStats : MonoBehaviour
         {
             mana--;
         }
+
+        //Quest System
+        //if (quest.isActive)
+        //{
+        //    quest.goal.ItemsCollected();
+        //    if (quest.goal.isReached())
+        //    {
+        //        player.GetComponent<LevelUpStats>().SetExperience(quest.experienceReward);
+        //        MoneyDisplay.AddMoney(quest.goldReward);
+        //        quest.Complete();
+        //    }
+        //}
 
         //Health regeneration
         if (health > 0 && health < maxHealth)

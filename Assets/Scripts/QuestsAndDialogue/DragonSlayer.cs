@@ -6,16 +6,4 @@ using UnityEngine;
 public class DragonSlayer : Quest
 {
     public bool isDragonSlain;
-    private void Start()
-    {
-        questName = "Dragon Slayer";
-        description = "Kill the dragon in the cave";
-        experienceReward = 20;
-        moneyReward = 50;
-    }
-
-    public static void Completed()
-    {
-
-    }
 }

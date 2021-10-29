@@ -28,12 +28,12 @@ public class ToDo : MonoBehaviour
     ----Potions
     Fix Castle Outside
     Castle functions
-    Make Camera Roam
-    Camera Fix wilderniss
+    ----Make Camera Roam
+    ----Camera Fix wilderniss
     ----Teleporters
     Environment Fix
     ----Environment Music
-    Quest Notification
+    ----Quest Notification
     Quest Finish
     Quest Doing
     Chests in wilderness

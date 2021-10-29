@@ -14,31 +14,96 @@ public class QuestGiver : MonoBehaviour
     public GameObject player;
 
     public GameObject questWindow;
+    public GameObject notificationSign;
+
+    private int wheatNotificationCount = 0;
+    private int ironNotificationCount = 0;
+    private int dragonNotificationCount = 0;
+
+    private void Update()
+    {
+        //Notification sign turn on/off
+        if (wheatQuest.oneTimeNotification || ironQuest.oneTimeNotification || dragonQuest.oneTimeNotification)
+        {
+            notificationSign.SetActive(true);
+        }
+        else
+        {
+            notificationSign.SetActive(false);
+        }
+        CheckWheat();
+        CheckIron();
+
+    }
+    //Notification
+    public void NotificationWheatQuest()
+    {
+        if (wheatNotificationCount > 0)
+        {
+            wheatQuest.oneTimeNotification = false;
+        }
+        else
+        {
+            wheatQuest.oneTimeNotification = true;
+            wheatNotificationCount++;
+        }
+    }
+
+    public void NotificationIronQuest()
+    {
+        if (ironNotificationCount > 0)
+        {
+            ironQuest.oneTimeNotification = false;
+        }
+        else
+        {
+            ironQuest.oneTimeNotification = true;
+            ironNotificationCount++;
+        }
+    }
+
+    public void NotificationDragonQuest()
+    {
+        if (dragonNotificationCount > 0)
+        {
+            dragonQuest.oneTimeNotification = false;
+        }
+        else
+        {
+            dragonQuest.oneTimeNotification = true;
+            dragonNotificationCount++;
+        }
+    }
+
 
     //Activation 
     public void ActivateWheatQuest()
     {
         wheatQuest.isActive = true;
+        wheatQuest.oneTimeNotification = false;
     }
     public void ActivateIronQuest()
     {
         ironQuest.isActive = true;
+        ironQuest.oneTimeNotification = false;
+
     }
     public void ActivateDragonQuest()
     {
         dragonQuest.isActive = true;
+        dragonQuest.oneTimeNotification = false;
     }
 
     //Quest Progress
     public void WheatAcquired()
     {
         wheatQuest.wheatAmount++;
-        CheckWheat();
+        //CheckWheat();
     }
     public void IronAcquired()
     {
         ironQuest.ironAmount++;
-        CheckIron();
+        //CheckIron();
     }
 
     public void DragonSlain()
@@ -49,14 +114,14 @@ public class QuestGiver : MonoBehaviour
     //Checking quest completion
     public void CheckWheat()
     {
-        if (wheatQuest.wheatAmount >= wheatQuest.wheatRequired)
+        if (wheatQuest.wheatAmount >= wheatQuest.wheatRequired && wheatQuest.isActive)
         {
             wheatQuest.completed = true;
         }
     }
     public void CheckIron()
     {
-        if (ironQuest.ironAmount >= ironQuest.ironRequired)
+        if (ironQuest.ironAmount >= ironQuest.ironRequired && ironQuest.isActive)
         {
             ironQuest.completed = true;
         }

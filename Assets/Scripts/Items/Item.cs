@@ -7,6 +7,7 @@ using System;
 public class Item : MonoBehaviour
 {
     [SerializeField] private ItemDisplay itemDisplay;
+    [SerializeField] private QuestGiver questGiver;
     public enum ItemType
     {
         Sword,
@@ -60,12 +61,14 @@ public class Item : MonoBehaviour
             if (this.name == "Wheat" && itemDisplay.itemAmount[5] < 9)
             {
                 itemDisplay.AddItem(5);
+                questGiver.WheatAcquired();
                 Destroy(gameObject);
             }
 
             if (this.name == "Iron" && itemDisplay.itemAmount[6] < 9)
             {
                 itemDisplay.AddItem(6);
+                questGiver.IronAcquired();
                 Destroy(gameObject);
             }
         }

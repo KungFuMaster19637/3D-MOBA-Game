@@ -142,7 +142,16 @@ public class ArthurAbilityManager : MonoBehaviour
             }
         }
         ability2Pressed = true;
-        statsScript.health += healAmount;
+
+        if (statsScript.health + healAmount > statsScript.maxHealth)
+        {
+            statsScript.health = statsScript.maxHealth;
+        }
+        else if (statsScript.health + healAmount <= statsScript.maxHealth)
+        {
+            statsScript.health += healAmount;
+        }
+        //statsScript.health += healAmount;
         statsScript.healthRegeneration += regenerationBuff;
     }
 

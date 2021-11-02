@@ -10,6 +10,7 @@ TagManager:
   - ItemDisplay
   - NPC
   - MoneyDisplay
+  - QuestGiver
   layers:
   - Default
   - TransparentFX

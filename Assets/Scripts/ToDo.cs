@@ -12,9 +12,13 @@ public class ToDo : MonoBehaviour
     ----Stats per level
     ----Main menu
     ----Pause menu
-    Monster drops (mana and health potions + money)
+    ////Monster drops (mana and health potions + money)
+    ----Enemy Monsters Dragonboar
+    ----Enemy Monsters Dragonsouleater
+    ----Enemy Monsters Skeleton
+    Enemy Monster Dragonboss
     Spawners
-    Ability duration icons
+    ////Ability duration icons
     ////Turrets
     Buildings
     ----Animation for spells
@@ -38,6 +42,9 @@ public class ToDo : MonoBehaviour
     Quest Doing
     Chests in wilderness
     Update Items in hover UI "itemusage script"
+    Wheat plantage update if needed?
+    Bull animations maybe?
+    Shop for money usage?
 
 
 

@@ -17,7 +17,7 @@ public class Item : MonoBehaviour
         DefencePotion,
         SpellPotion,
         Coin,
-        Medkit,
+        Wheat,
         Iron
     }
 
@@ -58,14 +58,14 @@ public class Item : MonoBehaviour
                 Destroy(gameObject);
             }
 
-            if (this.name == "Wheat" && itemDisplay.itemAmount[5] < 9)
+            if (this.name == "Wheat" && itemDisplay.itemAmount[5] < 99)
             {
                 itemDisplay.AddItem(5);
                 questGiver.WheatAcquired();
                 Destroy(gameObject);
             }
 
-            if (this.name == "Iron" && itemDisplay.itemAmount[6] < 9)
+            if (this.name == "Iron" && itemDisplay.itemAmount[6] < 99)
             {
                 itemDisplay.AddItem(6);
                 questGiver.IronAcquired();

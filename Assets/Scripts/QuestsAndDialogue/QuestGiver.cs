@@ -16,6 +16,8 @@ public class QuestGiver : MonoBehaviour
     public GameObject questWindow;
     public GameObject notificationSign;
 
+    public ItemDisplay itemDisplay;
+
     private int wheatNotificationCount = 0;
     private int ironNotificationCount = 0;
     private int dragonNotificationCount = 0;
@@ -136,6 +138,10 @@ public class QuestGiver : MonoBehaviour
     {
         player.GetComponent<LevelUpStats>().SetExperience(wheatQuest.experienceReward);
         MoneyDisplay.AddMoney(wheatQuest.moneyReward);
+        for (int i = 0; i < 4; i++)
+        {
+            itemDisplay.UseItem(5);
+        }
     }
 
     public void ClaimIronReward()
@@ -143,6 +149,10 @@ public class QuestGiver : MonoBehaviour
         Debug.Log("getting reward");
         player.GetComponent<LevelUpStats>().SetExperience(ironQuest.experienceReward);
         MoneyDisplay.AddMoney(ironQuest.moneyReward);
+        for (int i = 0; i < 10; i++)
+        {
+            itemDisplay.UseItem(6);
+        }
     }
 
     public void ClaimDragonReward()

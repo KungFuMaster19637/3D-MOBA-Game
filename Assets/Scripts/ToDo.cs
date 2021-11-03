@@ -17,7 +17,9 @@ public class ToDo : MonoBehaviour
     ----Enemy Monsters Dragonsouleater
     ----Enemy Monsters Skeleton
     Enemy Monster Dragonboss
-    Spawners
+    Enemy boss more attacks
+    Enemy boss phases
+    Spawners enemy locations
     ////Ability duration icons
     ////Turrets
     Buildings

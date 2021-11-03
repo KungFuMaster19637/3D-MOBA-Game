@@ -56,6 +56,16 @@ public class EnemyStats : MonoBehaviour
     Return Range: 8
     Aggro Range: 6
 
+    Dragonboss:???
+    Health: 150 ????
+    Attack Damage: 80
+    Attack Time: 1
+    Attack Range: 1.5
+    Defence: 25
+    Exp Value: 7
+    Return Range: 8
+    Aggro Range: 6
+
     */
     private void Start()
     {

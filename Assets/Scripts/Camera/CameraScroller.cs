@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraScroller : MonoBehaviour
 {
-
     public Camera cam;
     private float camFOV;
     public float zoomSpeed;

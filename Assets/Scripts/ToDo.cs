@@ -47,6 +47,7 @@ public class ToDo : MonoBehaviour
     Wheat plantage update if needed?
     Bull animations maybe?
     Shop for money usage?
+    Options in pause menu
 
 
 
@@ -57,8 +58,8 @@ public class ToDo : MonoBehaviour
 
 
 
-
-    Empty room
+    Extra's:
+    Empty room tutorial
     More characters
     (Merlin, Lancelot, Mordred)
 

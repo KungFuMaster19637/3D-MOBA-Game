@@ -325,7 +325,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemDisplay: {fileID: 0}
-  itemType: 5
+  questGiver: {fileID: 0}
+  itemType: 2
   amount: 1
 --- !u!136 &3349377398013189174
 CapsuleCollider:

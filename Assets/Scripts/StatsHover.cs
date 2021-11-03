@@ -18,10 +18,6 @@ public class StatsHover : MonoBehaviour
     {
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         descriptionUI.SetActive(false);
-        
-        //attackHover = "Attack: " + playerStats.attackDamage + " \n" + "Attack Speed: " + playerStats.attackSpeed;
-        //defenceHover = "Defence: " + playerStats.defence;
-        //spellHover = "Spell Power: " + playerStats.spellPower;
     }
 
     private void Update()

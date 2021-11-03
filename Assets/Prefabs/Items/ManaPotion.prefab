@@ -79,7 +79,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemDisplay: {fileID: 0}
-  itemType: 2
+  questGiver: {fileID: 0}
+  itemType: 1
   amount: 2
 --- !u!65 &5551501266588790809
 BoxCollider:

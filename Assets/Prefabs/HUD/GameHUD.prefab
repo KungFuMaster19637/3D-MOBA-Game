@@ -1149,7 +1149,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1039571316990156850}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc7f4f2b3391f114a9092755d92cd9bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 18e3eef32c8136048865718fdec7e459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   abilityDescription: {fileID: 2991845994873679805}
@@ -4181,7 +4181,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3269693578965613007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc7f4f2b3391f114a9092755d92cd9bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 18e3eef32c8136048865718fdec7e459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   abilityDescription: {fileID: 2991845994873679805}
@@ -4545,7 +4545,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 3717796753210189186}
-          m_TargetAssemblyTypeName: HoverUI, Assembly-CSharp
+          m_TargetAssemblyTypeName: ArthurHoverUI, Assembly-CSharp
           m_MethodName: OnMouseOver
           m_Mode: 1
           m_Arguments:
@@ -4561,7 +4561,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 3717796753210189186}
-          m_TargetAssemblyTypeName: HoverUI, Assembly-CSharp
+          m_TargetAssemblyTypeName: ArthurHoverUI, Assembly-CSharp
           m_MethodName: OnMouseExit
           m_Mode: 1
           m_Arguments:
@@ -4581,7 +4581,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3269693579670524783}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc7f4f2b3391f114a9092755d92cd9bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 18e3eef32c8136048865718fdec7e459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   abilityDescription: {fileID: 2991845994873679805}
@@ -5591,7 +5591,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3269693580650979388}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc7f4f2b3391f114a9092755d92cd9bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 18e3eef32c8136048865718fdec7e459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   abilityDescription: {fileID: 2991845994873679805}
@@ -5729,7 +5729,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3269693580800402610}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc7f4f2b3391f114a9092755d92cd9bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 18e3eef32c8136048865718fdec7e459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   abilityDescription: {fileID: 2991845994873679805}

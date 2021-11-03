@@ -7,13 +7,13 @@ public class CameraRoam : MonoBehaviour
     public float cameSpeed = 20;
     public float screenSizeThickens = 10;
 
+    [Header ("Castle Camera Limits")]
+    [SerializeField] private float minCastleX;
+    [SerializeField] private float maxCastleX;
+    [SerializeField] private float minCastleZ;
+    [SerializeField] private float maxCastleZ;
 
-    [SerializeField] private float minCityX;
-    [SerializeField] private float maxCityX;
-    [SerializeField] private float minCityZ;
-    [SerializeField] private float maxCityZ;
-
-
+    [Header("Wild Camera Limits")]
     [SerializeField] private float minWildX;
     [SerializeField] private float maxWildX;
     [SerializeField] private float minWildZ;
@@ -21,8 +21,6 @@ public class CameraRoam : MonoBehaviour
 
     [SerializeField] private Teleporter teleporter;
 
-
-    // Update is called once per frame
     void Update()
     {
         Vector3 pos = transform.position;
@@ -30,8 +28,8 @@ public class CameraRoam : MonoBehaviour
         if (teleporter.isInCity)
         {
             Debug.Log("in city");
-            pos.x = Mathf.Clamp(pos.x, minCityX, maxCityX);
-            pos.z = Mathf.Clamp(pos.z, minCityZ, maxCityZ);
+            pos.x = Mathf.Clamp(pos.x, minCastleX, maxCastleX);
+            pos.z = Mathf.Clamp(pos.z, minCastleZ, maxCastleZ);
         }
         if (!teleporter.isInCity)
         {
@@ -64,6 +62,8 @@ public class CameraRoam : MonoBehaviour
         {
             pos.z -= cameSpeed * Time.deltaTime;
         }
+
+        //Y position locked
         pos.y = 9.8f;
         transform.localPosition = pos;
     }

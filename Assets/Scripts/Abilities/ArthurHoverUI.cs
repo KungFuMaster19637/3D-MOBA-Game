@@ -9,6 +9,7 @@ public class ArthurHoverUI : MonoBehaviour
     public TMP_Text abilityDescription;
     public GameObject descriptionUI;
 
+    [Header ("Arthur abilities")]
     public ArthurAbilities arthurAbilities;
     public ArthurAbilityManager abilityManager;
 
@@ -22,22 +23,7 @@ public class ArthurHoverUI : MonoBehaviour
 
     private void Start()
     {
-        //arthurAbilities = GetComponent<ArthurAbilities>();
-        //abilityManager = GetComponent<ArthurAbilityManager>();
-
         statsScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
-
-        //descriptionUI.SetActive(false);
-        //passive = "Every 2nd hit, Arthur gains " + abilityManager.healthGain + " health and " + abilityManager.manaGain + " mana";
-        //ability1 = "Arthur charges forward increasing his movement speed by " + abilityManager.movementSpeedBuff +
-        //    " and his attack by " + abilityManager.attackBuff + " for " + abilityManager.totalDuration1 + " seconds";
-        //ability2 = "Arthur heals all his allies in range by " + abilityManager.healAmount + " + " + (statsScript.spellPower * 0.5f) +
-        //    " healthpoints, and increases his own health regeneration by " + abilityManager.regenerationBuff +
-        //    " for " + abilityManager.totalDuration2 + " seconds";
-        //ability3 = "Arthur blocks all incoming damage for " + abilityManager.totalDuration3 + " seconds";
-        //ability4 = "Arthur calls out Excalibur for 2 seconds, and gains " + (abilityManager.attackSpeedBuff - 1) * 100 +
-        //    "% attack speed and increases range by " + abilityManager.attackRangeBuff + " for " +
-        //    abilityManager.totalDuration4 + " seconds";
     }
 
     void Update()

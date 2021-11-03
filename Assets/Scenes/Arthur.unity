@@ -548,7 +548,7 @@ GameObject:
   m_Component:
   - component: {fileID: 185862706}
   m_Layer: 0
-  m_Name: Collision
+  m_Name: InvisibleWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1160,7 +1160,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportToCityTarget: {fileID: 1959155734}
   teleportToWildTarget: {fileID: 1513310674}
-  player: {fileID: 1998586655}
   fader: {fileID: 1781792107}
   curve:
     serializedVersion: 2
@@ -1186,6 +1185,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  player: {fileID: 1998586655}
   isInCity: 0
 --- !u!4 &418111066
 Transform:
@@ -1835,8 +1835,8 @@ MonoBehaviour:
   attackTime: 0
   attackRange: 0
   defence: 0
-  healthBar: {fileID: 0}
   expValue: 8
+  healthBar: {fileID: 0}
 --- !u!114 &453468215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2419,10 +2419,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameSpeed: 20
   screenSizeThickens: 10
-  minCityX: -115
-  maxCityX: -75
-  minCityZ: -20
-  maxCityZ: 20
+  minCastleX: -115
+  maxCastleX: -75
+  minCastleZ: -18
+  maxCastleZ: 18
   minWildX: -180
   maxWildX: -80
   minWildZ: -360
@@ -2540,7 +2540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8360115950267758629, guid: 9788e0d3bab934241af42664b5b0d819, type: 3}
       propertyPath: itemType
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8360115950267758629, guid: 9788e0d3bab934241af42664b5b0d819, type: 3}
       propertyPath: questGiver
@@ -2582,7 +2582,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6468175804027795878, guid: ddde06074a744c24599634aa5a8eb79f, type: 3}
       propertyPath: itemType
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -6468175804027795878, guid: ddde06074a744c24599634aa5a8eb79f, type: 3}
       propertyPath: questGiver
@@ -2660,7 +2660,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6468175804027795878, guid: ddde06074a744c24599634aa5a8eb79f, type: 3}
       propertyPath: itemType
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -6468175804027795878, guid: ddde06074a744c24599634aa5a8eb79f, type: 3}
       propertyPath: questGiver
@@ -5495,7 +5495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &934931499
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5535,16 +5535,6 @@ MonoBehaviour:
   defence: 0
   healthBar: {fileID: 0}
   gameOver: {fileID: 0}
-  expValue: 0
-  quest:
-    oneTimeNotification: 0
-    isActive: 0
-    questName: 
-    description: 
-    experienceReward: 0
-    moneyReward: 0
-    completed: 0
-  playerQuests: []
 --- !u!4 &934931501
 Transform:
   m_ObjectHideFlags: 0
@@ -5888,7 +5878,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3930246844205838708, guid: 39a61dbcc6eb8444fa2ba8e6ccbb99b9, type: 3}
       propertyPath: itemType
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -3930246844205838708, guid: 39a61dbcc6eb8444fa2ba8e6ccbb99b9, type: 3}
       propertyPath: questGiver
@@ -6144,7 +6134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ec0a3cc857fd946b3cc5486324da3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonToShow: {fileID: 1227460739}
+  teleportButton: {fileID: 0}
 --- !u!65 &1120008074
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6347,7 +6337,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3930246844205838708, guid: 39a61dbcc6eb8444fa2ba8e6ccbb99b9, type: 3}
       propertyPath: itemType
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -3930246844205838708, guid: 39a61dbcc6eb8444fa2ba8e6ccbb99b9, type: 3}
       propertyPath: questGiver
@@ -6651,8 +6641,8 @@ Transform:
   m_Children:
   - {fileID: 418111066}
   - {fileID: 835495561}
-  - {fileID: 1959155734}
   - {fileID: 1513310674}
+  - {fileID: 1959155734}
   - {fileID: 1611013519}
   - {fileID: 1120008072}
   m_Father: {fileID: 0}
@@ -6723,7 +6713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8360115950267758629, guid: 9788e0d3bab934241af42664b5b0d819, type: 3}
       propertyPath: itemType
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8360115950267758629, guid: 9788e0d3bab934241af42664b5b0d819, type: 3}
       propertyPath: questGiver
@@ -7372,7 +7362,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1276043344}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1528694538
 GameObject:
@@ -7464,7 +7454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ec0a3cc857fd946b3cc5486324da3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonToShow: {fileID: 1227460739}
+  teleportButton: {fileID: 0}
 --- !u!65 &1611013521
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8133,7 +8123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8360115950267758629, guid: 9788e0d3bab934241af42664b5b0d819, type: 3}
       propertyPath: itemType
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8360115950267758629, guid: 9788e0d3bab934241af42664b5b0d819, type: 3}
       propertyPath: questGiver
@@ -8271,11 +8261,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5970231402199794353, guid: 027e2d809ea095a4680f78cf8507c212, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5970231402199794353, guid: 027e2d809ea095a4680f78cf8507c212, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5970231402258357960, guid: 027e2d809ea095a4680f78cf8507c212, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -8516,7 +8506,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1276043344}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1964260479
 PrefabInstance:
@@ -8858,7 +8848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8360115950267758629, guid: 9788e0d3bab934241af42664b5b0d819, type: 3}
       propertyPath: itemType
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8360115950267758629, guid: 9788e0d3bab934241af42664b5b0d819, type: 3}
       propertyPath: questGiver
@@ -8879,7 +8869,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6468175804027795878, guid: ddde06074a744c24599634aa5a8eb79f, type: 3}
       propertyPath: itemType
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -6468175804027795878, guid: ddde06074a744c24599634aa5a8eb79f, type: 3}
       propertyPath: questGiver
@@ -8952,7 +8942,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3930246844205838708, guid: 39a61dbcc6eb8444fa2ba8e6ccbb99b9, type: 3}
       propertyPath: itemType
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -3930246844205838708, guid: 39a61dbcc6eb8444fa2ba8e6ccbb99b9, type: 3}
       propertyPath: questGiver
@@ -10317,6 +10307,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: WheatQuestButton
       objectReference: {fileID: 0}
+    - target: {fileID: 8124657032150456005, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
+      propertyPath: abilityManager
+      value: 
+      objectReference: {fileID: 1358349515}
+    - target: {fileID: 8124657032150456005, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
+      propertyPath: arthurAbilities
+      value: 
+      objectReference: {fileID: 1358349519}
     - target: {fileID: 8247747707008714631, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -11576,6 +11574,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dragonboss
       objectReference: {fileID: 0}
+    - target: {fileID: 981542763559987130, guid: 86e32064af782f145a897ad70c5cb035, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 981542763560307002, guid: 86e32064af782f145a897ad70c5cb035, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0.17450395
@@ -12682,11 +12684,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1007112726214022094, guid: 86e32064af782f145a897ad70c5cb035, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1007112726214022094, guid: 86e32064af782f145a897ad70c5cb035, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86e32064af782f145a897ad70c5cb035, type: 3}

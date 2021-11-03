@@ -13,6 +13,8 @@ public class MainMenu : MonoBehaviour
     public GameObject mainMenu;
     public GameObject characterSelectMenu;
     public SceneFader sceneFader;
+
+    //Main menu screen
     public void StartGame()
     {
         //sceneFader.FadeTo(characterSelect);

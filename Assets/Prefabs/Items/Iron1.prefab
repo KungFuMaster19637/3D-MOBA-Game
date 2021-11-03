@@ -209,5 +209,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemDisplay: {fileID: 0}
   questGiver: {fileID: 0}
-  itemType: 8
+  itemType: 7
   amount: 1

@@ -52,9 +52,7 @@ public class MusicHandler : MonoBehaviour
             }
         }
 
-
-
-
+        //More music to come
     }
 
     public IEnumerator FadeOut(AudioSource audioSource, float FadeTime)

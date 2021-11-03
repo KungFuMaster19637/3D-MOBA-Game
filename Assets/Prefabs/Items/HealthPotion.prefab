@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6b0584b0b1618448208fceca79d39e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
   itemDisplay: {fileID: 0}
-  itemType: 1
+  questGiver: {fileID: 0}
+  itemType: 0
   amount: 1
 --- !u!136 &5533708079971892120
 CapsuleCollider:

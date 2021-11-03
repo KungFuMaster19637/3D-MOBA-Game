@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Fireball : MonoBehaviour
 {
+    //Currently not used yet, Work In Progress
+
     Animator anim;
     RaycastHit hit;
     Movement moveScript;

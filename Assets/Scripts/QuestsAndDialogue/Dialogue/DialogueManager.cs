@@ -8,12 +8,13 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-
+    [Header ("Dialogue input")]
     public Queue<string> sentences;
     public TMP_Text nameText;
     public TMP_Text dialogueText;
-
     public Animator animator;
+
+    [Header ("Hide during dialogue")]
     public GameObject abilityManager;
     public GameObject questManager;
     private NavMeshAgent agent;

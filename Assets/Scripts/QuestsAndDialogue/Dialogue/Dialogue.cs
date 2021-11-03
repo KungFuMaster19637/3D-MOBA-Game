@@ -11,19 +11,20 @@ public class Dialogue
 
 
     /*
-    Baker 1:
+    Baker:
     Hello,
     Can you help me finding some wheat for me?
     I'll give you a reward for it.
 
 
-    Blacksmith 1:
+    Blacksmith:
     Greetings,
     I'm in need of some iron ore.
     There should be an iron ore deposit in the wild.
     Can you get some for me?
     Thanks in advance. 
 
+    ???
 
     */
 

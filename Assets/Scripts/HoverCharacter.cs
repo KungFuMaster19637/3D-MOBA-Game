@@ -8,7 +8,6 @@ public class HoverCharacter : MonoBehaviour
 
     public void OnMouseOver()
     {
-        Debug.Log("hovering over");
         textToShow.SetActive(true);
     }
 

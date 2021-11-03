@@ -159,21 +159,4 @@ public class QuestGiver : MonoBehaviour
     {
 
     }
-
-
-    //public void OpenQuestWindow()
-    //{
-    //    questWindow.SetActive(true);
-    //    titleText.text = quest.title;
-    //    descriptionText.text = quest.description;
-    //    experienceText.text = quest.experienceReward.ToString();
-    //    goldText.text = quest.goldReward.ToString();
-    //}
-
-    //public void AcceptQuest()
-    //{
-    //    questWindow.SetActive(false);
-    //    quest.isActive = true;
-    //    player.playerQuests.Add(quest);
-    //}
 }

@@ -6,6 +6,7 @@ using TMPro;
 
 public class ItemUsage : MonoBehaviour
 {
+    [Header ("Display components")]
     public TMP_Text itemDescription;
     public GameObject descriptionUI;
     public GameObject itemDisplay;
@@ -70,14 +71,7 @@ public class ItemUsage : MonoBehaviour
         {
             itemDescription.text = ironText;
         }
-        //if (gameObject.name == "Ability3")
-        //{
-        //    itemDescription.text = ability3;
-        //}
-        //if (gameObject.name == "Ability4")
-        //{
-        //    itemDescription.text = ability4;
-        //}
+        //Work in progress
     }
 
     public void OnMouseExit()
@@ -88,8 +82,6 @@ public class ItemUsage : MonoBehaviour
 
     public void UseItemSlot()
     {
-        //For every inventory slot you can use it
-
         if (gameObject.name == "HealthPotion" && itemDisplayScript.itemAmount[0] > 0)
         {
             if (playerStats.health < playerStats.maxHealth)
@@ -106,7 +98,7 @@ public class ItemUsage : MonoBehaviour
             }
             else
             {
-                //Fill in later with warning on screen if time left
+                //Fill in later with warning on screen
                 Debug.Log("your hp bar is full");
             }
 

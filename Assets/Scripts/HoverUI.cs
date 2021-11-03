@@ -5,6 +5,7 @@ using TMPro;
 
 public class HoverUI : MonoBehaviour
 {
+    //Template for other chararcters
 
     public TMP_Text abilityDescription;
     public GameObject descriptionUI;

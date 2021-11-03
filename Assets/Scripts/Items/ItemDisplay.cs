@@ -10,8 +10,11 @@ public class ItemDisplay : MonoBehaviour
     Index:
     HealthPotion
     ManaPotion
-    StregnthPotion
-     
+    StrengthPotion
+    DefencePotion
+    SpellPotion
+    Wheat
+    Iron
     */
     public int[] itemAmount = new int[12];
     [SerializeField] private TMP_Text[] itemAmountText;

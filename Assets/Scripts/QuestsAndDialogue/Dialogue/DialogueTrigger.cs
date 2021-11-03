@@ -7,6 +7,7 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue bakerDialogue1;
     public Dialogue blacksmithDialogue1;
 
+    //Work in progress
     public Dialogue bakerDialogue2;
     public Dialogue blacksmithDialogue2;
 

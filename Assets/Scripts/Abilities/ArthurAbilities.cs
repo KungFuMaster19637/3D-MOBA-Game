@@ -22,43 +22,45 @@ public class ArthurAbilities: MonoBehaviour
     public Image abilityImage1;
     public float abilityMana1;
     public float cooldown1;
-    private bool isCooldown1 = false;
     public KeyCode ability1;
+
+    private bool isCooldown1 = false;
 
     [Header("Ability 2")]
 
     public Image abilityImage2;
     public float abilityMana2;
     public float cooldown2;
-    private bool isCooldown2 = false;
     public KeyCode ability2;
+
+    private bool isCooldown2 = false;
     private bool toggle2 = false;
 
-    //Ability 2 input variables
+    [Header ("Ability 2 Components")]
     public Image targetCircle;
-    //public Image indicatorRangeCircle;
     public Canvas ability2Canvas;
-    private Vector3 posUp;
-    //public float maxAbility2Distance;
 
     [Header("Ability 3")]
 
     public Image abilityImage3;
     public float abilityMana3;
     public float cooldown3;
-    private bool isCooldown3 = false;
     public KeyCode ability3;
+
+    private bool isCooldown3 = false;
 
     [Header("Ability 4")]
 
     public Image abilityImage4;
     public float abilityMana4;
     public float cooldown4;
-    private bool isCooldown4 = false;
     public KeyCode ability4;
+
+    private bool isCooldown4 = false;
 
     void Start()
     {
+        //Start game with cooldowns at 0
         abilityImage1.fillAmount = 0;
         abilityImage2.fillAmount = 0;
         abilityImage3.fillAmount = 0;
@@ -108,8 +110,6 @@ public class ArthurAbilities: MonoBehaviour
         if (toggle2)
         {
             targetCircle.GetComponent<Image>().enabled = true;
-            //Disable other UI
-
         }
         if (!toggle2)
         {
@@ -130,7 +130,7 @@ public class ArthurAbilities: MonoBehaviour
         if (isCooldown2)
         {
             abilityImage2.fillAmount -= 1 / cooldown2 * Time.deltaTime;
-            //Disable UI again
+
             targetCircle.GetComponent<Image>().enabled = false;
 
             if (abilityImage2.fillAmount <= 0)

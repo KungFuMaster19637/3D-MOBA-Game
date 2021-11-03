@@ -2,16 +2,14 @@ using UnityEngine;
 
 public class TeleportArea : MonoBehaviour
 {
-    public GameObject ButtonToShow;
+    public GameObject teleportButton;
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        Debug.Log("entered");
-        ButtonToShow.SetActive(true);
+        teleportButton.SetActive(true);
     }
     private void OnTriggerExit(Collider other)
     {
-        ButtonToShow.SetActive(false);
+        teleportButton.SetActive(false);
     }
 }

@@ -23,8 +23,6 @@ public class GameOver : MonoBehaviour
 
         float t = 0f;
 
-
-
         while (t < 1f)
         {
             t += Time.deltaTime;

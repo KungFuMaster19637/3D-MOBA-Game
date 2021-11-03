@@ -5,16 +5,18 @@ using UnityEngine.AI;
 
 public class Teleporter : MonoBehaviour
 {
+    [Header ("Teleport targets")]
     public Transform teleportToCityTarget;
     public Transform teleportToWildTarget;
 
-    public GameObject player;
-    private NavMeshAgent agent;
-    
+    [Header ("Screen fader")]    
     public Image fader;
     public AnimationCurve curve;
 
+    public GameObject player;
     public bool isInCity;
+
+    private NavMeshAgent agent;
 
     private void Start()
     {
@@ -40,11 +42,13 @@ public class Teleporter : MonoBehaviour
             yield return 0;
         }
 
-        //Teleport to city;
+        //Teleport to wild
         if (isInCity)
         {
             StartCoroutine(teleportToWild());
         }
+
+        //Telepot to city
         else if (!isInCity)
         {
             StartCoroutine(teleportToCity());

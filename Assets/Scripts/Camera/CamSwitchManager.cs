@@ -9,13 +9,12 @@ public class CamSwitchManager : MonoBehaviour
     public CameraRoam camRoamScript;
 
     bool camViewChanged = false;
-    // Start is called before the first frame update
+
     void Start()
     {
         camRoamScript.enabled = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (camViewChanged == false)

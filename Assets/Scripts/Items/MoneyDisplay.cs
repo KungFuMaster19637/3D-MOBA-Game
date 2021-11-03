@@ -29,6 +29,7 @@ public class MoneyDisplay : MonoBehaviour
 
     private void Update()
     {
+        //Add money manually, dev tool, delete before building
         if (Input.GetKeyDown("f"))
         {
             AddMoney(5);
@@ -37,19 +38,12 @@ public class MoneyDisplay : MonoBehaviour
 
     }
 
-    //protected static void RefreshMoney()
-    //{
-    //    moneyAmountText.text = moneyAmount.ToString();
-    //}
-
     public static void AddMoney(int amount)
     {
         moneyAmount += amount;
-        //RefreshMoney();
     }
     public static void UseMoney(int amount)
     {
         moneyAmount -= amount;
-        //RefreshMoney();
     }
 }

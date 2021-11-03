@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-[Serializable]
 public class Item : MonoBehaviour
 {
     [SerializeField] private ItemDisplay itemDisplay;
     [SerializeField] private QuestGiver questGiver;
     public enum ItemType
     {
-        Sword,
         HealthPotion,
         ManaPotion,
         StrengthPotion,

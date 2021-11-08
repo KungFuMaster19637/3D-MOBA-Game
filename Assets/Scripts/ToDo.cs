@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToDo : MonoBehaviour
+public class ToDo
 {
     /*
     ----Player death animation
@@ -32,7 +32,7 @@ public class ToDo : MonoBehaviour
     ----Inventory
     ----Items
     ----Potions
-    Fix Castle Outside
+    ----Fix Castle Outside
     Castle functions
     ----Make Camera Roam
     ----Camera Fix wilderniss
@@ -42,7 +42,10 @@ public class ToDo : MonoBehaviour
     ----Quest Notification
     Quest Finish
     Quest Doing
-    Chests in wilderness
+    ->Chests in wildernessz
+    ----Cave
+    ----Cave Camera
+    ----Cave music
     Update Items in hover UI "itemusage script"
     Wheat plantage update if needed?
     Bull animations maybe?

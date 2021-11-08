@@ -5,14 +5,19 @@ using UnityEngine;
 public class MusicHandler : MonoBehaviour
 {
     [SerializeField] private Teleporter teleporter;
+    [SerializeField] private Teleporter2 teleporter2;
     [SerializeField] private AudioSource camelotMusic;
     [SerializeField] private AudioSource wildMusic;
+    [SerializeField] private AudioSource caveMusic;
     [SerializeField] private GameOver gameOver;
 
     private bool isPlayingCamelot;
     private bool isPlayingWild;
+    private bool isPlayingCave;
     private void Update()
     {
+
+        //if player is dead, fade out music
         if (gameOver.gameIsOver)
         {
             if (teleporter.isInCity)
@@ -39,12 +44,17 @@ public class MusicHandler : MonoBehaviour
             }
         }
 
-        if (!teleporter.isInCity)
+        if (!teleporter.isInCity && !teleporter2.isInCave)
         {
             if (camelotMusic.isPlaying && isPlayingCamelot)
             {
                 StartCoroutine(FadeOut(camelotMusic, 2f));
                 isPlayingCamelot = false;
+            }
+            if (caveMusic.isPlaying && isPlayingCave)
+            {
+                StartCoroutine(FadeOut(caveMusic, 2f));
+                isPlayingCave = false;
             }
             if (!isPlayingWild)
             {
@@ -52,7 +62,18 @@ public class MusicHandler : MonoBehaviour
             }
         }
 
-        //More music to come
+        if (teleporter2.isInCave)
+        {
+            if (wildMusic.isPlaying && isPlayingWild)
+            {
+                StartCoroutine(FadeOut(wildMusic, 2f));
+                isPlayingWild = false;
+            }
+            if (!isPlayingCave)
+            {
+                StartCoroutine(PlayCaveMusic());
+            }
+        }
     }
 
     public IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
@@ -86,7 +107,18 @@ public class MusicHandler : MonoBehaviour
 
         wildMusic.Play();
         isPlayingWild = true;
+        isPlayingCave = false;
         isPlayingCamelot = false;
+
+        yield return null;
+    }
+    private IEnumerator PlayCaveMusic()
+    {
+        yield return new WaitForSeconds(1f);
+
+        caveMusic.Play();
+        isPlayingWild = false;
+        isPlayingCave = true;
 
         yield return null;
     }

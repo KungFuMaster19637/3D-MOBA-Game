@@ -6,8 +6,8 @@ using UnityEngine.AI;
 public class Teleporter : MonoBehaviour
 {
     [Header ("Teleport targets")]
-    public Transform teleportToCityTarget;
-    public Transform teleportToWildTarget;
+    public Transform teleportToLocationA;
+    public Transform teleportToLocationB;
 
     [Header ("Screen fader")]    
     public Image fader;
@@ -48,11 +48,13 @@ public class Teleporter : MonoBehaviour
             StartCoroutine(teleportToWild());
         }
 
-        //Telepot to city
+        //Teleport to city
         else if (!isInCity)
         {
             StartCoroutine(teleportToCity());
         }
+
+
 
         agent.enabled = true;
 
@@ -74,7 +76,7 @@ public class Teleporter : MonoBehaviour
 
     IEnumerator teleportToCity()
     {
-        player.transform.position = teleportToCityTarget.transform.position;
+        player.transform.position = teleportToLocationA.transform.position;
         isInCity = true;
         yield return null;
 
@@ -82,7 +84,7 @@ public class Teleporter : MonoBehaviour
 
     IEnumerator teleportToWild()
     {
-        player.transform.position = teleportToWildTarget.transform.position;
+        player.transform.position = teleportToLocationB.transform.position;
         isInCity = false;
         yield return null;
 

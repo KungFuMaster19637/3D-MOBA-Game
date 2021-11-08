@@ -19,7 +19,30 @@ public class CameraRoam : MonoBehaviour
     [SerializeField] private float minWildZ;
     [SerializeField] private float maxWildZ;
 
+    [Header("Cave Camera Limits")]
+    [SerializeField] private float minCaveX;
+    [SerializeField] private float maxCaveX;
+    [SerializeField] private float minCaveZ;
+    [SerializeField] private float maxCaveZ;
+
+    /*
+    Cam coordinates:
+    Castle:
+    x: -75 / -115
+    z:  -18 / 18
+
+    Wild:
+    x: -80 / -180
+    z: -220 / -360
+
+    Cave:
+    x: -70 / -250
+    z: -670 / -900
+
+    */
+
     [SerializeField] private Teleporter teleporter;
+    [SerializeField] private Teleporter2 teleporter2;
 
     void Update()
     {
@@ -31,11 +54,17 @@ public class CameraRoam : MonoBehaviour
             pos.x = Mathf.Clamp(pos.x, minCastleX, maxCastleX);
             pos.z = Mathf.Clamp(pos.z, minCastleZ, maxCastleZ);
         }
-        if (!teleporter.isInCity)
+        if (!teleporter.isInCity && !teleporter2.isInCave)
         {
             Debug.Log("out of city");
             pos.x = Mathf.Clamp(pos.x, minWildX, maxWildX);
             pos.z = Mathf.Clamp(pos.z, minWildZ, maxWildZ);
+        }
+        if (teleporter2.isInCave)
+        {
+            Debug.Log("in cave");
+            pos.x = Mathf.Clamp(pos.x, minCaveX, maxCaveX);
+            pos.z = Mathf.Clamp(pos.z, minCaveZ, maxCaveZ);
         }
 
         //Up

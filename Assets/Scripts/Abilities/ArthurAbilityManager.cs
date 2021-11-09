@@ -21,6 +21,7 @@ public class ArthurAbilityManager : MonoBehaviour
     public float duration1 = 0;
     public float totalDuration1;
     public float attackBuff;
+    private float attackBuffExtra;
     private bool ability1Pressed = false;
 
 
@@ -108,7 +109,8 @@ public class ArthurAbilityManager : MonoBehaviour
     //Abiity 1
     public void ActivateAbility1()
     {
-        attackBuff += (statsScript.attackDamage * 0.1f);
+        attackBuffExtra = statsScript.attackDamage * 0.1f;
+        attackBuff += attackBuffExtra;
 
         ability1Pressed = true;
         statsScript.attackDamage += attackBuff;
@@ -122,7 +124,7 @@ public class ArthurAbilityManager : MonoBehaviour
         agent.speed -= movementSpeedBuff;
         duration1 = 0;
 
-        attackBuff -= (statsScript.attackDamage * 0.1f);
+        attackBuff -= attackBuffExtra;
 
     }
 

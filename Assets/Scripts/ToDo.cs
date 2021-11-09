@@ -42,16 +42,17 @@ public class ToDo
     ----Quest Notification
     Quest Finish
     Quest Doing
-    ->Chests in wildernessz
+    ////Chests in wildernessz
     ----Cave
     ----Cave Camera
     ----Cave music
     Update Items in hover UI "itemusage script"
     Wheat plantage update if needed?
     Bull animations maybe?
+    ----Shopkeeper
     Shop for money usage?
     Options in pause menu
-
+    ----Attackbuff issue
 
 
 

@@ -29,11 +29,11 @@ public class EnemyStats : MonoBehaviour
     Enemy monster stats:
 
     Blueboar:
-    Health: 50
+    Health: 200
     Attack Damage: 20
     Attack Time: 2
     Attack Range: 2.5
-    Defence: 20
+    Defence: 10
     Exp Value: 4
     Return Range: 12
     Aggro Range: 8

@@ -1817,8 +1817,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8160679818695546776}
   - component: {fileID: 587705528272321655}
+  - component: {fileID: 2874248439856145795}
   m_Layer: 2
-  m_Name: DialogueTriggerArea
+  m_Name: ShopTriggerArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1851,6 +1852,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 0.5, z: 4}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &2874248439856145795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4891915125326753803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f3530c95412484789f9ac54447f970, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractButton: {fileID: 0}
 --- !u!1 &4994343937545743666
 GameObject:
   m_ObjectHideFlags: 0

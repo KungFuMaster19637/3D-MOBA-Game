@@ -22,8 +22,8 @@ public class ItemUsage : MonoBehaviour
     private string wheatText;
     private string ironText;
 
-    private int healthPotion = 50;
-    private int manaPotion = 20;
+    private int healthPotion = 100;
+    private int manaPotion = 60;
     private int strengthPotion, defencePotion, spellPotion = 5;
 
 

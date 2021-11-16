@@ -9773,6 +9773,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1332471560}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1342129724 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6923415210851062669, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
+  m_PrefabInstance: {fileID: 3269693580104723302}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1345136051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9791,6 +9796,14 @@ PrefabInstance:
     - target: {fileID: 587705528272321655, guid: 6657b1f4b353baf47bab734a21054363, type: 3}
       propertyPath: m_Center.z
       value: 1.6204247e-12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874248439856145795, guid: 6657b1f4b353baf47bab734a21054363, type: 3}
+      propertyPath: InteractButton
+      value: 
+      objectReference: {fileID: 1342129724}
+    - target: {fileID: 4891915125326753803, guid: 6657b1f4b353baf47bab734a21054363, type: 3}
+      propertyPath: m_Name
+      value: ShopTriggerArea
       objectReference: {fileID: 0}
     - target: {fileID: 4994343937545743666, guid: 6657b1f4b353baf47bab734a21054363, type: 3}
       propertyPath: m_Name
@@ -15806,6 +15819,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8411848643964288512, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8422512604898529210, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 4
@@ -15909,6 +15926,10 @@ PrefabInstance:
     - target: {fileID: 8519353542777887338, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8639917105333288958, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8812068147020998034, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
       propertyPath: m_Sprite

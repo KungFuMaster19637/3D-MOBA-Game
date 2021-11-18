@@ -21,9 +21,13 @@ public class ItemUsage : MonoBehaviour
     private string spellPotionText;
     private string wheatText;
     private string ironText;
+    private string fowlText;
+    private string donutText;
 
     private int healthPotion = 100;
     private int manaPotion = 60;
+    private int fowlBoost = 150;
+    private int donutBoost = 50;
     private int strengthPotion, defencePotion, spellPotion = 5;
 
 
@@ -39,6 +43,8 @@ public class ItemUsage : MonoBehaviour
         spellPotionText = "Increase spell power permanently by 5 (Max 9 storage)";
         wheatText = "Some wheat";
         ironText = "Piece of iron chunk";
+        fowlText = "Some fowl to fill the stomach. Raises maximum health by 150";
+        donutText = "A magical donut with a special effect. Raises maximum mana by 50";
     }
     public void OnMouseOver()
     {
@@ -70,6 +76,14 @@ public class ItemUsage : MonoBehaviour
         if (gameObject.name == "Iron")
         {
             itemDescription.text = ironText;
+        }
+        if (gameObject.name == "Fowl")
+        {
+            itemDescription.text = fowlText;
+        }
+        if (gameObject.name == "MagicalDonut")
+        {
+            itemDescription.text = donutText;
         }
         //Work in progress
     }
@@ -144,6 +158,20 @@ public class ItemUsage : MonoBehaviour
             playerStats.defence += spellPotion;
 
             itemDisplayScript.UseItem(4);
+        }
+        if (gameObject.name == "Fowl" && itemDisplayScript.itemAmount[7] > 0)
+        {
+            playerStats.maxHealth += fowlBoost;
+            playerStats.health += fowlBoost;
+
+            itemDisplayScript.UseItem(7);
+        }
+        if (gameObject.name == "MagicalDonut" && itemDisplayScript.itemAmount[8] > 0)
+        {
+            playerStats.maxMana += donutBoost;
+            playerStats.mana += donutBoost;
+
+            itemDisplayScript.UseItem(8);
         }
 
     }

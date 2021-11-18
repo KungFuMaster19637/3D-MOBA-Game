@@ -11,12 +11,16 @@ public class ShopManager : MonoBehaviour
 
     private int healthPotionPrice;
     private int manaPotionPrice;
+    private int fowlPrice;
+    private int magicalDonutPrice;
 
     private NavMeshAgent agent;
     void Start()
     {
-        healthPotionPrice = 50;
-        manaPotionPrice = 100;
+        healthPotionPrice = 10;
+        manaPotionPrice = 20;
+        fowlPrice = 50;
+        magicalDonutPrice = 75;
 
         agent = GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>();
     }
@@ -45,6 +49,10 @@ public class ShopManager : MonoBehaviour
             itemDisplay.AddItem(0);
             MoneyDisplay.UseMoney(healthPotionPrice);
         }
+        else
+        {
+            //Display can't buy
+        }
 
     }
     public void BuyManaPotion()
@@ -53,6 +61,24 @@ public class ShopManager : MonoBehaviour
         {
             itemDisplay.AddItem(1);
             MoneyDisplay.UseMoney(manaPotionPrice);
+        }
+    }
+
+    public void BuyFowl()
+    {
+        if (MoneyDisplay.moneyAmount >= fowlPrice)
+        {
+            itemDisplay.AddItem(7);
+            MoneyDisplay.UseMoney(fowlPrice);
+        }
+    }
+
+    public void BuyMagicalDonut()
+    {
+        if (MoneyDisplay.moneyAmount >= magicalDonutPrice)
+        {
+            itemDisplay.AddItem(8);
+            MoneyDisplay.UseMoney(magicalDonutPrice);
         }
     }
     //public void BuyHealthPotion()

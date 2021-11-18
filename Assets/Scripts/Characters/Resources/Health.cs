@@ -30,6 +30,9 @@ public class Health: MonoBehaviour
 
     void Update()
     {
+        playerSlider2D.maxValue = statsScript.maxHealth;
+        playerSlider3D.maxValue = statsScript.maxHealth;
+
         playerSlider2D.value = statsScript.health;
         playerSlider3D.value = playerSlider2D.value;
 

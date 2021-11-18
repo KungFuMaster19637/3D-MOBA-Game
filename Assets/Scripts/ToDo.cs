@@ -22,7 +22,7 @@ public class ToDo
     Spawners enemy locations
     ////Ability duration icons
     ////Turrets
-    Buildings
+    ----Buildings
     ----Animation for spells
     ----heal VFX
     ----Player death 
@@ -33,7 +33,7 @@ public class ToDo
     ----Items
     ----Potions
     ----Fix Castle Outside
-    Castle functions
+    ----Castle functions
     ----Make Camera Roam
     ----Camera Fix wilderniss
     ----Teleporters
@@ -47,11 +47,12 @@ public class ToDo
     ----Cave Camera
     ----Cave music
     Update Items in hover UI "itemusage script"
-    Wheat plantage update if needed?
+    ----Wheat plantage update if needed?
     Bull animations maybe?
     ----Shopkeeper
-    Shop for money usage?
+    ----Shop for money usage?
     Options in pause menu
+    Item around the world
     ----Attackbuff issue
 
 

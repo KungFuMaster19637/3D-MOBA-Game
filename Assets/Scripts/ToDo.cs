@@ -5,6 +5,7 @@ using UnityEngine;
 public class ToDo
 {
     /*
+    ----Player Character
     ----Player death animation
     ----Enemy death animation
     ----Hover UI
@@ -19,6 +20,8 @@ public class ToDo
     Enemy Monster Dragonboss
     Enemy boss more attacks
     Enemy boss phases
+    Boss Dragon flame damage calcs
+    BOSS Flame VFX
     Spawners enemy locations
     ////Ability duration icons
     ////Turrets

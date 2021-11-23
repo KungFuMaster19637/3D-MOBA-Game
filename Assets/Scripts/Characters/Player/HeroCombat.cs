@@ -49,6 +49,14 @@ public class HeroCombat : MonoBehaviour
         */
         if (targetedEnemy != null)
         {
+            if (targetedEnemy.tag == "Boss")
+            {
+                statsScript.attackRange = 7;
+            }
+            if (targetedEnemy.tag == "Enemy")
+            {
+                statsScript.attackRange = 3;
+            }
             if (Vector3.Distance(gameObject.transform.position, targetedEnemy.transform.position) > statsScript.attackRange)
             {
                 moveScript.agent.SetDestination(targetedEnemy.transform.position);

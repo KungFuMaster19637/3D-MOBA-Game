@@ -262,13 +262,13 @@ GameObject:
   - component: {fileID: 981542763560411718}
   - component: {fileID: 981542763550670606}
   - component: {fileID: 4659064733151461917}
-  - component: {fileID: 6531643513063143951}
+  - component: {fileID: 1316356265957668731}
   - component: {fileID: 7415071786470717019}
   - component: {fileID: 4597798752247424048}
   - component: {fileID: 1855462506398485867}
   m_Layer: 8
   m_Name: DragonBoss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -301,7 +301,7 @@ Animator:
   m_GameObject: {fileID: 981542763559987130}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 79b50b34e44b5fd4db1cdc9535a3c86b, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5c6c2b47ae7ebc24cbc321c20cf1407f, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -326,11 +326,11 @@ MonoBehaviour:
   health: 2500
   attackDamage: 300
   attackTime: 1
-  attackRange: 1
+  attackRange: 10
   defence: 100
-  healthBar: {fileID: 1161079424169066569}
   expValue: 0
---- !u!114 &6531643513063143951
+  healthBar: {fileID: 1161079424169066569}
+--- !u!114 &1316356265957668731
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -339,13 +339,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 981542763559987130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 369191e106ef11c409b93b9a09b8dcc7, type: 3}
+  m_Script: {fileID: 11500000, guid: 7623b6c08a8fb654dbddade360a11dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetedPlayer: {fileID: 0}
   originalPosition: {x: 0, y: 0, z: 0}
-  returnRange: 15
-  aggroRange: 20
+  returnRange: 10
+  aggroRange: 12
   attackIdle: 0
   performMeeleeAttack: 0
 --- !u!195 &7415071786470717019
@@ -355,7 +355,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 981542763559987130}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -394,8 +394,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.6688232, y: 5.2886305, z: 10.974645}
-  m_Center: {x: 0.31569672, y: 2.1443157, z: 0.18562746}
+  m_Size: {x: 2.8873596, y: 5.2886305, z: 9.632619}
+  m_Center: {x: 0.07306671, y: 2.1443157, z: 1.355351}
 --- !u!1 &981542763559987428
 GameObject:
   m_ObjectHideFlags: 0
@@ -3317,7 +3317,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 981542763560094906}
   m_LocalRotation: {x: 0.076412596, y: 0.702966, z: 0.076412596, w: 0.702966}
-  m_LocalPosition: {x: 0, y: 2.1224256, z: -1.2941331}
+  m_LocalPosition: {x: 0, y: 2.1224256, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 981542763560386684}

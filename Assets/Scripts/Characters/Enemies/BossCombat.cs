@@ -13,6 +13,7 @@ public class BossCombat : MonoBehaviour
     private float rotateVelocity = 0.0f;
     private float rotateSpeedForAttack = 0.015f;
     private bool wakeUpOnce = false;
+    private bool fireBreathActive = false;
     private float flameAttackCounter = 0;
 
     private EnemyStats enemyStatsScript;
@@ -27,7 +28,8 @@ public class BossCombat : MonoBehaviour
     public bool attackIdle = false;
     public bool performMeeleeAttack = false;
     public bool performFlameAttack = false;
-
+    [SerializeField] private GameObject fireBreath;
+    [SerializeField] private ParticleSystem fireBreather;
 
     void Start()
     {
@@ -53,6 +55,11 @@ public class BossCombat : MonoBehaviour
         if (targetedPlayer != null)
         {
             playerDistance = Vector3.Distance(transform.position, targetedPlayer.transform.position);
+        }
+
+        if (fireBreathActive)
+        {
+            targetedPlayer.GetComponent<PlayerStats>().health--;
         }
 
         //Distance Testing tool
@@ -102,6 +109,7 @@ public class BossCombat : MonoBehaviour
                         anim.SetBool("IsAttacking", false);
                         anim.SetBool("FlameAttack", true);
                         flameAttackCounter = 0;
+                        fireBreather.Play();
                         StartCoroutine(FlameAttackInterval());
                     }
                 }
@@ -142,8 +150,7 @@ public class BossCombat : MonoBehaviour
         {
             if (!targetedPlayer.GetComponent<ArthurAbilityManager>().damageBlocked)
             {
-                //Dmg needs to be determined
-                //targetedPlayer.GetComponent<PlayerStats>().health -= DamageCalculator(enemyStatsScript.attackDamage);
+                 StartCoroutine(FireBreathInterval());
             }
         }
         performFlameAttack = true;
@@ -157,6 +164,13 @@ public class BossCombat : MonoBehaviour
         anim.SetBool("IsScreaming", false);
         wakeUpOnce = true;
         yield return null;
+    }
+
+    IEnumerator FireBreathInterval()
+    {
+        fireBreathActive = true;
+        yield return new WaitForSeconds(1.15f);
+        fireBreathActive = false;
     }
 
     IEnumerator MeeleeAttackInterval()

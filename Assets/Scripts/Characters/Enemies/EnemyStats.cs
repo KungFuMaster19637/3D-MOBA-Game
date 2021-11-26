@@ -24,6 +24,8 @@ public class EnemyStats : MonoBehaviour
     private NavMeshAgent agent;
     private HeroCombat heroCombat;
 
+    [SerializeField] private QuestGiver dragonSlayer;
+
 
     /*
     Enemy monster stats:
@@ -91,6 +93,10 @@ public class EnemyStats : MonoBehaviour
                 giveExpOnce = true;
             }
             heroCombat.targetedEnemy = null;
+            if (this.CompareTag("Boss"))
+            {
+                dragonSlayer.dragonQuest.isDragonSlain = true;
+            }
             StartCoroutine(PlayDeathAnimation());
         }
     }

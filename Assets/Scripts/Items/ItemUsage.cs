@@ -28,7 +28,7 @@ public class ItemUsage : MonoBehaviour
     private int manaPotion = 60;
     private int fowlBoost = 150;
     private int donutBoost = 50;
-    private int strengthPotion, defencePotion, spellPotion = 5;
+    private int strengthPotion = 10 , defencePotion = 10, spellPotion = 5;
 
 
     private void Start()
@@ -140,8 +140,8 @@ public class ItemUsage : MonoBehaviour
 
         if (gameObject.name == "StrengthPotion" && itemDisplayScript.itemAmount[2] > 0)
         {
-            Debug.Log("Drank Strength potion");
             playerStats.attackDamage += strengthPotion;
+            Debug.Log("Drank Strength potion");
 
             itemDisplayScript.UseItem(2);
         }
@@ -155,7 +155,7 @@ public class ItemUsage : MonoBehaviour
 
         if (gameObject.name == "SpellPotion" && itemDisplayScript.itemAmount[4] > 0)
         {
-            playerStats.defence += spellPotion;
+            playerStats.spellPower += spellPotion;
 
             itemDisplayScript.UseItem(4);
         }

@@ -11,6 +11,8 @@ public class QuestGiver : MonoBehaviour
     public IronMiner ironQuest;
     public DragonSlayer dragonQuest;
 
+    public GameObject dragonQuestActivate;
+
     public GameObject player;
 
     public GameObject questWindow;
@@ -32,6 +34,19 @@ public class QuestGiver : MonoBehaviour
         else
         {
             notificationSign.SetActive(false);
+        }
+
+        if (wheatQuest.completed && ironQuest.completed)
+        {
+            dragonQuestActivate.SetActive(true); 
+            if (!dragonQuest.isActive)
+            {
+                dragonQuest.oneTimeNotification = true;
+            }
+            else
+            {
+                dragonQuest.oneTimeNotification = false;
+            }
         }
         CheckWheat();
         CheckIron();
@@ -64,18 +79,19 @@ public class QuestGiver : MonoBehaviour
         }
     }
 
-    public void NotificationDragonQuest()
-    {
-        if (dragonNotificationCount > 0)
-        {
-            dragonQuest.oneTimeNotification = false;
-        }
-        else
-        {
-            dragonQuest.oneTimeNotification = true;
-            dragonNotificationCount++;
-        }
-    }
+    //Needed special code to activate
+    //public void NotificationDragonQuest()
+    //{
+    //    if (dragonNotificationCount > 0)
+    //    {
+    //        dragonQuest.oneTimeNotification = false;
+    //    }
+    //    else
+    //    {
+    //        dragonQuest.oneTimeNotification = true;
+    //        dragonNotificationCount++;
+    //    }
+    //}
 
 
     //Activation 
@@ -128,10 +144,13 @@ public class QuestGiver : MonoBehaviour
             ironQuest.completed = true;
         }
     }
-    //public void CheckDragon()
-    //{
-
-    //}
+    public void CheckDragon()
+    {
+        if (dragonQuest.isDragonSlain == true)
+        {
+            dragonQuest.completed = true;
+        }
+    }
 
     //Claim Quest rewards
     public void ClaimWheatReward()

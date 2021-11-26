@@ -17,11 +17,11 @@ public class ToDo
     ----Enemy Monsters Dragonboar
     ----Enemy Monsters Dragonsouleater
     ----Enemy Monsters Skeleton
-    Enemy Monster Dragonboss
-    Enemy boss more attacks
-    Enemy boss phases
-    Boss Dragon flame damage calcs
-    BOSS Flame VFX
+    ----Enemy Monster Dragonboss
+    ----Enemy boss more attacks
+    ----Enemy boss phases
+    ----Boss Dragon flame damage calcs
+    ----Boss Flame VFX
     Spawners enemy locations
     ////Ability duration icons
     ////Turrets

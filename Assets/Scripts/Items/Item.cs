@@ -14,9 +14,11 @@ public class Item : MonoBehaviour
         StrengthPotion,
         DefencePotion,
         SpellPotion,
-        Coin,
         Wheat,
-        Iron
+        Iron,
+        Fowl,
+        MagicalDonut,
+        RiskyPotion
     }
 
     public ItemType itemType;

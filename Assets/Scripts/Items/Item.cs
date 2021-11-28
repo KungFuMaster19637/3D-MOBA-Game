@@ -18,7 +18,9 @@ public class Item : MonoBehaviour
         Iron,
         Fowl,
         MagicalDonut,
-        RiskyPotion
+        RiskyPotion,
+        RingOfMana,
+        HolyOrb
     }
 
     public ItemType itemType;
@@ -71,6 +73,37 @@ public class Item : MonoBehaviour
                 questGiver.IronAcquired();
                 Destroy(gameObject);
             }
+
+            if (this.name == "Fowl" && itemDisplay.itemAmount[7] < 9)
+            {
+                itemDisplay.AddItem(7);
+                Destroy(gameObject);
+            }
+
+            if (this.name == "MagicalDonut" && itemDisplay.itemAmount[8] < 9)
+            {
+                itemDisplay.AddItem(8);
+                Destroy(gameObject);
+            }
+
+            if (this.name == "RiskyPotion" && itemDisplay.itemAmount[9] < 9)
+            {
+                itemDisplay.AddItem(9);
+                Destroy(gameObject);
+            }
+
+            if (this.name == "RingOfMana" && itemDisplay.itemAmount[10] < 99)
+            {
+                itemDisplay.AddItem(10);
+                Destroy(gameObject);
+            }
+
+            if (this.name == "HolyOrb" && itemDisplay.itemAmount[11] < 99)
+            {
+                itemDisplay.AddItem(11);
+                Destroy(gameObject);
+            }
+
         }
     }
 }

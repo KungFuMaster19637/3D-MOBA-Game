@@ -23,12 +23,18 @@ public class ItemUsage : MonoBehaviour
     private string ironText;
     private string fowlText;
     private string donutText;
+    private string riskyPotionText;
 
+    //Potion Buffs
     private int healthPotion = 100;
     private int manaPotion = 60;
+    private int strengthPotion = 10 , defencePotion = 10, spellPotion = 5;
     private int fowlBoost = 150;
     private int donutBoost = 50;
-    private int strengthPotion = 10 , defencePotion = 10, spellPotion = 5;
+    private int riskyPotionAttack = 60;
+    private int riskyPotionDefence = 30;
+    private int riskyPotionSpellPower = 100;
+
 
 
     private void Start()
@@ -45,6 +51,7 @@ public class ItemUsage : MonoBehaviour
         ironText = "Piece of iron chunk";
         fowlText = "Some fowl to fill the stomach. Raises maximum health by 150";
         donutText = "A magical donut with a special effect. Raises maximum mana by 50";
+        riskyPotionText = "What a weird smell, I wonder what effects it will give?";
     }
     public void OnMouseOver()
     {
@@ -84,6 +91,10 @@ public class ItemUsage : MonoBehaviour
         if (gameObject.name == "MagicalDonut")
         {
             itemDescription.text = donutText;
+        }
+        if (gameObject.name == "RiskyPotion")
+        {
+            itemDescription.text = riskyPotionText;
         }
         //Work in progress
     }
@@ -172,6 +183,14 @@ public class ItemUsage : MonoBehaviour
             playerStats.mana += donutBoost;
 
             itemDisplayScript.UseItem(8);
+        }
+        if (gameObject.name == "RiskyPotion" && itemDisplayScript.itemAmount[9] > 0)
+        {
+            playerStats.attackDamage += riskyPotionAttack;
+            playerStats.defence -= riskyPotionDefence;
+            playerStats.spellPower += riskyPotionSpellPower;
+
+            itemDisplayScript.UseItem(9);
         }
 
     }

@@ -69,6 +69,7 @@ public class ToDo
 
     Extra's:
     Empty room tutorial
+    Medic Area
     More characters
     (Merlin, Lancelot, Mordred)
 

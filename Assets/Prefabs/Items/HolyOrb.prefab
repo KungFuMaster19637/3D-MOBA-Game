@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7073979278352082779}
   - component: {fileID: 1940872082584476880}
   - component: {fileID: 3770826916645518938}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HolyOrb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,6 +124,14 @@ PrefabInstance:
     - target: {fileID: 154228, guid: 4f6ef80a7822e2145855ef3033ba8fc0, type: 3}
       propertyPath: m_Name
       value: ItemGemOrange
+      objectReference: {fileID: 0}
+    - target: {fileID: 154228, guid: 4f6ef80a7822e2145855ef3033ba8fc0, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 180696, guid: 4f6ef80a7822e2145855ef3033ba8fc0, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 404132, guid: 4f6ef80a7822e2145855ef3033ba8fc0, type: 3}
       propertyPath: m_RootOrder

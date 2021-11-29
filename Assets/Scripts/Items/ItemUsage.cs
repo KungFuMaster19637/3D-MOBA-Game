@@ -24,6 +24,8 @@ public class ItemUsage : MonoBehaviour
     private string fowlText;
     private string donutText;
     private string riskyPotionText;
+    private string ringOfManaText;
+    private string holyOrbText;
 
     //Potion Buffs
     private int healthPotion = 100;
@@ -34,6 +36,7 @@ public class ItemUsage : MonoBehaviour
     private int riskyPotionAttack = 60;
     private int riskyPotionDefence = 30;
     private int riskyPotionSpellPower = 100;
+    private int ringOfManaBoost = 10;
 
 
 
@@ -52,6 +55,8 @@ public class ItemUsage : MonoBehaviour
         fowlText = "Some fowl to fill the stomach. Raises maximum health by 150";
         donutText = "A magical donut with a special effect. Raises maximum mana by 50";
         riskyPotionText = "What a weird smell, I wonder what effects it will give?";
+        ringOfManaText = "An odd ring. Increase mana regeneration permanently by 10";
+        holyOrbText = "An orb to open the door to the Boss room";
     }
     public void OnMouseOver()
     {
@@ -95,6 +100,14 @@ public class ItemUsage : MonoBehaviour
         if (gameObject.name == "RiskyPotion")
         {
             itemDescription.text = riskyPotionText;
+        }
+        if (gameObject.name == "RingOfMana")
+        {
+            itemDescription.text = ringOfManaText;
+        }
+        if (gameObject.name == "HolyOrb")
+        {
+            itemDescription.text = holyOrbText;
         }
         //Work in progress
     }
@@ -191,6 +204,12 @@ public class ItemUsage : MonoBehaviour
             playerStats.spellPower += riskyPotionSpellPower;
 
             itemDisplayScript.UseItem(9);
+        }
+        if (gameObject.name == "RingOfMana" && itemDisplayScript.itemAmount[10] > 0)
+        {
+            playerStats.manaRegeneration += ringOfManaBoost;
+
+            itemDisplayScript.UseItem(10);
         }
 
     }

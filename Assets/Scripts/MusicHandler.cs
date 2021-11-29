@@ -20,18 +20,18 @@ public class MusicHandler : MonoBehaviour
         //if player is dead, fade out music
         if (gameOver.gameIsOver)
         {
-            if (teleporter.isInCity)
+            if (teleporter.isInCastle)
             {
                 StartCoroutine(FadeOut(camelotMusic, 2f));
             }
 
-            if (!teleporter.isInCity)
+            if (!teleporter.isInCastle)
             {
                 StartCoroutine(FadeOut(wildMusic, 2f));
             }
         }
 
-        if (teleporter.isInCity)
+        if (teleporter.isInCastle)
         {
             if (wildMusic.isPlaying && isPlayingWild)
             {
@@ -44,7 +44,7 @@ public class MusicHandler : MonoBehaviour
             }
         }
 
-        if (!teleporter.isInCity && !teleporter2.isInCave)
+        if (!teleporter.isInCastle && !teleporter2.isInCave)
         {
             if (camelotMusic.isPlaying && isPlayingCamelot)
             {

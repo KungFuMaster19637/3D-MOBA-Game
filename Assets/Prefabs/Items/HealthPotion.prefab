@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6508243038238023208}
   - component: {fileID: 8312614818333320750}
   - component: {fileID: 5533708079971892120}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealthPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6507170272679278124}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GPVFX_CORK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 6507834402966647758}
   - component: {fileID: 6496612519637559694}
   - component: {fileID: 6488575512706402928}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GPVFX_Cork_GPVFX_Corks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 6507670400775369736}
   - component: {fileID: 6496433664609594802}
   - component: {fileID: 6488014023880304712}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GPVFX_Bottle_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 6507211297625369640}
   - component: {fileID: 6496768615933027278}
   - component: {fileID: 6488747965400219028}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GPVFX_Bottle_A_Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}

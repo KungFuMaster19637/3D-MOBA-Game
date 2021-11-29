@@ -4315,6 +4315,7 @@ MonoBehaviour:
   canMove: 1
   rotateMovementSpeed: 0.075
   rotateVelocity: 0
+  clickEffect: {fileID: 2617691903742235356, guid: 96c4c188f5654044692d3a4a3f7bc639, type: 3}
 --- !u!114 &6075331377207552237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4355,7 +4356,7 @@ MonoBehaviour:
   cooldown3: 4
   ability3: 101
   abilityImage4: {fileID: 0}
-  abilityMana4: 100
+  abilityMana4: 90
   cooldown4: 60
   ability4: 114
 --- !u!114 &608459061837472446
@@ -4371,11 +4372,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heroAttackType: 0
-  targetedEnemy: {fileID: 0}
   rotateSpeedForAttack: 0.075
   basicAttackIdle: 0
   isHeroAlive: 0
   performMeeleeAttack: 1
+  targetedEnemy: {fileID: 0}
   performRangedAttack: 1
   projPrefab: {fileID: 2220871432461949041, guid: ed0fb93b152104b4c8dbeb3cf2d3fb00, type: 3}
   projSpawnPoint: {fileID: 1141835353981580813}
@@ -4419,7 +4420,7 @@ MonoBehaviour:
   spellPower: 10
   defence: 50
   healthBar: {fileID: 0}
-  expValue: 0
+  gameOver: {fileID: 0}
 --- !u!114 &7654205170705035619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4432,7 +4433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9dcff0fc931f664c80cadd813bfc284, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healingBase: {fileID: 0}
+  healingBase: {fileID: 121756863955976098, guid: 221dc03971542e140a5abb1a6df1d5da, type: 3}
   healthGain: 10
   manaGain: 5
   movementSpeedBuff: 3

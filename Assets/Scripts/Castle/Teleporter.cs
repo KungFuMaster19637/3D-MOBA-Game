@@ -14,13 +14,16 @@ public class Teleporter : MonoBehaviour
     public AnimationCurve curve;
 
     public GameObject player;
-    public bool isInCity;
+    public bool isInCastle;
 
     private NavMeshAgent agent;
 
+    [SerializeField] private GameObject hideCastle;
+    [SerializeField] private GameObject hideWild;
+
     private void Start()
     {
-        isInCity = true;
+        isInCastle = true;
         agent = GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>();
     }
     public void ButtonToTeleport()
@@ -43,15 +46,15 @@ public class Teleporter : MonoBehaviour
         }
 
         //Teleport to wild
-        if (isInCity)
+        if (isInCastle)
         {
             StartCoroutine(teleportToWild());
         }
 
         //Teleport to city
-        else if (!isInCity)
+        else if (!isInCastle)
         {
-            StartCoroutine(teleportToCity());
+            StartCoroutine(teleportToCastle());
         }
 
 
@@ -74,18 +77,22 @@ public class Teleporter : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator teleportToCity()
+    IEnumerator teleportToCastle()
     {
+        hideWild.SetActive(false);
+        hideCastle.SetActive(true);
         player.transform.position = teleportToLocationA.transform.position;
-        isInCity = true;
+        isInCastle = true;
         yield return null;
 
     }
 
     IEnumerator teleportToWild()
     {
+        hideWild.SetActive(true);
+        hideCastle.SetActive(false);
         player.transform.position = teleportToLocationB.transform.position;
-        isInCity = false;
+        isInCastle = false;
         yield return null;
 
     }

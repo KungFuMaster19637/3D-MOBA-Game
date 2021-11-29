@@ -57,9 +57,22 @@ public class ToDo
     Options in pause menu
     Item around the world
     ----Attackbuff issue
-    Click move effect (use import) 
+    ----Click move effect (use import)
+    Target Dummy
+    healing Ally NPC
+    ----Healing VFX delete gameobject;
+    Final build: put items in right hiding environment
 
 
+    Feedback:
+    ?Lighting (overexposed) 
+    ----Scene too heavy? New scene/Hide UI
+    Save options
+    More NPC (old npc movement) 
+    More activity in castle
+    ----UI replacements (blue squares)
+    ----Dialogue Font 
+    ----UI Ability Font
 
     Don't forget: Sorting Order of UI;
     

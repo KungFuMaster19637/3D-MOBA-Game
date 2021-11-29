@@ -10,7 +10,8 @@ public class ArthurAbilityManager : MonoBehaviour
     PlayerStats statsScript;
     Movement movement;
 
-    public GameObject healingBase;
+    //public GameObject healingBase;
+    public ParticleSystem healingBase;
 
     [Header("Passive")]
     public float healthGain;

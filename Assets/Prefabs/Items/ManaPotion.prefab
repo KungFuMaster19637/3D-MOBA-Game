@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 605394587444392206}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GPVFX_CORK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 605587884936833040}
   - component: {fileID: 5166738110993196717}
   - component: {fileID: 5551501266588790809}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ManaPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 605347491374370160}
   - component: {fileID: 584541864482634184}
   - component: {fileID: 592861643346720352}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GPVFX_Cork_GPVFX_Corks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 605435127669206298}
   - component: {fileID: 585302739457238900}
   - component: {fileID: 593767364389085900}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GPVFX_Bottle_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 605208869960632604}
   - component: {fileID: 581508516023979106}
   - component: {fileID: 593868822061877364}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GPVFX_Botle_B_Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}

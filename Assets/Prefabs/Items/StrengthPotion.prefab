@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6282281807829625587}
   - component: {fileID: 6293413736589419989}
   - component: {fileID: 6301923735410622169}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GPVFX_Bottle_D_Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 6281986968103749749}
   - component: {fileID: 6293321210069835511}
   - component: {fileID: 6301016608827223975}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GPVFX_Bottle_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 6282196497273813817}
   - component: {fileID: 2217874125601357715}
   - component: {fileID: 6912878476107283163}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: StrengthPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6282748052627205991}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GPVFX_CORK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 6282170324769706019}
   - component: {fileID: 6294013356873718665}
   - component: {fileID: 6301341448087552495}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GPVFX_Cork_GPVFX_Corks
   m_TagString: Untagged
   m_Icon: {fileID: 0}

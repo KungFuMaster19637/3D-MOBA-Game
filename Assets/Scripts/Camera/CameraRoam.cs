@@ -48,13 +48,13 @@ public class CameraRoam : MonoBehaviour
     {
         Vector3 pos = transform.position;
 
-        if (teleporter.isInCity)
+        if (teleporter.isInCastle)
         {
             Debug.Log("in city");
             pos.x = Mathf.Clamp(pos.x, minCastleX, maxCastleX);
             pos.z = Mathf.Clamp(pos.z, minCastleZ, maxCastleZ);
         }
-        if (!teleporter.isInCity && !teleporter2.isInCave)
+        if (!teleporter.isInCastle && !teleporter2.isInCave)
         {
             Debug.Log("out of city");
             pos.x = Mathf.Clamp(pos.x, minWildX, maxWildX);

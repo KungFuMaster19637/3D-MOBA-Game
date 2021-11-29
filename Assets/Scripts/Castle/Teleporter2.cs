@@ -18,6 +18,9 @@ public class Teleporter2 : MonoBehaviour
 
     private NavMeshAgent agent;
 
+    [SerializeField] private GameObject hideCave;
+    [SerializeField] private GameObject hideWild;
+
     private void Start()
     {
         isInCave = false;
@@ -76,6 +79,8 @@ public class Teleporter2 : MonoBehaviour
 
     IEnumerator teleportToCaveEntrance()
     {
+        hideCave.SetActive(false);
+        hideWild.SetActive(true);
         player.transform.position = teleportToCaveEntranceTarget.transform.position;
         isInCave = false;
         yield return null;
@@ -84,6 +89,8 @@ public class Teleporter2 : MonoBehaviour
 
     IEnumerator teleportToCave()
     {
+        hideCave.SetActive(true);
+        hideWild.SetActive(false);
         player.transform.position = teleportToCaveTarget.transform.position;
         isInCave = true;
         yield return null;

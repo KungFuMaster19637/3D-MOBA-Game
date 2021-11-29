@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
     public float rotateVelocity;
 
     private HeroCombat heroCombatScript;
+    [SerializeField] private ParticleSystem clickEffect;
     void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
@@ -41,6 +42,7 @@ public class Movement : MonoBehaviour
                 {
                     if (hit.collider.tag == "Floor")
                     {
+                        Instantiate(clickEffect, hit.point, Quaternion.identity);
                         //Player move to raycastpoint
                         agent.SetDestination(hit.point);
                         heroCombatScript.targetedEnemy = null;

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6199277700762135530}
   - component: {fileID: 6227604771332070446}
   - component: {fileID: 6218241626812458050}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GPVFX_Bottle_E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 6199207076949566874}
   - component: {fileID: 6227528201964615548}
   - component: {fileID: 6217837940559208922}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GPVFX_Cork_GPVFX_Corks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6199308326175321162}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GPVFX_CORK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 6203162892565520142}
   - component: {fileID: 6228256706380771706}
   - component: {fileID: 6218751550353255306}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GPVFX_Bottle_E_Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 6203340681974177544}
   - component: {fileID: 4281723566550060915}
   - component: {fileID: 3349377398013189174}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SpellPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}

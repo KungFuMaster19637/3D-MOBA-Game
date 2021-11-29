@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7337710527154571305}
   - component: {fileID: 4632066520110475363}
   - component: {fileID: 3760744124198956353}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DefencePotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 7334704012724763917}
   - component: {fileID: 7326365196518591373}
   - component: {fileID: 7318219903476913301}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GPVFX_Bottle_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 7334713163829961339}
   - component: {fileID: 7326609077636013231}
   - component: {fileID: 7318184199794388855}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GPVFX_Bottle_C_Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7335087615593924407}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GPVFX_CORK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 7334775383583919563}
   - component: {fileID: 7326505066838986641}
   - component: {fileID: 7316200162050513937}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GPVFX_Cork_GPVFX_Corks
   m_TagString: Untagged
   m_Icon: {fileID: 0}

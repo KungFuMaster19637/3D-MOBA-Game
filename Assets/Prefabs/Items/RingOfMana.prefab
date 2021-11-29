@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3372507504226575558}
   - component: {fileID: 6691184496385175014}
   - component: {fileID: 4940861202502282376}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RingOfMana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 314421716662954678}
   - component: {fileID: 3011940461809146582}
   - component: {fileID: 8960338401831219402}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Prong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 9065065070798150595}
   - component: {fileID: 992721281789399795}
   - component: {fileID: 2585460471062935242}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: object_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 236959387457611530}
   - component: {fileID: 2623095278874519045}
   - component: {fileID: 1416912583838935671}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Diamond_Round
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -20,9 +20,9 @@ public class EnemyStats : MonoBehaviour
     private bool giveExpOnce;
 
     private GameObject player;
-    private Animator anim;
+    protected Animator anim;
     private NavMeshAgent agent;
-    private HeroCombat heroCombat;
+    protected HeroCombat heroCombat;
 
     [SerializeField] private QuestGiver dragonSlayer;
 
@@ -71,7 +71,7 @@ public class EnemyStats : MonoBehaviour
     Aggro Range: ???
 
     */
-    private void Start()
+    protected virtual void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         heroCombat = GameObject.FindGameObjectWithTag("Player").GetComponent<HeroCombat>();
@@ -82,7 +82,7 @@ public class EnemyStats : MonoBehaviour
         giveExpOnce = false;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (health <= 0)
         {
@@ -101,7 +101,7 @@ public class EnemyStats : MonoBehaviour
         }
     }
 
-    private IEnumerator PlayDeathAnimation()
+    protected virtual IEnumerator PlayDeathAnimation()
     {
         anim.SetBool("IsDying", true);
         healthBar.SetActive(false);

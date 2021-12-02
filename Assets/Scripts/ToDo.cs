@@ -62,6 +62,8 @@ public class ToDo
     healing Ally NPC
     ----Healing VFX delete gameobject;
     Final build: put items in right hiding environment
+    NPC Movements
+    Scripts/Sentences above NPC's
 
 
     Feedback:

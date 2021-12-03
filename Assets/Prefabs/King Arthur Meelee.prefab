@@ -4201,6 +4201,7 @@ GameObject:
   - component: {fileID: 6075331375800430558}
   - component: {fileID: 8256243755704394107}
   - component: {fileID: 7654205170705035619}
+  - component: {fileID: 2518545557309280869}
   m_Layer: 0
   m_Name: King Arthur Meelee
   m_TagString: Player
@@ -4255,9 +4256,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432909827400071667}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 10
+  m_Drag: 200
+  m_AngularDrag: 200
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -4452,6 +4453,19 @@ MonoBehaviour:
   attackRangeBuff: 2
   duration4: 0
   totalDuration4: 10
+--- !u!65 &2518545557309280869
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432909827400071667}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3.1738355, z: 1}
+  m_Center: {x: -0, y: 1.5202959, z: -0}
 --- !u!1 &432909827400071669
 GameObject:
   m_ObjectHideFlags: 0

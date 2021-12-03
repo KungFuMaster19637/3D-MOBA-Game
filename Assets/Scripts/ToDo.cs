@@ -58,12 +58,13 @@ public class ToDo
     Item around the world
     ----Attackbuff issue
     ----Click move effect (use import)
-    Target Dummy
+    ----Target Dummy
     healing Ally NPC
     ----Healing VFX delete gameobject;
     Final build: put items in right hiding environment
     NPC Movements
     Scripts/Sentences above NPC's
+
 
 
     Feedback:

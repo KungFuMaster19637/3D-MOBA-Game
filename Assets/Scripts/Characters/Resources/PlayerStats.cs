@@ -32,7 +32,7 @@ public class PlayerStats : MonoBehaviour
     private NavMeshAgent agent;
     private Movement movement;
 
-    private void Start()
+    protected virtual void Start()
     {
         //heroCombatScript = GameObject.FindGameObjectWithTag("Player").GetComponent<HeroCombat>();
         //player = GameObject.FindGameObjectWithTag("Player");
@@ -46,7 +46,7 @@ public class PlayerStats : MonoBehaviour
         mana = maxMana;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         //Development tools, reducing health and mana manually, remove after testing
         if (Input.GetKey("h"))

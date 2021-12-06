@@ -43,15 +43,15 @@ public class ToDo
     Environment Fix
     ----Environment Music
     ----Quest Notification
-    Quest Finish
-    Quest Doing
+    ----Quest Finish
+    ----Quest Doing
     ////Chests in wildernessz
     ----Cave
     ----Cave Camera
     ----Cave music
     Update Items in hover UI "itemusage script"
     ----Wheat plantage update if needed?
-    Bull animations maybe?
+    ////Bull animations maybe?
     ----Shopkeeper
     ----Shop for money usage?
     Options in pause menu
@@ -59,7 +59,7 @@ public class ToDo
     ----Attackbuff issue
     ----Click move effect (use import)
     ----Target Dummy
-    healing Ally NPC
+    ----Healing Ally NPC
     ----Healing VFX delete gameobject;
     Final build: put items in right hiding environment
     NPC Movements

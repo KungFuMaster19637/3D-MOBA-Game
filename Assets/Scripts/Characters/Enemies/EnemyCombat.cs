@@ -36,6 +36,9 @@ public class EnemyCombat : MonoBehaviour
 
         targetedPlayer = GameObject.FindGameObjectWithTag("Player");
         originalPosition = gameObject.transform.position;
+        Debug.Log(originalPosition);
+        anim.SetBool("IsIdle", true);
+
     }
 
     void Update()
@@ -58,11 +61,11 @@ public class EnemyCombat : MonoBehaviour
         }
 
         //Distance Testing tool
-        //if (Input.GetKeyDown("k"))
-        //{
-        //    Debug.Log(returnPosition);
-        //    Debug.Log("Player distance: " + playerDistance);
-        //}
+        if (Input.GetKeyDown("k"))
+        {
+            Debug.Log(returnPosition);
+            //Debug.Log("Player distance: " + playerDistance);
+        }
 
         //If enemy is back to starting position
         if (returnPosition < 0.4)
@@ -73,11 +76,13 @@ public class EnemyCombat : MonoBehaviour
         }
         Collider[] playersInRange = Physics.OverlapSphere(transform.position, aggroRange);
 
+        //Debug.Log(playerDistance);
+        //Debug.Log("return position: " + returnPosition);
         //Check if player is in range
         foreach (Collider player in playersInRange)
         {
             if (returnPosition < returnRange && !isReturning)
-            { 
+            {
                 if (player.CompareTag("Player"))
                 {
                     agent.SetDestination(targetedPlayer.transform.position);
@@ -113,7 +118,7 @@ public class EnemyCombat : MonoBehaviour
             {
                 isReturning = true;
                 agent.SetDestination(originalPosition);
-                agent.stoppingDistance = 0;
+                agent.stoppingDistance = 0.1f;
             }
         }
     }

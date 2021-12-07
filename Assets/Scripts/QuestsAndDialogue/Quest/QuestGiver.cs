@@ -22,7 +22,6 @@ public class QuestGiver : MonoBehaviour
 
     private int wheatNotificationCount = 0;
     private int ironNotificationCount = 0;
-    private int dragonNotificationCount = 0;
 
     private void Update()
     {

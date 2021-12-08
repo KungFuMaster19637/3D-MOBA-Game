@@ -36,7 +36,6 @@ public class EnemyCombat : MonoBehaviour
 
         targetedPlayer = GameObject.FindGameObjectWithTag("Player");
         originalPosition = gameObject.transform.position;
-        Debug.Log(originalPosition);
         anim.SetBool("IsIdle", true);
 
     }
@@ -68,7 +67,7 @@ public class EnemyCombat : MonoBehaviour
         }
 
         //If enemy is back to starting position
-        if (returnPosition < 0.4)
+        if (returnPosition < 0.5)
         {
             anim.SetBool("IsIdle", true);
             anim.SetBool("IsInRange", false);

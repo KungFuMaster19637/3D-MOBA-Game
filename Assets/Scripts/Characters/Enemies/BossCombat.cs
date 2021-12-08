@@ -17,6 +17,7 @@ public class BossCombat : MonoBehaviour
     private float flameAttackCounter = 0;
 
     private EnemyStats enemyStatsScript;
+    private DragonBossSounds dragonBossSounds;
     private NavMeshAgent agent;
 
     //RaycastHit hit;
@@ -34,6 +35,7 @@ public class BossCombat : MonoBehaviour
     void Start()
     {
         enemyStatsScript = GetComponent<EnemyStats>();
+        dragonBossSounds = GetComponent<DragonBossSounds>();
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
 
@@ -133,6 +135,8 @@ public class BossCombat : MonoBehaviour
 
     public void MeeleeAttackPlayer()
     {
+        //Debug.Log("Here meelee");
+        //StartCoroutine(dragonBossSounds.PlayDragonAttack());
         if (targetedPlayer != null)
         {
             if (!targetedPlayer.GetComponent<ArthurAbilityManager>().damageBlocked)
@@ -142,6 +146,11 @@ public class BossCombat : MonoBehaviour
         }
 
         performMeeleeAttack = true;
+    }
+
+    public void AttackPlayerSound()
+    {
+        StartCoroutine(dragonBossSounds.PlayDragonAttack());
     }
 
     public void FlameAttackPlayer()
@@ -158,6 +167,7 @@ public class BossCombat : MonoBehaviour
 
     IEnumerator DragonWakeUp()
     {
+        StartCoroutine(dragonBossSounds.PlayDragonAwake());
         anim.SetBool("IsScreaming", true);
         yield return new WaitForSeconds(3.5f);
         anim.SetBool("IsIdle", true);
@@ -187,6 +197,8 @@ public class BossCombat : MonoBehaviour
     IEnumerator FlameAttackInterval()
     {
         performFlameAttack = false;
+        StartCoroutine(dragonBossSounds.PlayDragonFlame());
+
         yield return new WaitForSeconds(2.5f);
         if (targetedPlayer == null)
         {

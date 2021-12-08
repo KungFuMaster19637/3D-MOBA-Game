@@ -19,7 +19,6 @@ public class SkeletonSpawner : MonoBehaviour
         if (gameObject.transform.childCount < 1)
         {
             Vector3 spawnPos = Random.insideUnitSphere.normalized * spawnRadius + transform.position;
-            Debug.Log(spawnPos + transform.position);
             GameObject spawnedEnemy = Instantiate(enemySpawn, spawnPos, Quaternion.identity);
             spawnedEnemy.transform.parent = gameObject.transform;
         }

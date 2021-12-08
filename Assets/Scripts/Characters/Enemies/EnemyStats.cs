@@ -24,7 +24,9 @@ public class EnemyStats : MonoBehaviour
     private NavMeshAgent agent;
     protected HeroCombat heroCombat;
 
+    [Header ("DragonBoss")]
     [SerializeField] private QuestGiver dragonSlayer;
+    [SerializeField] private DragonBossSounds dragonBossSounds;
 
 
     /*
@@ -96,8 +98,15 @@ public class EnemyStats : MonoBehaviour
             if (this.CompareTag("Boss"))
             {
                 dragonSlayer.dragonQuest.isDragonSlain = true;
+                StartCoroutine(dragonBossSounds.PlayDragonDead());
+                StartCoroutine(PlayBossDeathAnimation());
+
+
             }
-            StartCoroutine(PlayDeathAnimation());
+            if (this.CompareTag("Enemy"))
+            {
+                StartCoroutine(PlayDeathAnimation());
+            }
         }
     }
 
@@ -108,6 +117,16 @@ public class EnemyStats : MonoBehaviour
         agent.isStopped = true;
 
         yield return new WaitForSeconds(2f);
+        anim.SetBool("IsDying", false);
+        Destroy(gameObject);
+    }
+
+    private IEnumerator PlayBossDeathAnimation()
+    {
+        anim.SetBool("IsDying", true);
+        healthBar.SetActive(false);
+
+        yield return new WaitForSeconds(3.5f);
         anim.SetBool("IsDying", false);
         Destroy(gameObject);
     }

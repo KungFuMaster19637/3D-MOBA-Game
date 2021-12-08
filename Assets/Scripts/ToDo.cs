@@ -22,7 +22,7 @@ public class ToDo
     ----Enemy boss phases
     ----Boss Dragon flame damage calcs
     ----Boss Flame VFX
-    Spawners enemy locations
+    ----Spawners enemy locations
     ////Ability duration icons
     ////Turrets
     ----Buildings
@@ -49,13 +49,13 @@ public class ToDo
     ----Cave
     ----Cave Camera
     ----Cave music
-    Update Items in hover UI "itemusage script"
+    ----Update Items in hover UI "itemusage script"
     ----Wheat plantage update if needed?
     ////Bull animations maybe?
     ----Shopkeeper
     ----Shop for money usage?
     Options in pause menu
-    Item around the world
+    ----Item around the world
     ----Attackbuff issue
     ----Click move effect (use import)
     ----Target Dummy
@@ -64,7 +64,8 @@ public class ToDo
     Final build: put items in right hiding environment
     NPC Movements
     Scripts/Sentences above NPC's
-
+    ----Dragon Boss Sounds
+    ----Dragon Boss Icon Change
 
 
     Feedback:
@@ -72,7 +73,7 @@ public class ToDo
     ----Scene too heavy? New scene/Hide UI
     Save options
     More NPC (old npc movement) 
-    More activity in castle
+    ----More activity in castle
     ----UI replacements (blue squares)
     ----Dialogue Font 
     ----UI Ability Font

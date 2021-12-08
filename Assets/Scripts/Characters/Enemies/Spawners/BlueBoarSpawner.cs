@@ -14,7 +14,7 @@ public class BlueBoarSpawner : MonoBehaviour
     IEnumerator SpawnEnemy()
     {
         yield return new WaitForSeconds(2f);
-        if (gameObject.transform.childCount < 2)
+        if (gameObject.transform.childCount < 1)
         {
             Vector3 spawnPos = transform.position;
             GameObject spawnedEnemy = Instantiate(enemySpawn, spawnPos, Quaternion.identity);

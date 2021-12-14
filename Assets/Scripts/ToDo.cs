@@ -72,6 +72,14 @@ public class ToDo
     ?Lighting (overexposed) 
     ----Scene too heavy? New scene/Hide UI
     Save options
+    PlayerSave
+    EnemySave
+    NPCSave
+
+    Save: what about deleted gameobjects respawn? (gameobject.Setactive(false);
+    Mobs
+    Items
+
     More NPC (old npc movement) 
     ----More activity in castle
     ----UI replacements (blue squares)

@@ -14,14 +14,24 @@ public class FemaleNPC2 : MonoBehaviour
     private float minZ = -4.2f;
     private float maxZ = -8f;
     private Vector3 walkDistance;
+    public static bool enterCity;
 
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        enterCity = false;
         StartCoroutine(MoveNPC());
 
+    }
+    private void Update()
+    {
+        if(enterCity)
+        {
+            StartCoroutine(MoveNPC());
+            enterCity = false;
+        }
     }
 
     IEnumerator MoveNPC()

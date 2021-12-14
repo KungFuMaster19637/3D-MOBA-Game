@@ -25914,6 +25914,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 637924591}
     m_Modifications:
+    - target: {fileID: 282913142078330367, guid: e074edf07bca45f45995b3672084467d, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 287816979484369817, guid: e074edf07bca45f45995b3672084467d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.000442605
@@ -27406,7 +27410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 981542763559987130, guid: 86e32064af782f145a897ad70c5cb035, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 981542763560307002, guid: 86e32064af782f145a897ad70c5cb035, type: 3}
       propertyPath: m_LocalRotation.x
@@ -29606,11 +29610,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1007112726214022094, guid: 86e32064af782f145a897ad70c5cb035, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1007112726214022094, guid: 86e32064af782f145a897ad70c5cb035, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1316356265957668731, guid: 86e32064af782f145a897ad70c5cb035, type: 3}
       propertyPath: aggroRange

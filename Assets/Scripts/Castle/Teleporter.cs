@@ -82,6 +82,10 @@ public class Teleporter : MonoBehaviour
         hideWild.SetActive(false);
         hideCastle.SetActive(true);
         player.transform.position = teleportToLocationA.transform.position;
+
+        //managing NPC's
+        FemaleNPC2.enterCity = true;
+
         isInCastle = true;
         yield return null;
 

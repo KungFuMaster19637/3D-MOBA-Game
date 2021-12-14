@@ -2230,7 +2230,7 @@ GameObject:
   - component: {fileID: 858370857244320912}
   m_Layer: 0
   m_Name: MaleNPCTalk2
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

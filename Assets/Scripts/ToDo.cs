@@ -77,8 +77,15 @@ public class ToDo
     NPCSave
 
     Save: what about deleted gameobjects respawn? (gameobject.Setactive(false);
+    Delete all mobs in the scene?
+    Enemy stats and items:
+    gameobjoect collider.enabled == false
     Mobs
     Items
+    load in right mobs and items (gameobject.name?)
+    item: itemscript.itemtype
+    get item posx, posy,posz;
+    check if spawners work
 
     More NPC (old npc movement) 
     ----More activity in castle

@@ -48,7 +48,6 @@ public class FemaleNPC1Walk : MonoBehaviour
 
         if (Vector3.Distance(transform.position, point1.position) < 0.2f)
         {
-            Debug.Log("already here");
             moveToPos1 = false;
             moveToPos2 = true;
         }

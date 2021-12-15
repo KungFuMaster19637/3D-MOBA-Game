@@ -55,18 +55,22 @@ public class SaveData
     public bool ironQuestActive;
     public bool ironQuestCompleted;
 
+    [Header("PickUpItems")]
+    
+
     [Header("EnemyStats")] //EnemyStats
-    public List<float> enemyMaxHealth;
-    public List<float> enemyCurrentHealth;
+    public List<string> enemyName = new List<string>();
+    public List<float> enemyMaxHealth = new List<float>();
+    public List<float> enemyCurrentHealth = new List<float>();
 
     [Header("EnemyPositions")]
-    public List<float> enemyPositionX;
-    public List<float> enemyPositionY;
-    public List<float> enemyPositionZ;
+    public List<float> enemyPositionX = new List<float>();
+    public List<float> enemyPositionY = new List<float>();
+    public List<float> enemyPositionZ = new List<float>();
 
     [Header("NPCPositions")]
-    public List<float> npcPositionX;
-    public List<float> npcPositionY;
-    public List<float> npcPositionZ;
+    public List<float> npcPositionX = new List<float>();
+    public List<float> npcPositionY = new List<float>();
+    public List<float> npcPositionZ = new List<float>();
 
 }

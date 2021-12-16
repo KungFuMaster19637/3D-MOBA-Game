@@ -5,10 +5,12 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class SaveManager : MonoBehaviour
 {
     private PlayerStats playerStats;
+    private GameObject player;
     private Transform playerPosition;
 
     private LevelUpStats levelUp;
@@ -16,14 +18,16 @@ public class SaveManager : MonoBehaviour
     //private MoneyDisplay money; Is a static
     private QuestGiver questGiver;
 
-    private GameObject[] enemies;
+    [SerializeField] private GameObject[] enemies = new GameObject[18];
     //private EnemyStats[] enemyStats;
     private Transform enemyPosition;
-
+    
     //Enemy types
     [SerializeField] private GameObject enemySkeletonPrefab;
     [SerializeField] private GameObject enemyBlueBoarPrefab;
     [SerializeField] private GameObject enemyDragonSoulEaterPrefab;
+
+    private List<GameObject> enemiesInScene = new List<GameObject>();
 
     private GameObject[] npcs;
     private Transform npcPosition;
@@ -33,6 +37,7 @@ public class SaveManager : MonoBehaviour
     {
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player");
 
         levelUp = GameObject.FindGameObjectWithTag("Player").GetComponent<LevelUpStats>();
         inventory = GameObject.FindGameObjectWithTag("ItemDisplay").GetComponent<ItemDisplay>();
@@ -40,6 +45,8 @@ public class SaveManager : MonoBehaviour
         questGiver = GameObject.FindGameObjectWithTag("QuestGiver").GetComponent<QuestGiver>();
 
         //enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        Debug.Log("Enemies in scene: " + enemies.Length);
 
         npcs = GameObject.FindGameObjectsWithTag("NPC");
     }
@@ -94,11 +101,12 @@ public class SaveManager : MonoBehaviour
 
 
         //Enemy Positions
-        foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        foreach(GameObject enemy in enemies)
         {
             saveData.enemyName.Add(enemy.name);
             saveData.enemyMaxHealth.Add(enemy.GetComponent<EnemyStats>().maxHealth);
             saveData.enemyCurrentHealth.Add(enemy.GetComponent<EnemyStats>().health);
+            saveData.enemyIsDead.Add(enemy.GetComponent<EnemyStats>().isDead);
 
             saveData.enemyPositionX.Add(enemy.GetComponent<Transform>().position.x);
             saveData.enemyPositionY.Add(enemy.GetComponent<Transform>().position.y);
@@ -172,7 +180,7 @@ public class SaveManager : MonoBehaviour
         //Player Position
         XmlElement playerPosXElement = xmlDocument.CreateElement("PlayerPositionX");
         XmlElement playerPosYElement = xmlDocument.CreateElement("PlayerPositionY");
-        XmlElement playerPosZElement = xmlDocument.CreateElement("PlayerPositonZ");
+        XmlElement playerPosZElement = xmlDocument.CreateElement("PlayerPositionZ");
 
         playerPosXElement.InnerText = saveData.playerPositionX.ToString();
         playerPosYElement.InnerText = saveData.playerPositionY.ToString();
@@ -208,7 +216,7 @@ public class SaveManager : MonoBehaviour
         XmlElement healthPotionElement = xmlDocument.CreateElement("HealthPotion");
         XmlElement manaPotionElement = xmlDocument.CreateElement("ManaPotion");
         XmlElement strengthPotionElement = xmlDocument.CreateElement("StrengthPotion");
-        XmlElement defencePotionElement = xmlDocument.CreateElement("DefenPotion");
+        XmlElement defencePotionElement = xmlDocument.CreateElement("DefencePotion");
         XmlElement spellPotionElement = xmlDocument.CreateElement("SpellPotion");
         XmlElement wheatElement = xmlDocument.CreateElement("Wheat");
         XmlElement ironElement = xmlDocument.CreateElement("Iron");
@@ -267,7 +275,8 @@ public class SaveManager : MonoBehaviour
         root.AppendChild(questElement);
 
         //Enemy Info
-        XmlElement enemyElement, enemyNameElement, enemyMaxHealthElement, enemyCurrentHealthElement, enemyPosXElement, enemyPosYElement, enemyPosZElement;
+        XmlElement enemyElement, enemyNameElement, enemyMaxHealthElement, enemyCurrentHealthElement, enemyIsDeadElement,
+            enemyPosXElement, enemyPosYElement, enemyPosZElement;
 
         for (int i = 0; i < saveData.enemyPositionX.Count; i++)
         {
@@ -276,6 +285,7 @@ public class SaveManager : MonoBehaviour
             enemyNameElement = xmlDocument.CreateElement("EnemyName");
             enemyMaxHealthElement = xmlDocument.CreateElement("EnemyMaxHealth");
             enemyCurrentHealthElement = xmlDocument.CreateElement("EnemyCurrentHealth");
+            enemyIsDeadElement = xmlDocument.CreateElement("EnemyIsDead");
             enemyPosXElement = xmlDocument.CreateElement("EnemyPositionX");
             enemyPosYElement = xmlDocument.CreateElement("EnemyPositionY");
             enemyPosZElement = xmlDocument.CreateElement("EnemyPositionZ");
@@ -283,6 +293,7 @@ public class SaveManager : MonoBehaviour
             enemyNameElement.InnerText = saveData.enemyName[i];
             enemyMaxHealthElement.InnerText = saveData.enemyMaxHealth[i].ToString();
             enemyCurrentHealthElement.InnerText = saveData.enemyCurrentHealth[i].ToString();
+            enemyIsDeadElement.InnerText = saveData.enemyIsDead[i].ToString();
             enemyPosXElement.InnerText = saveData.enemyPositionX[i].ToString();
             enemyPosYElement.InnerText = saveData.enemyPositionY[i].ToString();
             enemyPosZElement.InnerText = saveData.enemyPositionZ[i].ToString();
@@ -290,6 +301,7 @@ public class SaveManager : MonoBehaviour
             enemyElement.AppendChild(enemyNameElement);
             enemyElement.AppendChild(enemyMaxHealthElement);
             enemyElement.AppendChild(enemyCurrentHealthElement);
+            enemyElement.AppendChild(enemyIsDeadElement);
             enemyElement.AppendChild(enemyPosXElement);
             enemyElement.AppendChild(enemyPosYElement);
             enemyElement.AppendChild(enemyPosZElement);
@@ -421,7 +433,7 @@ public class SaveManager : MonoBehaviour
             //Quest 
             XmlNodeList loadWheatQuestActive = xmlDocument.GetElementsByTagName("WheatQuestActive");
             XmlNodeList loadWheatQuestCompleted = xmlDocument.GetElementsByTagName("WheatQuestCompleted");
-            XmlNodeList loadIronQuestActive = xmlDocument.GetElementsByTagName("IronQuestActivate");
+            XmlNodeList loadIronQuestActive = xmlDocument.GetElementsByTagName("IronQuestActive");
             XmlNodeList loadIronQuestCompleted = xmlDocument.GetElementsByTagName("IronQuestCompleted");
 
             saveData.wheatQuestActive = bool.Parse(loadWheatQuestActive[0].InnerText);
@@ -437,12 +449,14 @@ public class SaveManager : MonoBehaviour
                 {
                     XmlNodeList loadEnemyMaxHealth = xmlDocument.GetElementsByTagName("EnemyMaxHealth");
                     XmlNodeList loadEnemyCurrentHealth = xmlDocument.GetElementsByTagName("EnemyCurrentHealth");
+                    XmlNodeList loadEnemyIsDead = xmlDocument.GetElementsByTagName("EnemyIsDead");
                     XmlNodeList loadEnemyPosX = xmlDocument.GetElementsByTagName("EnemyPositionX");
                     XmlNodeList loadEnemyPosY = xmlDocument.GetElementsByTagName("EnemyPositionY");
                     XmlNodeList loadEnemyPosZ = xmlDocument.GetElementsByTagName("EnemyPositionZ");
 
                     saveData.enemyMaxHealth.Add(float.Parse(loadEnemyMaxHealth[i].InnerText));
                     saveData.enemyCurrentHealth.Add(float.Parse(loadEnemyCurrentHealth[i].InnerText));
+                    saveData.enemyIsDead.Add(bool.Parse(loadEnemyIsDead[i].InnerText));
                     saveData.enemyPositionX.Add(float.Parse(loadEnemyPosX[i].InnerText));
                     saveData.enemyPositionY.Add(float.Parse(loadEnemyPosY[i].InnerText));
                     saveData.enemyPositionZ.Add(float.Parse(loadEnemyPosZ[i].InnerText));
@@ -450,17 +464,17 @@ public class SaveManager : MonoBehaviour
             }
 
             //NPC Info
-            XmlNodeList loadNpc = xmlDocument.GetElementsByTagName("NPC");
-            for (int i = 0; i < loadNpc.Count; i++)
-            {
-                XmlNodeList loadNPCPosX = xmlDocument.GetElementsByTagName("NPCPositionX");
-                XmlNodeList loadNPCPosY = xmlDocument.GetElementsByTagName("NPCPositionY");
-                XmlNodeList loadNPCPosZ = xmlDocument.GetElementsByTagName("NPCPositionZ");
+            //XmlNodeList loadNpc = xmlDocument.GetElementsByTagName("NPC");
+            //for (int i = 0; i < loadNpc.Count; i++)
+            //{
+            //    XmlNodeList loadNPCPosX = xmlDocument.GetElementsByTagName("NPCPositionX");
+            //    XmlNodeList loadNPCPosY = xmlDocument.GetElementsByTagName("NPCPositionY");
+            //    XmlNodeList loadNPCPosZ = xmlDocument.GetElementsByTagName("NPCPositionZ");
 
-                saveData.npcPositionX.Add(float.Parse(loadNPCPosX[i].InnerText));
-                saveData.npcPositionY.Add(float.Parse(loadNPCPosY[i].InnerText));
-                saveData.npcPositionZ.Add(float.Parse(loadNPCPosZ[i].InnerText));
-            }
+            //    saveData.npcPositionX.Add(float.Parse(loadNPCPosX[i].InnerText));
+            //    saveData.npcPositionY.Add(float.Parse(loadNPCPosY[i].InnerText));
+            //    saveData.npcPositionZ.Add(float.Parse(loadNPCPosZ[i].InnerText));
+            //}
 
             ///////////////////////////////////////////////////////////////////////////////////
             
@@ -485,7 +499,11 @@ public class SaveManager : MonoBehaviour
             playerStats.attackRange = saveData.attackRange;
 
             //Player Position
+            player.GetComponent<NavMeshAgent>().enabled = false;
             playerPosition.position = new Vector3(saveData.playerPositionX, saveData.playerPositionY, saveData.playerPositionZ);
+            player.GetComponent<NavMeshAgent>().enabled = true;
+
+
 
             //Player Level
             levelUp.expBarImage.fillAmount = saveData.playerExp;
@@ -518,28 +536,93 @@ public class SaveManager : MonoBehaviour
 
             for (int i = 0; i < saveData.enemyMaxHealth.Count; i++)
             {
-                float enemyPosX = saveData.enemyPositionX[i];
-                float enemyPosY = saveData.enemyPositionY[i];
-                float enemyPosZ = saveData.enemyPositionZ[i];
 
-                if (saveData.enemyName[i] == "Skeleton")
+                Debug.Log(saveData.enemyMaxHealth.Count);
+                //Debug.Log("enemy amount: " + i);
+                //Debug.Log("arrived at " + enemies[i]);
+                if (enemies[i].GetComponent<EnemyStats>().isDead)
                 {
-                    GameObject skeletonPrefab = Instantiate(enemySkeletonPrefab, new Vector3(enemyPosX, enemyPosY, enemyPosZ), Quaternion.identity);
+                    if (!saveData.enemyIsDead[i])
+                    {
+                        Debug.Log("enemy died??");
+                        float enemyPosX = saveData.enemyPositionX[i];
+                        float enemyPosY = saveData.enemyPositionY[i];
+                        float enemyPosZ = saveData.enemyPositionZ[i];
+
+                        if (enemies[i].name == "Skeleton")
+                        {
+                            Debug.Log("respawning skeleton");
+                            RespawnEnemy(enemies[i]);
+                            //enemies[i].GetComponent<EnemyCombat>().enabled = true;
+                            //enemies[i].GetComponent<Collider>().enabled = true;
+                            //enemies[i].GetComponent<NavMeshAgent>().enabled = true;
+                            //enemies[i].GetComponent<EnemyStats>().healthBar.SetActive(true);
+                            //enemies[i].gameObject.transform.GetChild(0).transform.gameObject.SetActive(true);
+                            //enemies[i].GetComponent<EnemyStats>().anim.SetBool("IsDying", false);
+
+                            enemies[i].GetComponent<EnemyStats>().health = saveData.enemyCurrentHealth[i];
+                            enemies[i].GetComponent<Transform>().position = new Vector3(saveData.enemyPositionX[i], saveData.enemyPositionY[i], saveData.enemyPositionZ[i]);
+                            //GameObject skeletonPrefab = Instantiate(enemySkeletonPrefab, new Vector3(enemyPosX, enemyPosY, enemyPosZ), Quaternion.identity);
+                            //enemies[i] = skeletonPrefab;
+                        }
+                        if (enemies[i].name == "BlueBoar")
+                        {
+                            Debug.Log("respawning bluboar");
+
+                            GameObject blueBoarPrefab = Instantiate(enemyBlueBoarPrefab, new Vector3(enemyPosX, enemyPosY, enemyPosZ), Quaternion.identity);
+                            enemies[i] = blueBoarPrefab;
+
+                        }
+
+                        if (enemies[i].name == "DragonSoulEater")
+                        {
+                            Debug.Log("spasning draongusleter");
+                            GameObject dragonSoulEaterPrefab = Instantiate(enemyDragonSoulEaterPrefab, new Vector3(enemyPosX, enemyPosY, enemyPosZ), Quaternion.identity);
+                            enemies[i] = dragonSoulEaterPrefab;
+
+                        }
+                    }
+                }
+                else
+                {
+                    Debug.Log("Repositining");
+                    float enemyPosX = saveData.enemyPositionX[i];
+                    float enemyPosY = saveData.enemyPositionY[i];
+                    float enemyPosZ = saveData.enemyPositionZ[i];
+                    enemies[i].transform.position = new Vector3(enemyPosX, enemyPosY, enemyPosZ);
                 }
 
-                if (saveData.enemyName[i] == "BlueBoar")
+                if (saveData.enemyIsDead[i])
                 {
-                    GameObject blueBoarPrefab = Instantiate(enemyBlueBoarPrefab, new Vector3(enemyPosX, enemyPosY, enemyPosZ), Quaternion.identity);
+                    Debug.Log("Enemy: " + saveData.enemyName[i] + " is dead");
                 }
 
-                if (saveData.enemyName[i] == "DragonSoulEater")
-                {
-                    GameObject dragonSoulEaterPrefab = Instantiate(enemyDragonSoulEaterPrefab, new Vector3(enemyPosX, enemyPosY, enemyPosZ), Quaternion.identity);
-                }
             }
 
             //NPC Info
 
         }
+        else
+        {
+            Debug.Log("No File is saved");
+        }
+    }
+
+    private IEnumerator RepositionPlayer()
+    {
+        yield return new WaitForSeconds(0.5f);
+    }
+
+    private void RespawnEnemy(GameObject enemy)
+    {
+        enemy.GetComponent<EnemyCombat>().enabled = true;
+        enemy.GetComponent<EnemyStats>().dieOnce = false;
+        enemy.GetComponent<EnemyStats>().giveExpOnce = false;
+        enemy.GetComponent<EnemyStats>().healthBar.SetActive(true);
+        enemy.GetComponent<EnemyStats>().anim.SetBool("IsDying", false);
+        enemy.GetComponent<Collider>().enabled = true;
+        enemy.GetComponent<NavMeshAgent>().enabled = true;
+
+        enemy.gameObject.transform.GetChild(0).transform.gameObject.SetActive(true);
     }
 }

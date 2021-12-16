@@ -87,6 +87,12 @@ public class ToDo
     get item posx, posy,posz;
     check if spawners work
 
+    Dragon boar doesn't work?
+    Player stop moving after load
+    Fix public bool IsInCity etc;..
+    ----fix Player teleport (solved by turning off agent);
+
+
     More NPC (old npc movement) 
     ----More activity in castle
     ----UI replacements (blue squares)

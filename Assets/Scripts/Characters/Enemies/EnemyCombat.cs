@@ -126,7 +126,7 @@ public class EnemyCombat : MonoBehaviour
     {
         float totalDamage;
         totalDamage = 100 / (100 + targetedPlayer.GetComponent<PlayerStats>().defence) * incomingDamage;
-        Debug.Log("Enemy damage: " + totalDamage);
+        //Debug.Log("Enemy damage: " + totalDamage);
         return totalDamage;
     }
 

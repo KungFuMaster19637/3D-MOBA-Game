@@ -12,6 +12,7 @@ TagManager:
   - MoneyDisplay
   - QuestGiver
   - Boss
+  - SaveManager
   layers:
   - Default
   - TransparentFX

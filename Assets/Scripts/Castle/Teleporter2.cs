@@ -16,6 +16,8 @@ public class Teleporter2 : MonoBehaviour
     public GameObject player;
     public bool isInCave;
 
+    public static bool isTeleporting;
+
     private NavMeshAgent agent;
 
     [SerializeField] private GameObject hideCave;
@@ -28,6 +30,7 @@ public class Teleporter2 : MonoBehaviour
     }
     public void ButtonToTeleport()
     {
+        isTeleporting = true;
         StartCoroutine(startTeleporting());
     }
 
@@ -57,7 +60,7 @@ public class Teleporter2 : MonoBehaviour
             StartCoroutine(teleportToCaveEntrance());
         }
 
-
+        isTeleporting = false;
 
         agent.enabled = true;
 

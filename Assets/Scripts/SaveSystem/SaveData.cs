@@ -62,6 +62,7 @@ public class SaveData
     public List<string> enemyName = new List<string>();
     public List<float> enemyMaxHealth = new List<float>();
     public List<float> enemyCurrentHealth = new List<float>();
+    public List<bool> enemyIsDead = new List<bool>();
 
     [Header("EnemyPositions")]
     public List<float> enemyPositionX = new List<float>();

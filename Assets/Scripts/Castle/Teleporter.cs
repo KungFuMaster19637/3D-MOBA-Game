@@ -16,6 +16,8 @@ public class Teleporter : MonoBehaviour
     public GameObject player;
     public bool isInCastle;
 
+    public static bool isTeleporting;
+
     private NavMeshAgent agent;
 
     [SerializeField] private GameObject hideCastle;
@@ -28,6 +30,7 @@ public class Teleporter : MonoBehaviour
     }
     public void ButtonToTeleport()
     {
+        isTeleporting = true;
         StartCoroutine(startTeleporting());
     }
 
@@ -63,6 +66,8 @@ public class Teleporter : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
+        isTeleporting = false;
+
         float b = 1f;
 
         while (b > 0f)
@@ -79,8 +84,8 @@ public class Teleporter : MonoBehaviour
 
     IEnumerator teleportToCastle()
     {
-        hideWild.SetActive(false);
-        hideCastle.SetActive(true);
+        //hideWild.SetActive(false);
+        //hideCastle.SetActive(true);
         player.transform.position = teleportToLocationA.transform.position;
 
         //managing NPC's
@@ -93,8 +98,8 @@ public class Teleporter : MonoBehaviour
 
     IEnumerator teleportToWild()
     {
-        hideWild.SetActive(true);
-        hideCastle.SetActive(false);
+        //hideWild.SetActive(true);
+        //hideCastle.SetActive(false);
         player.transform.position = teleportToLocationB.transform.position;
         isInCastle = false;
         yield return null;

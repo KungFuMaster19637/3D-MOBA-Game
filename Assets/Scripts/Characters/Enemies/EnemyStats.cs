@@ -13,14 +13,16 @@ public class EnemyStats : MonoBehaviour
     public float attackRange;
     public float defence;
     public float expValue;
+    public bool isDead;
 
     [Header ("Components")]
     public GameObject healthBar;
 
-    private bool giveExpOnce;
+    public bool giveExpOnce;
+    public bool dieOnce;
 
     private GameObject player;
-    protected Animator anim;
+    public Animator anim;
     private NavMeshAgent agent;
     protected HeroCombat heroCombat;
 
@@ -81,6 +83,9 @@ public class EnemyStats : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
 
+        isDead = false;
+
+        dieOnce = false;
         giveExpOnce = false;
     }
 
@@ -103,8 +108,10 @@ public class EnemyStats : MonoBehaviour
 
 
             }
-            if (this.CompareTag("Enemy"))
+            if (this.CompareTag("Enemy") && !dieOnce)
             {
+                Debug.Log("Skeleton died");
+                dieOnce = true;
                 StartCoroutine(PlayDeathAnimation());
             }
         }
@@ -115,10 +122,16 @@ public class EnemyStats : MonoBehaviour
         anim.SetBool("IsDying", true);
         healthBar.SetActive(false);
         agent.isStopped = true;
+        isDead = true;
 
         yield return new WaitForSeconds(2f);
-        anim.SetBool("IsDying", false);
-        Destroy(gameObject);
+        //anim.SetBool("IsDying", false);
+
+        gameObject.GetComponent<EnemyCombat>().enabled = false;
+        gameObject.GetComponent<Collider>().enabled = false;
+        agent.enabled = false;
+        gameObject.transform.GetChild(0).transform.gameObject.SetActive(false);
+        //Destroy(gameObject);
     }
 
     private IEnumerator PlayBossDeathAnimation()

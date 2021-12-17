@@ -84,8 +84,8 @@ public class Teleporter : MonoBehaviour
 
     IEnumerator teleportToCastle()
     {
-        //hideWild.SetActive(false);
-        //hideCastle.SetActive(true);
+        hideWild.SetActive(false);
+        hideCastle.SetActive(true);
         player.transform.position = teleportToLocationA.transform.position;
 
         //managing NPC's
@@ -98,8 +98,8 @@ public class Teleporter : MonoBehaviour
 
     IEnumerator teleportToWild()
     {
-        //hideWild.SetActive(true);
-        //hideCastle.SetActive(false);
+        hideWild.SetActive(true);
+        hideCastle.SetActive(false);
         player.transform.position = teleportToLocationB.transform.position;
         isInCastle = false;
         yield return null;

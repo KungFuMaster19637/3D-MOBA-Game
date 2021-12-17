@@ -16,25 +16,32 @@ public class SaveManager : MonoBehaviour
     private LevelUpStats levelUp;
     private ItemDisplay inventory;
     //private MoneyDisplay money; Is a static
+    private Teleporter teleporter1;
+    private Teleporter2 teleporter2;
+
+    [SerializeField] private GameObject castleActive;
+    [SerializeField] private GameObject wildActive;
+    [SerializeField] private GameObject caveActive;
+
     private QuestGiver questGiver;
 
+    [SerializeField] private GameObject[] items = new GameObject[27];
     [SerializeField] private GameObject[] enemies = new GameObject[18];
     //private EnemyStats[] enemyStats;
-    private Transform enemyPosition;
     
     //Enemy types
     [SerializeField] private GameObject enemySkeletonPrefab;
     [SerializeField] private GameObject enemyBlueBoarPrefab;
     [SerializeField] private GameObject enemyDragonSoulEaterPrefab;
 
-    private List<GameObject> enemiesInScene = new List<GameObject>();
 
-    private GameObject[] npcs;
-    private Transform npcPosition;
+    //private GameObject[] npcs;
+    //private Transform npcPosition;
 
 
     private void Start()
     {
+        Debug.Log(GameObject.FindGameObjectsWithTag("Item").Length);
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
         player = GameObject.FindGameObjectWithTag("Player");
@@ -42,13 +49,17 @@ public class SaveManager : MonoBehaviour
         levelUp = GameObject.FindGameObjectWithTag("Player").GetComponent<LevelUpStats>();
         inventory = GameObject.FindGameObjectWithTag("ItemDisplay").GetComponent<ItemDisplay>();
         //money = GameObject.FindGameObjectWithTag("MoneyDisplay").GetComponent<MoneyDisplay>();
+
+        teleporter1 = GameObject.FindGameObjectWithTag("Teleporter1").GetComponent<Teleporter>();
+        teleporter2 = GameObject.FindGameObjectWithTag("Teleporter2").GetComponent<Teleporter2>();
+
         questGiver = GameObject.FindGameObjectWithTag("QuestGiver").GetComponent<QuestGiver>();
 
-        //enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        items = GameObject.FindGameObjectsWithTag("Item");
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         Debug.Log("Enemies in scene: " + enemies.Length);
 
-        npcs = GameObject.FindGameObjectsWithTag("NPC");
+        //npcs = GameObject.FindGameObjectsWithTag("NPC");
     }
 
     //private void Update()
@@ -85,6 +96,9 @@ public class SaveManager : MonoBehaviour
 
             moneyAmount = MoneyDisplay.moneyAmount,
 
+            isInCastle = teleporter1.isInCastle,
+            isInCave = teleporter2.isInCave,
+
             wheatQuestActive = questGiver.wheatQuest.isActive,
             wheatQuestCompleted = questGiver.wheatQuest.completed,
 
@@ -99,6 +113,11 @@ public class SaveManager : MonoBehaviour
             saveData.inventoryAmount[i] = inventory.itemAmount[i];
         }
 
+        //Items Picked Up
+        foreach (GameObject item in items)
+        {
+            saveData.isPickedUp.Add(item.GetComponent<Item>().isPickedUp);
+        }
 
         //Enemy Positions
         foreach(GameObject enemy in enemies)
@@ -114,12 +133,12 @@ public class SaveManager : MonoBehaviour
         }
 
         //NPC Positions
-        foreach(GameObject npc in GameObject.FindGameObjectsWithTag("NPC"))
-        {
-            saveData.npcPositionX.Add(npc.GetComponent<Transform>().position.x);
-            saveData.npcPositionY.Add(npc.GetComponent<Transform>().position.y);
-            saveData.npcPositionZ.Add(npc.GetComponent<Transform>().position.z);
-        }
+        //foreach(GameObject npc in GameObject.FindGameObjectsWithTag("NPC"))
+        //{
+        //    saveData.npcPositionX.Add(npc.GetComponent<Transform>().position.x);
+        //    saveData.npcPositionY.Add(npc.GetComponent<Transform>().position.y);
+        //    saveData.npcPositionZ.Add(npc.GetComponent<Transform>().position.z);
+        //}
 
         return saveData;
     }
@@ -254,6 +273,16 @@ public class SaveManager : MonoBehaviour
 
         root.AppendChild(inventoryElement);
 
+        //Teleporters
+        XmlElement teleporter1Element = xmlDocument.CreateElement("Teleporter1");
+        XmlElement teleporter2Element = xmlDocument.CreateElement("Teleporter2");
+
+        teleporter1Element.InnerText = saveData.isInCastle.ToString();
+        teleporter2Element.InnerText = saveData.isInCave.ToString();
+
+        root.AppendChild(teleporter1Element);
+        root.AppendChild(teleporter2Element);
+
         //Quest
         XmlElement questElement = xmlDocument.CreateElement("Quest");
 
@@ -273,6 +302,18 @@ public class SaveManager : MonoBehaviour
         questElement.AppendChild(ironQuestCompletedElement);
 
         root.AppendChild(questElement);
+
+        //Items Picked Up
+        XmlElement itemPickedUpElement;
+
+        for (int i = 0; i < saveData.isPickedUp.Count; i++)
+        {
+            itemPickedUpElement = xmlDocument.CreateElement("ItemPickedUp");
+
+            itemPickedUpElement.InnerText = saveData.isPickedUp[i].ToString();
+
+            root.AppendChild(itemPickedUpElement);
+        }
 
         //Enemy Info
         XmlElement enemyElement, enemyNameElement, enemyMaxHealthElement, enemyCurrentHealthElement, enemyIsDeadElement,
@@ -430,6 +471,13 @@ public class SaveManager : MonoBehaviour
             saveData.inventoryAmount[10] = int.Parse(loadRingOfMana[0].InnerText);
             saveData.inventoryAmount[11] = int.Parse(loadHolyOrb[0].InnerText);
 
+            //Teleporters
+            XmlNodeList loadTeleport1 = xmlDocument.GetElementsByTagName("Teleporter1");
+            XmlNodeList loadTeleport2 = xmlDocument.GetElementsByTagName("Teleporter2");
+
+            saveData.isInCastle = bool.Parse(loadTeleport1[0].InnerText);
+            saveData.isInCave = bool.Parse(loadTeleport2[0].InnerText);
+
             //Quest 
             XmlNodeList loadWheatQuestActive = xmlDocument.GetElementsByTagName("WheatQuestActive");
             XmlNodeList loadWheatQuestCompleted = xmlDocument.GetElementsByTagName("WheatQuestCompleted");
@@ -440,6 +488,17 @@ public class SaveManager : MonoBehaviour
             saveData.wheatQuestCompleted = bool.Parse(loadWheatQuestCompleted[0].InnerText);
             saveData.ironQuestActive = bool.Parse(loadIronQuestActive[0].InnerText);
             saveData.ironQuestCompleted = bool.Parse(loadIronQuestCompleted[0].InnerText);
+
+            //Items Picked up
+            XmlNodeList loadItems = xmlDocument.GetElementsByTagName("ItemPickedUp");
+
+            if (loadItems.Count != 0)
+            {
+                for (int i = 0; i < loadItems.Count; i++)
+                {
+                    saveData.isPickedUp.Add(bool.Parse(loadItems[i].InnerText));
+                }
+            }
 
             //Enemy Info
             XmlNodeList loadEnemy = xmlDocument.GetElementsByTagName("Enemy");
@@ -526,20 +585,34 @@ public class SaveManager : MonoBehaviour
             inventory.itemAmount[10] = saveData.inventoryAmount[10];
             inventory.itemAmount[11] = saveData.inventoryAmount[11];
 
+            //Teleporters
+            teleporter1.isInCastle = saveData.isInCastle;
+            teleporter2.isInCave = saveData.isInCave;
+
+            //Environment
+            EnvironmentActive();
+
             //Quest
             questGiver.wheatQuest.isActive = saveData.wheatQuestActive;
             questGiver.wheatQuest.completed = saveData.wheatQuestCompleted;
             questGiver.ironQuest.isActive = saveData.ironQuestActive;
             questGiver.ironQuest.completed = saveData.ironQuestCompleted;
 
-            //Enemy Info
+            //Items Picked Up
+            for (int i = 0; i < saveData.isPickedUp.Count; i++)
+            {
+                if (items[i].GetComponent<Item>().isPickedUp)
+                {
+                    if (!saveData.isPickedUp[i])
+                    {
+                        RespawnItem(items[i]);
+                    }
+                }
+            }
 
+            //Enemy Info
             for (int i = 0; i < saveData.enemyMaxHealth.Count; i++)
             {
-
-                Debug.Log(saveData.enemyMaxHealth.Count);
-                //Debug.Log("enemy amount: " + i);
-                //Debug.Log("arrived at " + enemies[i]);
                 if (enemies[i].GetComponent<EnemyStats>().isDead)
                 {
                     if (!saveData.enemyIsDead[i])
@@ -548,39 +621,8 @@ public class SaveManager : MonoBehaviour
                         float enemyPosX = saveData.enemyPositionX[i];
                         float enemyPosY = saveData.enemyPositionY[i];
                         float enemyPosZ = saveData.enemyPositionZ[i];
-
-                        if (enemies[i].name == "Skeleton")
-                        {
-                            Debug.Log("respawning skeleton");
-                            RespawnEnemy(enemies[i]);
-                            //enemies[i].GetComponent<EnemyCombat>().enabled = true;
-                            //enemies[i].GetComponent<Collider>().enabled = true;
-                            //enemies[i].GetComponent<NavMeshAgent>().enabled = true;
-                            //enemies[i].GetComponent<EnemyStats>().healthBar.SetActive(true);
-                            //enemies[i].gameObject.transform.GetChild(0).transform.gameObject.SetActive(true);
-                            //enemies[i].GetComponent<EnemyStats>().anim.SetBool("IsDying", false);
-
-                            enemies[i].GetComponent<EnemyStats>().health = saveData.enemyCurrentHealth[i];
-                            enemies[i].GetComponent<Transform>().position = new Vector3(saveData.enemyPositionX[i], saveData.enemyPositionY[i], saveData.enemyPositionZ[i]);
-                            //GameObject skeletonPrefab = Instantiate(enemySkeletonPrefab, new Vector3(enemyPosX, enemyPosY, enemyPosZ), Quaternion.identity);
-                            //enemies[i] = skeletonPrefab;
-                        }
-                        if (enemies[i].name == "BlueBoar")
-                        {
-                            Debug.Log("respawning bluboar");
-
-                            GameObject blueBoarPrefab = Instantiate(enemyBlueBoarPrefab, new Vector3(enemyPosX, enemyPosY, enemyPosZ), Quaternion.identity);
-                            enemies[i] = blueBoarPrefab;
-
-                        }
-
-                        if (enemies[i].name == "DragonSoulEater")
-                        {
-                            Debug.Log("spasning draongusleter");
-                            GameObject dragonSoulEaterPrefab = Instantiate(enemyDragonSoulEaterPrefab, new Vector3(enemyPosX, enemyPosY, enemyPosZ), Quaternion.identity);
-                            enemies[i] = dragonSoulEaterPrefab;
-
-                        }
+                        RespawnEnemy(enemies[i]);
+                        enemies[i].transform.position = new Vector3(enemyPosX, enemyPosY, enemyPosZ);
                     }
                 }
                 else
@@ -608,11 +650,39 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    private IEnumerator RepositionPlayer()
+    private void EnvironmentActive()
     {
-        yield return new WaitForSeconds(0.5f);
+        //SetActive the right environment
+
+        if (teleporter1.isInCastle)
+        {
+            castleActive.SetActive(true);
+            wildActive.SetActive(false);
+            caveActive.SetActive(false);
+        }
+
+        if (teleporter2.isInCave)
+        {
+            castleActive.SetActive(false);
+            wildActive.SetActive(false);
+            caveActive.SetActive(true);
+        }
+
+        if (!teleporter1.isInCastle && !teleporter2.isInCave)
+        {
+            castleActive.SetActive(false);
+            wildActive.SetActive(true);
+            caveActive.SetActive(false);
+        }
     }
 
+    private void RespawnItem(GameObject item)
+    {
+        inventory.RefreshInventoryItems();
+        item.GetComponent<Item>().isPickedUp = false;
+        item.GetComponent<Collider>().enabled = true;
+        item.gameObject.transform.GetChild(0).transform.gameObject.SetActive(true);
+    }
     private void RespawnEnemy(GameObject enemy)
     {
         enemy.GetComponent<EnemyCombat>().enabled = true;

@@ -48,6 +48,10 @@ public class SaveData
     [Header("Inventory")] //ItemDisplay
     public int[] inventoryAmount = new int[12];
 
+    [Header("Teleporter")] //Teleporter + Teleporter2
+    public bool isInCastle;
+    public bool isInCave;
+
     [Header("QuestProgression")] //QuestGiver
     public bool wheatQuestActive;
     public bool wheatQuestCompleted;
@@ -56,7 +60,7 @@ public class SaveData
     public bool ironQuestCompleted;
 
     [Header("PickUpItems")]
-    
+    public List<bool> isPickedUp = new List<bool>();
 
     [Header("EnemyStats")] //EnemyStats
     public List<string> enemyName = new List<string>();

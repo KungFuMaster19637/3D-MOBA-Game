@@ -28,7 +28,7 @@ public class ItemDisplay : MonoBehaviour
         }
     }
 
-    protected void RefreshInventoryItems()
+    public void RefreshInventoryItems()
     {
         for (int i = 0; i < itemAmount.Length; i++)
         {

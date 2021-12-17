@@ -4,15 +4,15 @@
     <CurrentHealth>530</CurrentHealth>
     <HealthRegeneration>5</HealthRegeneration>
     <MaxMana>250</MaxMana>
-    <CurrentMana>243,9006</CurrentMana>
+    <CurrentMana>194,9823</CurrentMana>
     <ManaRegeneration>3</ManaRegeneration>
-    <AttackDamage>30</AttackDamage>
+    <AttackDamage>57,3</AttackDamage>
     <AttackSpeed>1</AttackSpeed>
     <AttackTime>1,4</AttackTime>
     <AttackRange>2,5</AttackRange>
-    <PlayerPositionX>-103,3854</PlayerPositionX>
-    <PlayerPositionY>-1,581944</PlayerPositionY>
-    <PlayerPositionZ>-230,4583</PlayerPositionZ>
+    <PlayerPositionX>-123,1942</PlayerPositionX>
+    <PlayerPositionY>-1,743344</PlayerPositionY>
+    <PlayerPositionZ>-290,0926</PlayerPositionZ>
     <PlayerExp>0</PlayerExp>
     <PlayerLevel>1</PlayerLevel>
   </Player>
@@ -24,19 +24,49 @@
     <DefencePotion>0</DefencePotion>
     <SpellPotion>0</SpellPotion>
     <Wheat>0</Wheat>
-    <Iron>0</Iron>
+    <Iron>1</Iron>
     <Fowl>0</Fowl>
     <MagicalDonut>0</MagicalDonut>
     <RiskyPotion>0</RiskyPotion>
     <RingOfMana>0</RingOfMana>
     <HolyOrb>0</HolyOrb>
   </Inventory>
+  <Teleporter1>False</Teleporter1>
+  <Teleporter2>False</Teleporter2>
   <Quest>
     <WheatQuestActive>False</WheatQuestActive>
     <WheatQuestCompleted>False</WheatQuestCompleted>
     <IronQuestActive>False</IronQuestActive>
     <IronQuestCompleted>False</IronQuestCompleted>
   </Quest>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>True</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
+  <ItemPickedUp>False</ItemPickedUp>
   <Enemy>
     <EnemyName>Skeleton</EnemyName>
     <EnemyMaxHealth>150</EnemyMaxHealth>
@@ -69,69 +99,6 @@
     <EnemyMaxHealth>150</EnemyMaxHealth>
     <EnemyCurrentHealth>150</EnemyCurrentHealth>
     <EnemyIsDead>False</EnemyIsDead>
-    <EnemyPositionX>-135,4134</EnemyPositionX>
-    <EnemyPositionY>-0,9457977</EnemyPositionY>
-    <EnemyPositionZ>-764,0989</EnemyPositionZ>
-  </Enemy>
-  <Enemy>
-    <EnemyName>BlueBoar</EnemyName>
-    <EnemyMaxHealth>200</EnemyMaxHealth>
-    <EnemyCurrentHealth>200</EnemyCurrentHealth>
-    <EnemyIsDead>False</EnemyIsDead>
-    <EnemyPositionX>-181,8479</EnemyPositionX>
-    <EnemyPositionY>-1,135839</EnemyPositionY>
-    <EnemyPositionZ>-775,7678</EnemyPositionZ>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Skeleton</EnemyName>
-    <EnemyMaxHealth>150</EnemyMaxHealth>
-    <EnemyCurrentHealth>150</EnemyCurrentHealth>
-    <EnemyIsDead>False</EnemyIsDead>
-    <EnemyPositionX>-129,7796</EnemyPositionX>
-    <EnemyPositionY>-1,405129</EnemyPositionY>
-    <EnemyPositionZ>-766,5409</EnemyPositionZ>
-  </Enemy>
-  <Enemy>
-    <EnemyName>BlueBoar</EnemyName>
-    <EnemyMaxHealth>200</EnemyMaxHealth>
-    <EnemyCurrentHealth>200</EnemyCurrentHealth>
-    <EnemyIsDead>False</EnemyIsDead>
-    <EnemyPositionX>-182,1305</EnemyPositionX>
-    <EnemyPositionY>-1,315538</EnemyPositionY>
-    <EnemyPositionZ>-765,8333</EnemyPositionZ>
-  </Enemy>
-  <Enemy>
-    <EnemyName>DragonSoulEater</EnemyName>
-    <EnemyMaxHealth>100</EnemyMaxHealth>
-    <EnemyCurrentHealth>100</EnemyCurrentHealth>
-    <EnemyIsDead>False</EnemyIsDead>
-    <EnemyPositionX>-183,852</EnemyPositionX>
-    <EnemyPositionY>-0,9691378</EnemyPositionY>
-    <EnemyPositionZ>-871,7454</EnemyPositionZ>
-  </Enemy>
-  <Enemy>
-    <EnemyName>DragonSoulEater</EnemyName>
-    <EnemyMaxHealth>100</EnemyMaxHealth>
-    <EnemyCurrentHealth>100</EnemyCurrentHealth>
-    <EnemyIsDead>False</EnemyIsDead>
-    <EnemyPositionX>-146,6523</EnemyPositionX>
-    <EnemyPositionY>-1,478011</EnemyPositionY>
-    <EnemyPositionZ>-822,0281</EnemyPositionZ>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Skeleton</EnemyName>
-    <EnemyMaxHealth>150</EnemyMaxHealth>
-    <EnemyCurrentHealth>150</EnemyCurrentHealth>
-    <EnemyIsDead>False</EnemyIsDead>
-    <EnemyPositionX>-198,2965</EnemyPositionX>
-    <EnemyPositionY>-1,232618</EnemyPositionY>
-    <EnemyPositionZ>-838,8113</EnemyPositionZ>
-  </Enemy>
-  <Enemy>
-    <EnemyName>Skeleton</EnemyName>
-    <EnemyMaxHealth>150</EnemyMaxHealth>
-    <EnemyCurrentHealth>150</EnemyCurrentHealth>
-    <EnemyIsDead>False</EnemyIsDead>
     <EnemyPositionX>-130</EnemyPositionX>
     <EnemyPositionY>-1,728669</EnemyPositionY>
     <EnemyPositionZ>-295,43</EnemyPositionZ>
@@ -146,13 +113,13 @@
     <EnemyPositionZ>-290,23</EnemyPositionZ>
   </Enemy>
   <Enemy>
-    <EnemyName>BlueBoar</EnemyName>
+    <EnemyName>GreenBoar</EnemyName>
     <EnemyMaxHealth>200</EnemyMaxHealth>
     <EnemyCurrentHealth>200</EnemyCurrentHealth>
     <EnemyIsDead>False</EnemyIsDead>
-    <EnemyPositionX>-153,08</EnemyPositionX>
-    <EnemyPositionY>2,007397</EnemyPositionY>
-    <EnemyPositionZ>-259,48</EnemyPositionZ>
+    <EnemyPositionX>-153,24</EnemyPositionX>
+    <EnemyPositionY>2,064334</EnemyPositionY>
+    <EnemyPositionZ>-259,71</EnemyPositionZ>
   </Enemy>
   <Enemy>
     <EnemyName>Skeleton</EnemyName>
@@ -182,76 +149,84 @@
     <EnemyPositionZ>-337,03</EnemyPositionZ>
   </Enemy>
   <Enemy>
-    <EnemyName>BlueBoar</EnemyName>
+    <EnemyName>GreenBoar</EnemyName>
     <EnemyMaxHealth>200</EnemyMaxHealth>
     <EnemyCurrentHealth>200</EnemyCurrentHealth>
     <EnemyIsDead>False</EnemyIsDead>
-    <EnemyPositionX>-123,43</EnemyPositionX>
-    <EnemyPositionY>-1,353822</EnemyPositionY>
-    <EnemyPositionZ>-255,43</EnemyPositionZ>
+    <EnemyPositionX>-104,1981</EnemyPositionX>
+    <EnemyPositionY>-1,094167</EnemyPositionY>
+    <EnemyPositionZ>-259,9839</EnemyPositionZ>
   </Enemy>
   <Enemy>
-    <EnemyName>BlueBoar</EnemyName>
+    <EnemyName>GreenBoar</EnemyName>
     <EnemyMaxHealth>200</EnemyMaxHealth>
     <EnemyCurrentHealth>200</EnemyCurrentHealth>
     <EnemyIsDead>False</EnemyIsDead>
-    <EnemyPositionX>-104,2</EnemyPositionX>
-    <EnemyPositionY>-1,171235</EnemyPositionY>
-    <EnemyPositionZ>-261,72</EnemyPositionZ>
+    <EnemyPositionX>-123,9016</EnemyPositionX>
+    <EnemyPositionY>-1,474595</EnemyPositionY>
+    <EnemyPositionZ>-258,0604</EnemyPositionZ>
   </Enemy>
-  <NPC>
-    <NPCPositionX>-105,1729</NPCPositionX>
-    <NPCPositionY>-0,001904222</NPCPositionY>
-    <NPCPositionZ>9,670148</NPCPositionZ>
-  </NPC>
-  <NPC>
-    <NPCPositionX>-117,1422</NPCPositionX>
-    <NPCPositionY>-0,000301549</NPCPositionY>
-    <NPCPositionZ>2,640676</NPCPositionZ>
-  </NPC>
-  <NPC>
-    <NPCPositionX>-84,35</NPCPositionX>
-    <NPCPositionY>0</NPCPositionY>
-    <NPCPositionZ>18,85</NPCPositionZ>
-  </NPC>
-  <NPC>
-    <NPCPositionX>-112,4554</NPCPositionX>
-    <NPCPositionY>0,04332232</NPCPositionY>
-    <NPCPositionZ>-1,425499</NPCPositionZ>
-  </NPC>
-  <NPC>
-    <NPCPositionX>-105,5997</NPCPositionX>
-    <NPCPositionY>0,04332232</NPCPositionY>
-    <NPCPositionZ>-5,401958</NPCPositionZ>
-  </NPC>
-  <NPC>
-    <NPCPositionX>-108,96</NPCPositionX>
-    <NPCPositionY>0</NPCPositionY>
-    <NPCPositionZ>-5,43</NPCPositionZ>
-  </NPC>
-  <NPC>
-    <NPCPositionX>-103,06</NPCPositionX>
-    <NPCPositionY>0</NPCPositionY>
-    <NPCPositionZ>-7,79</NPCPositionZ>
-  </NPC>
-  <NPC>
-    <NPCPositionX>-93,446</NPCPositionX>
-    <NPCPositionY>0</NPCPositionY>
-    <NPCPositionZ>-15,373</NPCPositionZ>
-  </NPC>
-  <NPC>
-    <NPCPositionX>-92,139</NPCPositionX>
-    <NPCPositionY>0</NPCPositionY>
-    <NPCPositionZ>-9,075</NPCPositionZ>
-  </NPC>
-  <NPC>
-    <NPCPositionX>-92,06</NPCPositionX>
-    <NPCPositionY>0</NPCPositionY>
-    <NPCPositionZ>-10,72</NPCPositionZ>
-  </NPC>
-  <NPC>
-    <NPCPositionX>-107,8545</NPCPositionX>
-    <NPCPositionY>0,00750721</NPCPositionY>
-    <NPCPositionZ>-5,339083</NPCPositionZ>
-  </NPC>
+  <Enemy>
+    <EnemyName>Skeleton</EnemyName>
+    <EnemyMaxHealth>150</EnemyMaxHealth>
+    <EnemyCurrentHealth>150</EnemyCurrentHealth>
+    <EnemyIsDead>False</EnemyIsDead>
+    <EnemyPositionX>-135,4134</EnemyPositionX>
+    <EnemyPositionY>-0,9457977</EnemyPositionY>
+    <EnemyPositionZ>-764,0989</EnemyPositionZ>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Skeleton</EnemyName>
+    <EnemyMaxHealth>150</EnemyMaxHealth>
+    <EnemyCurrentHealth>150</EnemyCurrentHealth>
+    <EnemyIsDead>False</EnemyIsDead>
+    <EnemyPositionX>-129,7796</EnemyPositionX>
+    <EnemyPositionY>-1,405129</EnemyPositionY>
+    <EnemyPositionZ>-766,5409</EnemyPositionZ>
+  </Enemy>
+  <Enemy>
+    <EnemyName>GreenBoar</EnemyName>
+    <EnemyMaxHealth>200</EnemyMaxHealth>
+    <EnemyCurrentHealth>200</EnemyCurrentHealth>
+    <EnemyIsDead>False</EnemyIsDead>
+    <EnemyPositionX>-181,196</EnemyPositionX>
+    <EnemyPositionY>-1,076542</EnemyPositionY>
+    <EnemyPositionZ>-776,7038</EnemyPositionZ>
+  </Enemy>
+  <Enemy>
+    <EnemyName>GreenBoar</EnemyName>
+    <EnemyMaxHealth>200</EnemyMaxHealth>
+    <EnemyCurrentHealth>200</EnemyCurrentHealth>
+    <EnemyIsDead>False</EnemyIsDead>
+    <EnemyPositionX>-182,9596</EnemyPositionX>
+    <EnemyPositionY>-1,290011</EnemyPositionY>
+    <EnemyPositionZ>-768,6679</EnemyPositionZ>
+  </Enemy>
+  <Enemy>
+    <EnemyName>DragonSoulEater</EnemyName>
+    <EnemyMaxHealth>100</EnemyMaxHealth>
+    <EnemyCurrentHealth>100</EnemyCurrentHealth>
+    <EnemyIsDead>False</EnemyIsDead>
+    <EnemyPositionX>-183,852</EnemyPositionX>
+    <EnemyPositionY>-0,9691378</EnemyPositionY>
+    <EnemyPositionZ>-871,7454</EnemyPositionZ>
+  </Enemy>
+  <Enemy>
+    <EnemyName>DragonSoulEater</EnemyName>
+    <EnemyMaxHealth>100</EnemyMaxHealth>
+    <EnemyCurrentHealth>100</EnemyCurrentHealth>
+    <EnemyIsDead>False</EnemyIsDead>
+    <EnemyPositionX>-146,6523</EnemyPositionX>
+    <EnemyPositionY>-1,478011</EnemyPositionY>
+    <EnemyPositionZ>-822,0281</EnemyPositionZ>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Skeleton</EnemyName>
+    <EnemyMaxHealth>150</EnemyMaxHealth>
+    <EnemyCurrentHealth>150</EnemyCurrentHealth>
+    <EnemyIsDead>False</EnemyIsDead>
+    <EnemyPositionX>-198,2965</EnemyPositionX>
+    <EnemyPositionY>-1,232618</EnemyPositionY>
+    <EnemyPositionZ>-838,8113</EnemyPositionZ>
+  </Enemy>
 </Save>

@@ -13,6 +13,12 @@ TagManager:
   - QuestGiver
   - Boss
   - SaveManager
+  - Teleporter1
+  - Teleporter2
+  - Castle
+  - Wild
+  - Cave
+  - Item
   layers:
   - Default
   - TransparentFX

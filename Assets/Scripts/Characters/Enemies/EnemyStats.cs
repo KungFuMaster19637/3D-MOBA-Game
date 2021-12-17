@@ -99,7 +99,6 @@ public class EnemyStats : MonoBehaviour
                 MoneyDisplay.AddMoney(5);
                 giveExpOnce = true;
             }
-            heroCombat.targetedEnemy = null;
             if (this.CompareTag("Boss"))
             {
                 dragonSlayer.dragonQuest.isDragonSlain = true;
@@ -119,6 +118,10 @@ public class EnemyStats : MonoBehaviour
 
     protected virtual IEnumerator PlayDeathAnimation()
     {
+        gameObject.GetComponent<Collider>().enabled = false;
+        gameObject.GetComponent<EnemyCombat>().enabled = false;
+        agent.enabled = false;
+        heroCombat.targetedEnemy = null;
         anim.SetBool("IsDying", true);
         healthBar.SetActive(false);
         agent.isStopped = true;
@@ -127,9 +130,6 @@ public class EnemyStats : MonoBehaviour
         yield return new WaitForSeconds(2f);
         //anim.SetBool("IsDying", false);
 
-        gameObject.GetComponent<EnemyCombat>().enabled = false;
-        gameObject.GetComponent<Collider>().enabled = false;
-        agent.enabled = false;
         gameObject.transform.GetChild(0).transform.gameObject.SetActive(false);
         //Destroy(gameObject);
     }

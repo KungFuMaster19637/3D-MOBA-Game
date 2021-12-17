@@ -72,25 +72,23 @@ public class ToDo
     ?Lighting (overexposed) 
     ----Scene too heavy? New scene/Hide UI
     Save options
-    PlayerSave
+    ----PlayerSave
     EnemySave
-    NPCSave
+    ////NPCSave
 
     Save: what about deleted gameobjects respawn? (gameobject.Setactive(false);
     Delete all mobs in the scene?
     Enemy stats and items:
     gameobjoect collider.enabled == false
     Mobs
-    Items
-    load in right mobs and items (gameobject.name?)
-    item: itemscript.itemtype
-    get item posx, posy,posz;
+    ----Items respawn after load
     check if spawners work
 
-    Dragon boar doesn't work?
-    Player stop moving after load
-    Fix public bool IsInCity etc;..
-    ----fix Player teleport (solved by turning off agent);
+    ----Dragon boar doesn't work?
+    ----Player stop moving after load
+    ----Fix public bool IsInCity etc;..
+    ----Fix Player teleport (solved by turning off agent);
+    ----Fix Environment change if load
 
 
     More NPC (old npc movement) 

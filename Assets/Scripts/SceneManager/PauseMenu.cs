@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     [SerializeField] private GameObject pauseMenuUI;
+    [SerializeField] private GameObject settingsMenuUI;
     private SaveManager saveManager;
     private NavMeshAgent agent;
 
@@ -25,20 +26,27 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameIsPaused)
+            if (!settingsMenuUI.activeInHierarchy)
             {
-                Resume();
-            }
-            else
-            {
-                if (Teleporter.isTeleporting || Teleporter2.isTeleporting)
+                if (GameIsPaused)
                 {
                     Resume();
                 }
                 else
                 {
-                    Pause();
+                    if (Teleporter.isTeleporting || Teleporter2.isTeleporting)
+                    {
+                        Resume();
+                    }
+                    else
+                    {
+                        Pause();
+                    }
                 }
+            }
+            else
+            {
+                SettingsBack();
             }
         }
     }
@@ -56,9 +64,16 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
-    public void Options()
+    public void Settings()
     {
-        //To be made
+        settingsMenuUI.SetActive(true);
+        pauseMenuUI.SetActive(false);
+    }
+
+    public void SettingsBack()
+    {
+        settingsMenuUI.SetActive(false);
+        pauseMenuUI.SetActive(true);
     }
 
     public void Save()
@@ -67,10 +82,8 @@ public class PauseMenu : MonoBehaviour
     }
     public void Load()
     {
-        saveManager.LoadFromXML();
-        agent.ResetPath();
+        StartCoroutine(FadeOutScreen());
         Resume();
-
     }
 
 
@@ -80,4 +93,36 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
 
     }
+
+    private IEnumerator FadeOutScreen()
+    {
+        float t = 0f;
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime;
+            float a = curve.Evaluate(t);
+            fader.color = new Color(0f, 0f, 0f, a);
+            yield return 0;
+        }
+
+        yield return new WaitForSeconds(0.5f);
+        saveManager.LoadFromXML();
+        agent.ResetPath();
+        StartCoroutine(FadeInScreen());
+
+    }
+    private IEnumerator FadeInScreen()
+    {
+        float b = 1f;
+
+        while (b > 0f)
+        {
+            b -= Time.deltaTime;
+            float a = curve.Evaluate(b);
+            fader.color = new Color(0f, 0f, 0f, a);
+            yield return 0;
+        }
+    }
+
 }

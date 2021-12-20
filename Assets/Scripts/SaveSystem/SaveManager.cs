@@ -584,6 +584,7 @@ public class SaveManager : MonoBehaviour
             inventory.itemAmount[9] = saveData.inventoryAmount[9];
             inventory.itemAmount[10] = saveData.inventoryAmount[10];
             inventory.itemAmount[11] = saveData.inventoryAmount[11];
+            inventory.RefreshInventoryItems();
 
             //Teleporters
             teleporter1.isInCastle = saveData.isInCastle;
@@ -678,7 +679,6 @@ public class SaveManager : MonoBehaviour
 
     private void RespawnItem(GameObject item)
     {
-        inventory.RefreshInventoryItems();
         item.GetComponent<Item>().isPickedUp = false;
         item.GetComponent<Collider>().enabled = true;
         item.gameObject.transform.GetChild(0).transform.gameObject.SetActive(true);

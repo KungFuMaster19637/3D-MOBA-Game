@@ -63,26 +63,26 @@ public class ToDo
     ----Healing VFX delete gameobject;
     Final build: put items in right hiding environment
     NPC Movements
-    Scripts/Sentences above NPC's
+    ----Scripts/Sentences above NPC's
     ----Dragon Boss Sounds
     ----Dragon Boss Icon Change
 
 
     Feedback:
-    ?Lighting (overexposed) 
+    ----Lighting (overexposed) 
     ----Scene too heavy? New scene/Hide UI
-    Save options
+    ----Save options
     ----PlayerSave
-    EnemySave
+    ----EnemySave
     ////NPCSave
 
     Save: what about deleted gameobjects respawn? (gameobject.Setactive(false);
     Delete all mobs in the scene?
     Enemy stats and items:
-    gameobjoect collider.enabled == false
-    Mobs
+    ////gameobjoect collider.enabled == false
+    ----Mobs
     ----Items respawn after load
-    check if spawners work
+    ////check if spawners work
 
     ----Dragon boar doesn't work?
     ----Player stop moving after load

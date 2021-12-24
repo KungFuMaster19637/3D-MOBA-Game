@@ -25,7 +25,7 @@ public class SaveManager : MonoBehaviour
 
     private QuestGiver questGiver;
 
-    [SerializeField] private GameObject[] items = new GameObject[27];
+    [SerializeField] private GameObject[] items = new GameObject[28];
     [SerializeField] private GameObject[] enemies = new GameObject[18];
     //private EnemyStats[] enemyStats;
     
@@ -41,7 +41,6 @@ public class SaveManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(GameObject.FindGameObjectsWithTag("Item").Length);
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
         player = GameObject.FindGameObjectWithTag("Player");
@@ -62,10 +61,11 @@ public class SaveManager : MonoBehaviour
         //npcs = GameObject.FindGameObjectsWithTag("NPC");
     }
 
-    //private void Update()
-    //{
-    //    enemies = GameObject.FindGameObjectsWithTag("Enemy");
-    //}
+    private void Update()
+    {
+        //important to keep track of enemy.isDead;
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+    }
 
     private SaveData CreateSaveDataGameObject()
     {
@@ -91,7 +91,8 @@ public class SaveManager : MonoBehaviour
             playerPositionY = playerPosition.transform.position.y,
             playerPositionZ = playerPosition.transform.position.z,
 
-            playerExp = levelUp.expBarImage.fillAmount,
+            playerFillBar = levelUp.expBarImage.fillAmount,
+            playerExp = levelUp.experience,
             playerLevel = levelUp.level,
 
             moneyAmount = MoneyDisplay.moneyAmount,
@@ -210,13 +211,16 @@ public class SaveManager : MonoBehaviour
         playerElement.AppendChild(playerPosZElement);
 
         //Player Level
+        XmlElement playerFillBarElement = xmlDocument.CreateElement("PlayerFillBar");
         XmlElement playerExpElement = xmlDocument.CreateElement("PlayerExp");
         XmlElement playerLevelElement = xmlDocument.CreateElement("PlayerLevel");
 
+        playerFillBarElement.InnerText = saveData.playerFillBar.ToString();
         playerExpElement.InnerText = saveData.playerExp.ToString();
         playerLevelElement.InnerText = saveData.playerLevel.ToString();
 
-        playerElement.AppendChild(playerExpElement);
+        playerElement.AppendChild(playerFillBarElement);
+        playerElement.AppendChild(playerExpElement); 
         playerElement.AppendChild(playerLevelElement);
 
         root.AppendChild(playerElement);
@@ -565,8 +569,10 @@ public class SaveManager : MonoBehaviour
 
 
             //Player Level
-            levelUp.expBarImage.fillAmount = saveData.playerExp;
+            levelUp.expBarImage.fillAmount = saveData.playerFillBar;
+            levelUp.experience = saveData.playerExp;
             levelUp.level = saveData.playerLevel;
+            levelUp.SetCurrentLevel();
 
             //Money
             MoneyDisplay.moneyAmount = saveData.moneyAmount;
@@ -614,24 +620,29 @@ public class SaveManager : MonoBehaviour
             //Enemy Info
             for (int i = 0; i < saveData.enemyMaxHealth.Count; i++)
             {
+                Debug.Log("Max health units: " + saveData.enemyMaxHealth.Count);
                 if (enemies[i].GetComponent<EnemyStats>().isDead)
                 {
                     if (!saveData.enemyIsDead[i])
                     {
-                        Debug.Log("enemy died??");
+                        //Debug.Log("enemy died??");
                         float enemyPosX = saveData.enemyPositionX[i];
                         float enemyPosY = saveData.enemyPositionY[i];
                         float enemyPosZ = saveData.enemyPositionZ[i];
+                        enemies[i].GetComponent<EnemyStats>().health = saveData.enemyCurrentHealth[i];
+
                         RespawnEnemy(enemies[i]);
                         enemies[i].transform.position = new Vector3(enemyPosX, enemyPosY, enemyPosZ);
                     }
                 }
                 else
                 {
-                    Debug.Log("Repositining");
+                    //Debug.Log("Repositioning enemy number: " + i);
                     float enemyPosX = saveData.enemyPositionX[i];
                     float enemyPosY = saveData.enemyPositionY[i];
                     float enemyPosZ = saveData.enemyPositionZ[i];
+
+                    enemies[i].GetComponent<EnemyStats>().health = saveData.enemyCurrentHealth[i];
                     enemies[i].transform.position = new Vector3(enemyPosX, enemyPosY, enemyPosZ);
                 }
 
@@ -641,9 +652,6 @@ public class SaveManager : MonoBehaviour
                 }
 
             }
-
-            //NPC Info
-
         }
         else
         {
@@ -685,9 +693,12 @@ public class SaveManager : MonoBehaviour
     }
     private void RespawnEnemy(GameObject enemy)
     {
+        Debug.Log("respawning enemy");
         enemy.GetComponent<EnemyCombat>().enabled = true;
+        //enemy.GetComponent<EnemyStats>().health = enemy.GetComponent<EnemyStats>().maxHealth;
         enemy.GetComponent<EnemyStats>().dieOnce = false;
         enemy.GetComponent<EnemyStats>().giveExpOnce = false;
+        enemy.GetComponent<EnemyStats>().isDead = false;
         enemy.GetComponent<EnemyStats>().healthBar.SetActive(true);
         enemy.GetComponent<EnemyStats>().anim.SetBool("IsDying", false);
         enemy.GetComponent<Collider>().enabled = true;

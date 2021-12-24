@@ -49,13 +49,16 @@ public class HeroCombat : MonoBehaviour
         */
         if (targetedEnemy != null)
         {
-            if (targetedEnemy.tag == "Boss")
+            if (gameObject.name == "King Arthur")
             {
-                statsScript.attackRange = 7;
-            }
-            if (targetedEnemy.tag == "Enemy")
-            {
-                statsScript.attackRange = 3;
+                if (targetedEnemy.tag == "Boss")
+                {
+                    statsScript.attackRange = 7;
+                }
+                if (targetedEnemy.tag == "Enemy")
+                {
+                    statsScript.attackRange = 3;
+                }
             }
             if (Vector3.Distance(gameObject.transform.position, targetedEnemy.transform.position) > statsScript.attackRange)
             {
@@ -83,22 +86,22 @@ public class HeroCombat : MonoBehaviour
                 }
 
                 //Ranged, Work in Progress
-                //if (heroAttackType == HeroAttackType.Ranged)
-                //{
+                if (heroAttackType == HeroAttackType.Ranged)
+                {
 
-                //    Quaternion rotationToLookAt = Quaternion.LookRotation(targetedEnemy.transform.position - transform.position);
-                //    float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y,
-                //        ref moveScript.rotateVelocity, rotateSpeedForAttack * (Time.deltaTime * 5));
-                //    transform.eulerAngles = new Vector3(0, rotationY, 0);
+                    Quaternion rotationToLookAt = Quaternion.LookRotation(targetedEnemy.transform.position - transform.position);
+                    float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y,
+                        ref moveScript.rotateVelocity, rotateSpeedForAttack * (Time.deltaTime * 5));
+                    transform.eulerAngles = new Vector3(0, rotationY, 0);
 
-                //    moveScript.agent.SetDestination(transform.position);
+                    moveScript.agent.SetDestination(transform.position);
 
 
-                //    if (performRangedAttack)
-                //    {
-                //        StartCoroutine(RangedAttackInterval());
-                //    }
-                //}
+                    if (performRangedAttack)
+                    {
+                        StartCoroutine(RangedAttackInterval());
+                    }
+                }
             }
         }
         
@@ -126,8 +129,7 @@ public class HeroCombat : MonoBehaviour
     }
 
     //Work In Progress
-
-    /*
+    //Ranged attacks
     public void RangedAttack()
     {
         if (targetedEnemy != null)
@@ -145,7 +147,6 @@ public class HeroCombat : MonoBehaviour
     {
         float dmg = statsScript.attackDamage;
 
-        Instantiate(projPrefab, projSpawnPoint.transform.position, Quaternion.Euler(90f,0f,0f));
 
         if (typeOfEnemy == "Minion")
         {
@@ -153,8 +154,9 @@ public class HeroCombat : MonoBehaviour
             projPrefab.GetComponent<RangedProjectile>().target = targetedEnemyObj;
             projPrefab.GetComponent<RangedProjectile>().targetSet = true;
         }
+        Instantiate(projPrefab, projSpawnPoint.transform.position, Quaternion.Euler(90f, 0f, 0f));
     }
-    */
+
 
     IEnumerator MeeleeAttackInterval()
     {
@@ -170,17 +172,17 @@ public class HeroCombat : MonoBehaviour
         }
     }
 
-    //IEnumerator RangedAttackInterval()
-    //{
-    //    performRangedAttack = false;
-    //    anim.SetBool("Basic Attack", true);
+    IEnumerator RangedAttackInterval()
+    {
+        performRangedAttack = false;
+        anim.SetBool("Basic Attack", true);
 
-    //    yield return new WaitForSeconds(statsScript.attackTime / ((100 + statsScript.attackTime) * 0.01f));
+        yield return new WaitForSeconds(statsScript.attackTime / ((100 + statsScript.attackTime) * 0.01f));
 
-    //    if (targetedEnemy == null)
-    //    {
-    //        performRangedAttack = true;
-    //        anim.SetBool("Basic Attack", false);
-    //    }
-    //}
+        if (targetedEnemy == null)
+        {
+            performRangedAttack = true;
+            anim.SetBool("Basic Attack", false);
+        }
+    }
 }

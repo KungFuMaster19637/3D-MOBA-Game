@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 5dcdb7f85d9675543849adf50dc14adf
+  - enabled: 1
     path: Assets/Scenes/Arthur.unity
     guid: 31e525066ddc07d45abb9a5e251765da
   - enabled: 1
     path: Assets/Scenes/City.unity
     guid: c13f7181e21664341a152c4c56e3461b
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 5dcdb7f85d9675543849adf50dc14adf
   - enabled: 1
     path: Assets/Scenes/Merlin.unity
     guid: 73012aedf08101848906bdb09f952c7c

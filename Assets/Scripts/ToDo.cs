@@ -30,8 +30,8 @@ public class ToDo
     ----heal VFX
     ----Player death 
     sound fx
-    Story line
-    New map
+    ----Story line
+    ----New map
     ----Inventory
     ----Items
     ----Potions
@@ -76,9 +76,9 @@ public class ToDo
     ----EnemySave
     ////NPCSave
 
-    Save: what about deleted gameobjects respawn? (gameobject.Setactive(false);
-    Delete all mobs in the scene?
-    Enemy stats and items:
+    ----Save: what about deleted gameobjects respawn? (gameobject.Setactive(false);
+    ----Delete all mobs in the scene?
+    ----Enemy stats and items:
     ////gameobjoect collider.enabled == false
     ----Mobs
     ----Items respawn after load
@@ -107,6 +107,7 @@ public class ToDo
     Empty room tutorial
     Medic Area
     More characters
+    Infinite mobs room
     (Merlin, Lancelot, Mordred)
 
 

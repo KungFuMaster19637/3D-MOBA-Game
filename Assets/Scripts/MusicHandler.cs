@@ -14,6 +14,11 @@ public class MusicHandler : MonoBehaviour
     private bool isPlayingCamelot;
     private bool isPlayingWild;
     private bool isPlayingCave;
+
+    private void Start()
+    {
+        StartCoroutine(PlayCamelotMusic());
+    }
     private void Update()
     {
 

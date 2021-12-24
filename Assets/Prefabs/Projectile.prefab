@@ -114,5 +114,5 @@ MonoBehaviour:
   target: {fileID: 0}
   targetSet: 1
   targetType: Minion
-  velocity: 5
+  velocity: 10
   stopProjectile: 0

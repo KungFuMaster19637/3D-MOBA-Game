@@ -1,18 +1,19 @@
 <Save FileName="SavedGameplay">
   <Player>
     <MaxHealth>530</MaxHealth>
-    <CurrentHealth>530</CurrentHealth>
+    <CurrentHealth>489,7084</CurrentHealth>
     <HealthRegeneration>5</HealthRegeneration>
     <MaxMana>250</MaxMana>
-    <CurrentMana>250</CurrentMana>
+    <CurrentMana>238,9799</CurrentMana>
     <ManaRegeneration>3</ManaRegeneration>
-    <AttackDamage>30</AttackDamage>
+    <AttackDamage>43</AttackDamage>
     <AttackSpeed>1</AttackSpeed>
     <AttackTime>1,4</AttackTime>
-    <AttackRange>2,5</AttackRange>
-    <PlayerPositionX>-99,58344</PlayerPositionX>
+    <AttackRange>3</AttackRange>
+    <PlayerPositionX>-89,70307</PlayerPositionX>
     <PlayerPositionY>-0,07667767</PlayerPositionY>
-    <PlayerPositionZ>-10,08679</PlayerPositionZ>
+    <PlayerPositionZ>-1,2003</PlayerPositionZ>
+    <PlayerFillBar>0</PlayerFillBar>
     <PlayerExp>0</PlayerExp>
     <PlayerLevel>1</PlayerLevel>
   </Player>
@@ -67,33 +68,6 @@
   <ItemPickedUp>False</ItemPickedUp>
   <ItemPickedUp>False</ItemPickedUp>
   <ItemPickedUp>False</ItemPickedUp>
-  <Enemy>
-    <EnemyName>Skeleton</EnemyName>
-    <EnemyMaxHealth>150</EnemyMaxHealth>
-    <EnemyCurrentHealth>150</EnemyCurrentHealth>
-    <EnemyIsDead>False</EnemyIsDead>
-    <EnemyPositionX>-86,60041</EnemyPositionX>
-    <EnemyPositionY>0,04332232</EnemyPositionY>
-    <EnemyPositionZ>-0,63</EnemyPositionZ>
-  </Enemy>
-  <Enemy>
-    <EnemyName>TargetDummy</EnemyName>
-    <EnemyMaxHealth>500</EnemyMaxHealth>
-    <EnemyCurrentHealth>500</EnemyCurrentHealth>
-    <EnemyIsDead>False</EnemyIsDead>
-    <EnemyPositionX>-118,99</EnemyPositionX>
-    <EnemyPositionY>0</EnemyPositionY>
-    <EnemyPositionZ>19,95</EnemyPositionZ>
-  </Enemy>
-  <Enemy>
-    <EnemyName>TargetDummy</EnemyName>
-    <EnemyMaxHealth>500</EnemyMaxHealth>
-    <EnemyCurrentHealth>500</EnemyCurrentHealth>
-    <EnemyIsDead>False</EnemyIsDead>
-    <EnemyPositionX>-88,29</EnemyPositionX>
-    <EnemyPositionY>0</EnemyPositionY>
-    <EnemyPositionZ>-19,68</EnemyPositionZ>
-  </Enemy>
   <Enemy>
     <EnemyName>Skeleton</EnemyName>
     <EnemyMaxHealth>150</EnemyMaxHealth>
@@ -228,5 +202,32 @@
     <EnemyPositionX>-198,2965</EnemyPositionX>
     <EnemyPositionY>-1,232618</EnemyPositionY>
     <EnemyPositionZ>-838,8113</EnemyPositionZ>
+  </Enemy>
+  <Enemy>
+    <EnemyName>TargetDummy</EnemyName>
+    <EnemyMaxHealth>500</EnemyMaxHealth>
+    <EnemyCurrentHealth>500</EnemyCurrentHealth>
+    <EnemyIsDead>False</EnemyIsDead>
+    <EnemyPositionX>-118,99</EnemyPositionX>
+    <EnemyPositionY>0</EnemyPositionY>
+    <EnemyPositionZ>19,95</EnemyPositionZ>
+  </Enemy>
+  <Enemy>
+    <EnemyName>TargetDummy</EnemyName>
+    <EnemyMaxHealth>500</EnemyMaxHealth>
+    <EnemyCurrentHealth>500</EnemyCurrentHealth>
+    <EnemyIsDead>False</EnemyIsDead>
+    <EnemyPositionX>-88,29</EnemyPositionX>
+    <EnemyPositionY>0</EnemyPositionY>
+    <EnemyPositionZ>-19,68</EnemyPositionZ>
+  </Enemy>
+  <Enemy>
+    <EnemyName>Skeleton</EnemyName>
+    <EnemyMaxHealth>150</EnemyMaxHealth>
+    <EnemyCurrentHealth>81,2</EnemyCurrentHealth>
+    <EnemyIsDead>False</EnemyIsDead>
+    <EnemyPositionX>-87,98694</EnemyPositionX>
+    <EnemyPositionY>0,04332232</EnemyPositionY>
+    <EnemyPositionZ>0,372291</EnemyPositionZ>
   </Enemy>
 </Save>

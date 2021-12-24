@@ -95,6 +95,7 @@ public class EnemyStats : MonoBehaviour
         {
             if (!giveExpOnce)
             {
+                Debug.Log("Exp gained: " + expValue);
                 player.GetComponent<LevelUpStats>().SetExperience(expValue);
                 MoneyDisplay.AddMoney(5);
                 giveExpOnce = true;
@@ -109,7 +110,6 @@ public class EnemyStats : MonoBehaviour
             }
             if (this.CompareTag("Enemy") && !dieOnce)
             {
-                Debug.Log("Skeleton died");
                 dieOnce = true;
                 StartCoroutine(PlayDeathAnimation());
             }
@@ -124,14 +124,13 @@ public class EnemyStats : MonoBehaviour
         heroCombat.targetedEnemy = null;
         anim.SetBool("IsDying", true);
         healthBar.SetActive(false);
-        agent.isStopped = true;
+        //agent.isStopped = true;
         isDead = true;
 
         yield return new WaitForSeconds(2f);
         //anim.SetBool("IsDying", false);
 
         gameObject.transform.GetChild(0).transform.gameObject.SetActive(false);
-        //Destroy(gameObject);
     }
 
     private IEnumerator PlayBossDeathAnimation()

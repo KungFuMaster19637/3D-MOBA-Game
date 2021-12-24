@@ -8,9 +8,8 @@ public class LevelUpStats : MonoBehaviour
 {
 
     public int level = 1;
-    public float experience { get; private set; }
+    public float experience { get; set; }
     public TMP_Text lvlText;
-    //public Text lvlText;
     public Image expBarImage;
 
     private PlayerStats playerStats;
@@ -29,21 +28,32 @@ public class LevelUpStats : MonoBehaviour
         return (currentLevel * currentLevel + currentLevel) * 5;
     }
 
+    public void SetCurrentLevel()
+    {
+        lvlText.text = level.ToString();
+    }
+
     public void SetExperience(float exp)
     {
         experience += exp;
 
-        float expNeeded = ExpNeedToLvlUp(level);
-        float previousExperience = ExpNeedToLvlUp(level - 1);
+        float expNeeded = 20;
+
+        //Advanced leveling 
+        //float expNeeded = ExpNeedToLvlUp(level);
+        //float previousExperience = ExpNeedToLvlUp(level - 1);
 
         if (experience >= expNeeded)
         {
             LevelUp();
-            expNeeded = ExpNeedToLvlUp(level);
-            previousExperience = ExpNeedToLvlUp(level - 1);
+            experience -= expNeeded;
+            //expNeeded = ExpNeedToLvlUp(level);
+            //previousExperience = ExpNeedToLvlUp(level - 1);
         }
 
-        expBarImage.fillAmount = (experience - previousExperience) / (expNeeded - previousExperience);
+        //expBarImage.fillAmount = (experience - previousExperience) / (expNeeded - previousExperience);
+
+        expBarImage.fillAmount = experience / expNeeded;
 
         if (expBarImage.fillAmount == 1)
         {
@@ -63,8 +73,8 @@ public class LevelUpStats : MonoBehaviour
         playerStats.manaRegeneration += 1.5f;
         playerStats.defence += 5;
         playerStats.spellPower += 5;
+        SetCurrentLevel();
 
-
-        lvlText.text = level.ToString("");
+        //lvlText.text = level.ToString("");
     }
 }

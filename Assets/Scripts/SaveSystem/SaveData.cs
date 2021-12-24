@@ -39,6 +39,7 @@ public class SaveData
 
     [Header("PlayerLevel")] //LevelUpStats
     //public Image playerExpBar; //Image.fillamount
+    public float playerFillBar;
     public float playerExp;
     public int playerLevel;
 

@@ -24,7 +24,7 @@ public class MainMenu : MonoBehaviour
 
     public void Tutorial()
     {
-        sceneFader.FadeTo(tutorial);
+        //sceneFader.FadeTo(tutorial);
     }
 
     public void Options()
@@ -34,7 +34,7 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        
+        Application.Quit();
     }
 
 
@@ -53,7 +53,7 @@ public class MainMenu : MonoBehaviour
 
     public void SelectMerlin()
     {
-        sceneFader.FadeTo(merlin);
+        //sceneFader.FadeTo(merlin);
     }
 
 }

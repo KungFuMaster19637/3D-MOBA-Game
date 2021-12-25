@@ -1,18 +1,18 @@
 <Save FileName="SavedGameplay">
   <Player>
     <MaxHealth>530</MaxHealth>
-    <CurrentHealth>489,7084</CurrentHealth>
+    <CurrentHealth>530</CurrentHealth>
     <HealthRegeneration>5</HealthRegeneration>
     <MaxMana>250</MaxMana>
-    <CurrentMana>238,9799</CurrentMana>
+    <CurrentMana>223,6258</CurrentMana>
     <ManaRegeneration>3</ManaRegeneration>
     <AttackDamage>43</AttackDamage>
     <AttackSpeed>1</AttackSpeed>
     <AttackTime>1,4</AttackTime>
-    <AttackRange>3</AttackRange>
-    <PlayerPositionX>-89,70307</PlayerPositionX>
-    <PlayerPositionY>-0,07667767</PlayerPositionY>
-    <PlayerPositionZ>-1,2003</PlayerPositionZ>
+    <AttackRange>2,5</AttackRange>
+    <PlayerPositionX>-108,5354</PlayerPositionX>
+    <PlayerPositionY>-1,633554</PlayerPositionY>
+    <PlayerPositionZ>-249,8055</PlayerPositionZ>
     <PlayerFillBar>0</PlayerFillBar>
     <PlayerExp>0</PlayerExp>
     <PlayerLevel>1</PlayerLevel>
@@ -32,7 +32,7 @@
     <RingOfMana>0</RingOfMana>
     <HolyOrb>0</HolyOrb>
   </Inventory>
-  <Teleporter1>True</Teleporter1>
+  <Teleporter1>False</Teleporter1>
   <Teleporter2>False</Teleporter2>
   <Quest>
     <WheatQuestActive>False</WheatQuestActive>
@@ -222,12 +222,12 @@
     <EnemyPositionZ>-19,68</EnemyPositionZ>
   </Enemy>
   <Enemy>
-    <EnemyName>Skeleton</EnemyName>
+    <EnemyName>TrappedSkeleton</EnemyName>
     <EnemyMaxHealth>150</EnemyMaxHealth>
-    <EnemyCurrentHealth>81,2</EnemyCurrentHealth>
+    <EnemyCurrentHealth>150</EnemyCurrentHealth>
     <EnemyIsDead>False</EnemyIsDead>
-    <EnemyPositionX>-87,98694</EnemyPositionX>
-    <EnemyPositionY>0,04332232</EnemyPositionY>
-    <EnemyPositionZ>0,372291</EnemyPositionZ>
+    <EnemyPositionX>-91,04</EnemyPositionX>
+    <EnemyPositionY>0</EnemyPositionY>
+    <EnemyPositionZ>6,07</EnemyPositionZ>
   </Enemy>
 </Save>

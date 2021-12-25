@@ -1460,6 +1460,7 @@ GameObject:
   - component: {fileID: 4095549141940768878}
   - component: {fileID: 3909729703397431239}
   - component: {fileID: 6740761141870744510}
+  - component: {fileID: 2757719345406388152}
   m_Layer: 8
   m_Name: TrappedSkeleton
   m_TagString: Enemy
@@ -1519,6 +1520,8 @@ MonoBehaviour:
   attackTime: 1
   attackRange: 1.5
   defence: 25
+  minGoldValue: 7
+  maxGoldValue: 15
   expValue: 7
   isDead: 0
   healthBar: {fileID: 293347117970611826}
@@ -1593,6 +1596,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7599864, y: 1.5274786, z: 0.53311205}
   m_Center: {x: -0.0020514727, y: 0.75821537, z: 0.0023839474}
+--- !u!114 &2757719345406388152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260402284993279210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba8f79796c45ba243ad34d076be57fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyText: {fileID: 1943711663461553757}
+  moneyEffect: {fileID: 6643296406163160535}
 --- !u!1 &1260402284993279212
 GameObject:
   m_ObjectHideFlags: 0
@@ -2015,6 +2032,49 @@ Transform:
   - {fileID: 1260402284993112264}
   - {fileID: 7078265913880728553}
   - {fileID: 7618439055688474465}
+  - {fileID: 6060088651916106489}
   m_Father: {fileID: 1260402284993112266}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &7750606656654384090
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3077738906701999685}
+    m_Modifications:
+    - target: {fileID: 4016671362433312269, guid: 274ea4561e68c7f4083b3d5d6e87fd1f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581969749583085859, guid: 274ea4561e68c7f4083b3d5d6e87fd1f, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581969749583085859, guid: 274ea4561e68c7f4083b3d5d6e87fd1f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 274ea4561e68c7f4083b3d5d6e87fd1f, type: 3}
+--- !u!1 &6643296406163160535 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4016671362433312269, guid: 274ea4561e68c7f4083b3d5d6e87fd1f, type: 3}
+  m_PrefabInstance: {fileID: 7750606656654384090}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &6060088651916106489 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4581969749583085859, guid: 274ea4561e68c7f4083b3d5d6e87fd1f, type: 3}
+  m_PrefabInstance: {fileID: 7750606656654384090}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1943711663461553757 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8175964913240460679, guid: 274ea4561e68c7f4083b3d5d6e87fd1f, type: 3}
+  m_PrefabInstance: {fileID: 7750606656654384090}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

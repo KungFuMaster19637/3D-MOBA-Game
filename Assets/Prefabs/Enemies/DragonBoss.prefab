@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 1855462506398485867}
   - component: {fileID: 3377795937610782178}
   - component: {fileID: 8881888056282104499}
+  - component: {fileID: 4532269788289484800}
   m_Layer: 8
   m_Name: DragonBoss
   m_TagString: Boss
@@ -291,6 +292,7 @@ Transform:
   - {fileID: 6359636658478032358}
   - {fileID: 6613268810113690960}
   - {fileID: 5216086092564585792}
+  - {fileID: 8774061178419415988}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -331,8 +333,14 @@ MonoBehaviour:
   attackTime: 1
   attackRange: 10
   defence: 100
+  minGoldValue: 100
+  maxGoldValue: 151
   expValue: 0
+  isDead: 0
   healthBar: {fileID: 1161079424169066569}
+  giveExpOnce: 0
+  dieOnce: 0
+  anim: {fileID: 0}
   dragonSlayer: {fileID: 0}
   dragonBossSounds: {fileID: 3377795937610782178}
 --- !u!114 &1316356265957668731
@@ -516,6 +524,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4532269788289484800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981542763559987130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba8f79796c45ba243ad34d076be57fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyText: {fileID: 3973032315986183952}
+  moneyEffect: {fileID: 8208868330091719834}
 --- !u!1 &981542763559987428
 GameObject:
   m_ObjectHideFlags: 0
@@ -4673,6 +4695,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &5068193429566016151
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 981542763560411718}
+    m_Modifications:
+    - target: {fileID: 4016671362433312269, guid: 274ea4561e68c7f4083b3d5d6e87fd1f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581969749583085859, guid: 274ea4561e68c7f4083b3d5d6e87fd1f, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581969749583085859, guid: 274ea4561e68c7f4083b3d5d6e87fd1f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 274ea4561e68c7f4083b3d5d6e87fd1f, type: 3}
+--- !u!1 &8208868330091719834 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4016671362433312269, guid: 274ea4561e68c7f4083b3d5d6e87fd1f, type: 3}
+  m_PrefabInstance: {fileID: 5068193429566016151}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &8774061178419415988 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4581969749583085859, guid: 274ea4561e68c7f4083b3d5d6e87fd1f, type: 3}
+  m_PrefabInstance: {fileID: 5068193429566016151}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3973032315986183952 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8175964913240460679, guid: 274ea4561e68c7f4083b3d5d6e87fd1f, type: 3}
+  m_PrefabInstance: {fileID: 5068193429566016151}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6717466394559114030
 PrefabInstance:
   m_ObjectHideFlags: 0

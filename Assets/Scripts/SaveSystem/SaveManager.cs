@@ -700,6 +700,7 @@ public class SaveManager : MonoBehaviour
         enemy.GetComponent<EnemyStats>().giveExpOnce = false;
         enemy.GetComponent<EnemyStats>().isDead = false;
         enemy.GetComponent<EnemyStats>().healthBar.SetActive(true);
+        enemy.GetComponent<MoneyEffect>().moneyEffect.SetActive(false);
         enemy.GetComponent<EnemyStats>().anim.SetBool("IsDying", false);
         enemy.GetComponent<Collider>().enabled = true;
         enemy.GetComponent<NavMeshAgent>().enabled = true;

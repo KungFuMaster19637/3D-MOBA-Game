@@ -12,6 +12,8 @@ public class EnemyStats : MonoBehaviour
     public float attackTime;
     public float attackRange;
     public float defence;
+    public int minGoldValue;
+    public int maxGoldValue;
     public float expValue;
     public bool isDead;
 
@@ -23,6 +25,7 @@ public class EnemyStats : MonoBehaviour
 
     private GameObject player;
     public Animator anim;
+    private MoneyEffect moneyEffect;
     private NavMeshAgent agent;
     protected HeroCombat heroCombat;
 
@@ -82,6 +85,7 @@ public class EnemyStats : MonoBehaviour
 
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        moneyEffect = GetComponent<MoneyEffect>();
 
         isDead = false;
 
@@ -96,8 +100,11 @@ public class EnemyStats : MonoBehaviour
             if (!giveExpOnce)
             {
                 Debug.Log("Exp gained: " + expValue);
+                int moneyGain = Random.Range(minGoldValue, maxGoldValue);
+                Debug.Log(moneyGain);
                 player.GetComponent<LevelUpStats>().SetExperience(expValue);
-                MoneyDisplay.AddMoney(5);
+                MoneyDisplay.AddMoney(moneyGain);
+                moneyEffect.PlayMoneyEffect(moneyGain);
                 giveExpOnce = true;
             }
             if (this.CompareTag("Boss"))

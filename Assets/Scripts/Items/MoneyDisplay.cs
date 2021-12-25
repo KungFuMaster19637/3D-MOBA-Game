@@ -8,8 +8,7 @@ public class MoneyDisplay : MonoBehaviour
     public static MoneyDisplay instance;
 
     public static int moneyAmount;
-    [SerializeField] private TMP_Text moneyAmountText;    
-
+    [SerializeField] private TMP_Text moneyAmountText;
 
     private void Awake()
     {

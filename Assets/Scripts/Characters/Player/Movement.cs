@@ -17,8 +17,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private ParticleSystem clickEffect;
     void Start()
     {
-        agent = gameObject.GetComponent<NavMeshAgent>();
-        heroCombatScript = gameObject.GetComponent<HeroCombat>();
+        agent = GetComponent<NavMeshAgent>();
+        heroCombatScript = GetComponent<HeroCombat>();
     }
 
     void Update()

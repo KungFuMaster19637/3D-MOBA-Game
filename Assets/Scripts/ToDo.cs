@@ -98,7 +98,10 @@ public class ToDo
     ----UI Ability Font
 
     Don't forget: Sorting Order of UI;
-    
+    Merlin Cchar:
+    Spells animation
+    new spells scripts
+
 
 
 

@@ -111,9 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5d478aa581ec9439290955bd6bb1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
   target: {fileID: 0}
-  targetSet: 0
+  targetSet: 1
   targetType: Minion
   velocity: 12
   stopProjectile: 0

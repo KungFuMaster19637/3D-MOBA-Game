@@ -10,7 +10,7 @@ public class ArthurAbilityManager : MonoBehaviour
     PlayerStats statsScript;
     Movement movement;
 
-    //public GameObject healingBase;
+    [Header("Ability Effects")]
     public ParticleSystem healingBase;
 
     [Header("Passive")]
@@ -110,6 +110,7 @@ public class ArthurAbilityManager : MonoBehaviour
     //Abiity 1
     public void ActivateAbility1()
     {
+        //Have to implement this so it doesn't become permanently buffed in some cases
         attackBuffExtra = statsScript.attackDamage * 0.1f;
         attackBuff += attackBuffExtra;
 

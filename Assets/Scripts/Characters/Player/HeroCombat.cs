@@ -47,8 +47,15 @@ public class HeroCombat : MonoBehaviour
             anim.SetFloat("AttackSpeed", 2f);
         }
         */
+
+        if (targetedEnemy == null)
+        {
+            anim.SetBool("Basic Attack", false);
+        }
         if (targetedEnemy != null)
         {
+            anim.SetBool("Basic Attack", true);
+
             if (gameObject.name == "King Arthur")
             {
                 if (targetedEnemy.tag == "Boss")
@@ -111,7 +118,7 @@ public class HeroCombat : MonoBehaviour
     {
         float totalDamage;
         totalDamage = 100 / (100 + targetedEnemy.GetComponent<EnemyStats>().defence) * incomingDamage;
-
+        Debug.Log("Total damge: " +  totalDamage);
         return totalDamage;
     }
 
@@ -161,28 +168,24 @@ public class HeroCombat : MonoBehaviour
     IEnumerator MeeleeAttackInterval()
     {
         performMeeleeAttack = false;
-        anim.SetBool("Basic Attack", true);
 
         yield return new WaitForSeconds(statsScript.attackTime / ((100 + statsScript.attackTime) * 0.01f));
 
         if (targetedEnemy == null)
         {
             performMeeleeAttack = true;
-            anim.SetBool("Basic Attack", false);
         }
     }
 
     IEnumerator RangedAttackInterval()
     {
         performRangedAttack = false;
-        anim.SetBool("Basic Attack", true);
 
         yield return new WaitForSeconds(statsScript.attackTime / ((100 + statsScript.attackTime) * 0.01f));
 
         if (targetedEnemy == null)
         {
             performRangedAttack = true;
-            anim.SetBool("Basic Attack", false);
         }
     }
 }

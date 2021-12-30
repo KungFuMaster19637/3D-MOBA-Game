@@ -49,10 +49,10 @@ public class PlayerStats : MonoBehaviour
     protected virtual void Update()
     {
         //Development tools, reducing health and mana manually, remove after testing
-        //if (Input.GetKey("h"))
-        //{
-        //    health--;
-        //}
+        if (Input.GetKey("h"))
+        {
+            health--;
+        }
 
         //if (Input.GetKey("g"))
         //{

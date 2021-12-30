@@ -106,6 +106,26 @@ public class ArthurAbilityManager : MonoBehaviour
 
     }
 
+    public void ArthurPassive()
+    {
+        if (statsScript.health + healthGain > statsScript.maxHealth)
+        {
+            statsScript.health = statsScript.maxHealth;
+        }
+        else if (statsScript.health + healthGain <= statsScript.maxHealth)
+        {
+            statsScript.health += healthGain;
+        }
+
+        if (statsScript.mana + manaGain > statsScript.maxMana)
+        {
+            statsScript.mana = statsScript.maxMana;
+        }
+        else if (statsScript.mana + manaGain <= statsScript.maxMana)
+        {
+            statsScript.mana += manaGain;
+        }
+    }
 
     //Abiity 1
     public void ActivateAbility1()
@@ -196,11 +216,6 @@ public class ArthurAbilityManager : MonoBehaviour
         duration4 = 0;
     }
 
-    public void Passive()
-    {
-        statsScript.health += healthGain;
-        statsScript.mana += manaGain;
-    }
 
     private IEnumerator UltimateAnimation()
     {

@@ -134,9 +134,12 @@ public class EnemyCombat : MonoBehaviour
     {
         if (targetedPlayer != null)
         {
-            if (!targetedPlayer.GetComponent<ArthurAbilityManager>().damageBlocked)
+            if (targetedPlayer.name == "King Arthur")
             {
-                targetedPlayer.GetComponent<PlayerStats>().health -= DamageCalculator(enemyStatsScript.attackDamage);
+                if (!targetedPlayer.GetComponent<ArthurAbilityManager>().damageBlocked)
+                {
+                    targetedPlayer.GetComponent<PlayerStats>().health -= DamageCalculator(enemyStatsScript.attackDamage);
+                }
             }
         }
 

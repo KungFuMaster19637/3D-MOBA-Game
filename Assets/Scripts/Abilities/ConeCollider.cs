@@ -15,6 +15,7 @@ public class ConeCollider : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             abilityManager.SpikeTerrainDamage(other.gameObject);
+            StartCoroutine(abilityManager.SpikeTerrainStun(other.gameObject));
         }
     }
 }

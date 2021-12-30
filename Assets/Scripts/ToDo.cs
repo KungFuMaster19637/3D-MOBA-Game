@@ -99,9 +99,14 @@ public class ToDo
 
     Don't forget: Sorting Order of UI;
     Merlin Cchar:
-    Spells animation
-    new spells scripts
-
+    ----Sound effects on fireball
+    ----Spells animation
+    ----New spells scripts
+    ----Passive
+    ----Ability1
+    ----Ability2
+    ----Ability3
+    ----Ability4
 
 
 

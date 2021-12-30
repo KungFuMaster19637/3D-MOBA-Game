@@ -10,7 +10,7 @@ public class MerlinAbilities : MonoBehaviour
     Ability names:
     Passive: Mana Reload: Every 3rd ability, restores health to Merlin
     Ability 1: Fireball: Shoots a fireball in the direction of the enemy
-    Ability 2: Energy Drain: Heals all allies hit and damages enemies 
+    Ability 2: Energy Drain: Damage all enemies in the area and restores mana based on enemies hit
     Ability 3: Spike Terrain: Summon a spiky terrain underneath and stun enemies for 1 second
     Ability 4: Meteor Shower: Deals massive amount of damage in massive aoe
     */
@@ -95,13 +95,11 @@ public class MerlinAbilities : MonoBehaviour
 
     void Update()
     {
-        if (!spellLock)
-        {
-            Ability1();
-            Ability2();
-            Ability3();
-            Ability4();
-        }
+        Ability1();
+        Ability2();
+        Ability3();
+        Ability4();
+
 
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -177,40 +175,43 @@ public class MerlinAbilities : MonoBehaviour
 
     void Ability2()
     {
-        if (Input.GetKey(ability2) && !isCooldown2 && abilityMana2 <= statsScript.mana)
+        if (!spellLock)
         {
-            indicatorRangeCircle.GetComponent<Image>().enabled = true;
-            skillshot2.GetComponent<Image>().enabled = true;
+            if (Input.GetKey(ability2) && !isCooldown2 && abilityMana2 <= statsScript.mana)
+            {
+                indicatorRangeCircle.GetComponent<Image>().enabled = true;
+                skillshot2.GetComponent<Image>().enabled = true;
 
-            //Disable all other UI
-            toggle3 = false;
-            toggle4 = false;
-        }
+                //Disable all other UI
+                toggle3 = false;
+                toggle4 = false;
+            }
 
-        if (Input.GetKeyDown(ability2) && !isCooldown2 && abilityMana2 <= statsScript.mana)
-        {
-            toggle2 = !toggle2;
-        }
-        if (toggle2)
-        {
-            indicatorRangeCircle.GetComponent<Image>().enabled = true;
-            skillshot2.GetComponent<Image>().enabled = true;
-        }
-        if (!toggle2)
-        {
-            indicatorRangeCircle.GetComponent<Image>().enabled = false;
-            skillshot2.GetComponent<Image>().enabled = false;
-        }
+            if (Input.GetKeyDown(ability2) && !isCooldown2 && abilityMana2 <= statsScript.mana)
+            {
+                toggle2 = !toggle2;
+            }
+            if (toggle2)
+            {
+                indicatorRangeCircle.GetComponent<Image>().enabled = true;
+                skillshot2.GetComponent<Image>().enabled = true;
+            }
+            if (!toggle2)
+            {
+                indicatorRangeCircle.GetComponent<Image>().enabled = false;
+                skillshot2.GetComponent<Image>().enabled = false;
+            }
 
 
 
-        if (skillshot2.GetComponent<Image>().enabled == true && Input.GetMouseButtonDown(0))
-        {
-            //abilityManager.ActivateAbility2();
-            statsScript.mana -= abilityMana2;
-            isCooldown2 = true;
-            toggle2 = false;
-            abilityImage2.fillAmount = 1;
+            if (skillshot2.GetComponent<Image>().enabled == true && Input.GetMouseButtonDown(0))
+            {
+                abilityManager.ActivateAbility2();
+                statsScript.mana -= abilityMana2;
+                isCooldown2 = true;
+                toggle2 = false;
+                abilityImage2.fillAmount = 1;
+            }
         }
 
         if (isCooldown2)
@@ -230,36 +231,39 @@ public class MerlinAbilities : MonoBehaviour
 
     void Ability3()
     {
-        if (Input.GetKey(ability3) && !isCooldown3 && abilityMana3 <= statsScript.mana)
+        if (!spellLock)
         {
-            skillshot3.GetComponent<Image>().enabled = true;
+            if (Input.GetKey(ability3) && !isCooldown3 && abilityMana3 <= statsScript.mana)
+            {
+                skillshot3.GetComponent<Image>().enabled = true;
 
-            //Disable all other UI
-            toggle2 = false;
-            toggle4 = false;
-           
-        }
+                //Disable all other UI
+                toggle2 = false;
+                toggle4 = false;
 
-        if (Input.GetKeyDown(ability3) && !isCooldown3 && abilityMana3 <= statsScript.mana)
-        {
-            toggle3 = !toggle3;
-        }
-        if (toggle3)
-        {
-            skillshot3.GetComponent<Image>().enabled = true;
-        }
-        if (!toggle3)
-        {
-            skillshot3.GetComponent<Image>().enabled = false;
-        }
+            }
 
-        if (skillshot3.GetComponent<Image>().enabled == true && Input.GetMouseButton(0))
-        { 
-            abilityManager.ActivateAbility3();
-            statsScript.mana -= abilityMana3;
-            isCooldown3 = true;
-            toggle3 = false;
-            abilityImage3.fillAmount = 1;
+            if (Input.GetKeyDown(ability3) && !isCooldown3 && abilityMana3 <= statsScript.mana)
+            {
+                toggle3 = !toggle3;
+            }
+            if (toggle3)
+            {
+                skillshot3.GetComponent<Image>().enabled = true;
+            }
+            if (!toggle3)
+            {
+                skillshot3.GetComponent<Image>().enabled = false;
+            }
+
+            if (skillshot3.GetComponent<Image>().enabled == true && Input.GetMouseButton(0))
+            {
+                abilityManager.ActivateAbility3();
+                statsScript.mana -= abilityMana3;
+                isCooldown3 = true;
+                toggle3 = false;
+                abilityImage3.fillAmount = 1;
+            }
         }
 
         if (isCooldown3)
@@ -275,39 +279,40 @@ public class MerlinAbilities : MonoBehaviour
         }
     }
     void Ability4()
-    {
-        //Instantiate(meteorShower, new Vector3(transform.position.x, transform.position.y + 0.4f, transform.position.z), gameObject.transform.rotation);
+    { 
+        if (!spellLock)
+        {
+            if (Input.GetKey(ability4) && !isCooldown4 && abilityMana4 <= statsScript.mana)
+            {
+                skillshot4.GetComponent<Image>().enabled = true;
+                //Disable all other UI
+                toggle2 = false;
+                toggle3 = false;
+            }
 
+            if (skillshot4.GetComponent<Image>().enabled == true && Input.GetMouseButton(0))
+            {
+                abilityManager.ActivateAbility4();
+                statsScript.mana -= abilityMana4;
+                isCooldown4 = true;
+                toggle4 = false;
+                abilityImage4.fillAmount = 1;
+            }
 
-        if (Input.GetKey(ability4) && !isCooldown4 && abilityMana4 <= statsScript.mana)
-        {
-            skillshot4.GetComponent<Image>().enabled = true;
-            //Disable all other UI
-            toggle2 = false;
-            toggle3 = false;
+            if (Input.GetKeyDown(ability4) && !isCooldown4 && abilityMana4 <= statsScript.mana)
+            {
+                toggle4 = !toggle4;
+            }
+            if (toggle4)
+            {
+                skillshot4.GetComponent<Image>().enabled = true;
+            }
+            if (!toggle4)
+            {
+                skillshot4.GetComponent<Image>().enabled = false;
+            }
         }
 
-        if (skillshot4.GetComponent<Image>().enabled == true && Input.GetMouseButton(0))
-        {
-            abilityManager.ActivateAbility4();
-            statsScript.mana -= abilityMana4;
-            isCooldown4 = true;
-            toggle4 = false;
-            abilityImage4.fillAmount = 1;
-        }
-
-        if (Input.GetKeyDown(ability4) && !isCooldown4 && abilityMana4 <= statsScript.mana)
-        {
-            toggle4 = !toggle4;
-        }
-        if (toggle4)
-        {
-            skillshot4.GetComponent<Image>().enabled = true;
-        }
-        if (!toggle4)
-        {
-            skillshot4.GetComponent<Image>().enabled = false;
-        }
 
         if (isCooldown4)
         {

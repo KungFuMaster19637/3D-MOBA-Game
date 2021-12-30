@@ -10,6 +10,7 @@ public class HoverUI : MonoBehaviour
     public TMP_Text abilityDescription;
     public GameObject descriptionUI;
 
+    private string passive;
     private string ability1;
     private string ability2;
     private string ability3;
@@ -18,6 +19,7 @@ public class HoverUI : MonoBehaviour
     private void Start()
     {
         descriptionUI.SetActive(false);
+        passive = "";
         ability1 = "";
         ability2 = "";
         ability3 = "";
@@ -31,6 +33,10 @@ public class HoverUI : MonoBehaviour
     public void OnMouseOver()
     {
         descriptionUI.SetActive(true);
+        if (gameObject.name == "Passive")
+        {
+            abilityDescription.text = passive;
+        }
         if (gameObject.name == "Ability1")
         {
             abilityDescription.text = ability1;

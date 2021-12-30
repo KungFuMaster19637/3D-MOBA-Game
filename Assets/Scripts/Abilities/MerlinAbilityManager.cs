@@ -7,11 +7,13 @@ public class MerlinAbilityManager : MonoBehaviour
 {
     NavMeshAgent agent;
     HeroCombat heroCombatScript;
-    PlayerStats playerStatsScript;
+    PlayerStats statsScript;
     Animator anim;
     Movement movement;
 
     MerlinAbilities merlinAbilities;
+    AudioSource fireballVFX;
+    [SerializeField] private AudioClip fireballClip;
 
     [Header("Ability Effects")]
     public ParticleSystem energyDrain;
@@ -21,21 +23,31 @@ public class MerlinAbilityManager : MonoBehaviour
     public ParticleSystem meteorShower;
 
     [Header("Passive")]
-    private int passiveCount;
+    public int passiveCount;
+    public float passiveHealAmount;
+    public float passiveHealMultiplier;
+
     [Header("Ability 1")]
     public float duration1;
     public float totalDuration1;
+    public float fireballSpeedBuff;
     public float attackBuff;
 
     private bool ability1Pressed = false;
     private Vector3 objectScale;
 
     [Header("Ability 2")]
+    public float energyDrainHeal;
+    public float energyDrainHealMultiplier;
+    public float energyDrainDamage;
+    public float energyDrainDamageMultiplier;
+    public float energyDrainRange;
     private bool ability2Pressed = false;
 
     [Header("Ability 3")]
     public float spikeTerrainDamage;
     public float spikeTerrainMultiplier;
+    public float spikeTerrainStunDuration;
     private bool ability3Pressed = false;
 
     [Header("Ability 4")]
@@ -45,12 +57,12 @@ public class MerlinAbilityManager : MonoBehaviour
     
     private bool ability4Pressed = false;
 
-    // Start is called before the first frame update
     void Start()
     {
+        fireballVFX = GetComponent<AudioSource>();
         agent = GetComponent<NavMeshAgent>();
         heroCombatScript = GetComponent<HeroCombat>();
-        playerStatsScript = GetComponent<PlayerStats>();
+        statsScript = GetComponent<PlayerStats>();
         anim = GetComponent<Animator>();
         movement = GetComponent<Movement>();
         merlinAbilities = GetComponent<MerlinAbilities>();
@@ -59,7 +71,6 @@ public class MerlinAbilityManager : MonoBehaviour
         ResetPrefabScaling();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (ability1Pressed)
@@ -71,6 +82,7 @@ public class MerlinAbilityManager : MonoBehaviour
             Debug.Log("deactivating");
             DeactivateAbility1();
         }
+        MerlinPassive();
     }
 
     private void ResetPrefabScaling()
@@ -87,49 +99,120 @@ public class MerlinAbilityManager : MonoBehaviour
         Debug.Log("Spell damage: " + totalDamage);
         return totalDamage;
     }
+
+    private void MerlinPassive()
+    {
+        if (passiveCount == 3)
+        {
+            if (statsScript.health + passiveHealAmount > statsScript.maxHealth)
+            {
+                statsScript.health = statsScript.maxHealth;
+            }
+            else if (statsScript.health + passiveHealAmount <= statsScript.maxHealth)
+            {
+                statsScript.health += passiveHealAmount + statsScript.spellPower * passiveHealMultiplier;
+            }
+            passiveCount = 0;
+        }
+
+    }
+
+    public void FireballVFX()
+    {
+        fireballVFX.PlayOneShot(fireballClip, 0.6f);
+    }
     public void ActivateAbility1()
     {
         ability1Pressed = true;
-        playerStatsScript.attackDamage += attackBuff;
+        statsScript.attackDamage += attackBuff;
+        heroCombatScript.projPrefab.GetComponent<RangedProjectile>().velocity += fireballSpeedBuff;
 
         heroCombatScript.projPrefab.transform.localScale += objectScale;
         heroCombatScript.projPrefab.transform.GetChild(0).localScale += objectScale;
         heroCombatScript.projPrefab.transform.GetChild(1).localScale += objectScale;
+
+        passiveCount++;
     }
 
     public void DeactivateAbility1()
     {
         ability1Pressed = false;
-        playerStatsScript.attackDamage -= attackBuff;
+        statsScript.attackDamage -= attackBuff;
+        heroCombatScript.projPrefab.GetComponent<RangedProjectile>().velocity -= fireballSpeedBuff;
         duration1 = 0;
-
-        //heroCombatScript.projPrefab.transform.localScale -= objectScale;
-        //heroCombatScript.projPrefab.transform.GetChild(0).localScale -= objectScale;
-        //heroCombatScript.projPrefab.transform.GetChild(1).localScale -= objectScale;
 
         ResetPrefabScaling();
 
     }
     public void ActivateAbility2()
     {
-        Instantiate(energyDrain);
+        Vector3 energyPosition = merlinAbilities.ability2Canvas.transform.position;
+        passiveCount++;
+        StartCoroutine(EnergyDrainInterval(energyPosition));
     }
     public void ActivateAbility3()
     {
         Quaternion spikeRotation = Quaternion.LookRotation(merlinAbilities.mousePosition - transform.position);
+        passiveCount++;
         StartCoroutine(SpikeTerrainInterval(spikeRotation));
 
     }
     public void ActivateAbility4()
     {
-        Instantiate(meteorShower, new Vector3(transform.position.x, transform.position.y, transform.position.z), gameObject.transform.rotation);
+        passiveCount++;
         StartCoroutine(MeteorShowerInterval());
     }
+
+    private IEnumerator EnergyDrainInterval(Vector3 energyPosition)
+    {
+        anim.SetBool("Skill", true);
+        agent.isStopped = true;
+        movement.canMove = false;
+
+        merlinAbilities.spellLock = true;
+
+        yield return new WaitForSeconds(1f);
+
+        Instantiate(energyDrain, energyPosition, Quaternion.identity);
+
+        yield return new WaitForSeconds(spikeTerrainStunDuration);
+
+        Collider[] enemiesInRange = Physics.OverlapSphere(energyPosition, energyDrainRange);
+
+        foreach (Collider enemy in enemiesInRange)
+        {
+            if (enemy.CompareTag("Enemy"))
+            {
+                enemy.GetComponent<EnemyStats>().health -= SpellCalculator(energyDrainDamage + statsScript.spellPower * energyDrainDamageMultiplier, enemy.gameObject);
+                statsScript.health += (energyDrainHeal + statsScript.spellPower * energyDrainHealMultiplier); 
+            }
+        }
+
+        merlinAbilities.spellLock = false;
+
+        anim.SetBool("Skill", false);
+        agent.isStopped = false;
+        movement.canMove = true;
+    }
+
     public void SpikeTerrainDamage(GameObject enemy)
     {
-        enemy.GetComponent<EnemyStats>().health -= SpellCalculator(spikeTerrainDamage + playerStatsScript.spellPower * spikeTerrainMultiplier, enemy);
+        enemy.GetComponent<EnemyStats>().health -= SpellCalculator(spikeTerrainDamage + statsScript.spellPower * spikeTerrainMultiplier, enemy);
     }
-    private IEnumerator SpikeTerrainInterval(Quaternion rotation)
+
+    public IEnumerator SpikeTerrainStun(GameObject enemy)
+    {
+
+        float tempSpeed = enemy.GetComponent<NavMeshAgent>().speed;
+        enemy.GetComponent<NavMeshAgent>().speed = 0;
+
+        Debug.Log(tempSpeed);
+        yield return new WaitForSeconds(1f);
+        enemy.GetComponent<NavMeshAgent>().speed = tempSpeed;
+        Debug.Log(enemy.GetComponent<NavMeshAgent>().speed + tempSpeed);
+        yield return null;
+    }
+    private IEnumerator SpikeTerrainInterval(Quaternion spikeRotation)
     {
         anim.SetBool("Skill", true);
         agent.isStopped = true;
@@ -141,11 +224,15 @@ public class MerlinAbilityManager : MonoBehaviour
 
         merlinAbilities.spellLock = false;
 
-        Instantiate(spikeTerrain, transform.position, rotation);
-        Instantiate(coneDetection, transform.position, rotation);
+        Instantiate(spikeTerrain, transform.position, spikeRotation);
+        GameObject coneCollider = Instantiate(coneDetection, transform.position, spikeRotation);
         anim.SetBool("Skill", false);
         agent.isStopped = false;
         movement.canMove = true;
+
+        yield return new WaitForSeconds(1.5f);
+
+        Destroy(coneCollider);
     }
     private IEnumerator MeteorShowerInterval()
     {
@@ -155,6 +242,10 @@ public class MerlinAbilityManager : MonoBehaviour
 
         merlinAbilities.spellLock = true;
 
+        yield return new WaitForSeconds(1f);
+
+        Instantiate(meteorShower, new Vector3(transform.position.x, transform.position.y, transform.position.z), gameObject.transform.rotation);
+
         //Calculating damage in area
         Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, meteorShowerRange);
         foreach (Collider enemy in enemiesInRange)
@@ -163,12 +254,11 @@ public class MerlinAbilityManager : MonoBehaviour
             {
                 for (int i = 0; i < 6; i++)
                 {
-                    enemy.GetComponent<EnemyStats>().health -= SpellCalculator(meteorShowerDamage + playerStatsScript.spellPower * meteorShowerMultiplier, enemy.gameObject);
+                    enemy.GetComponent<EnemyStats>().health -= SpellCalculator(meteorShowerDamage + statsScript.spellPower * meteorShowerMultiplier, enemy.gameObject);
                     yield return new WaitForSeconds(0.1f);
                 }
             }
         }
-        yield return new WaitForSeconds(1f);
 
         merlinAbilities.spellLock = false;
 

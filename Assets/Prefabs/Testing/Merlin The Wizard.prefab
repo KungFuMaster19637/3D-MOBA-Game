@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 1012298235487981970}
   - component: {fileID: 954552101831894228}
   - component: {fileID: 5662707166617765747}
+  - component: {fileID: 1766068544737885431}
   m_Layer: 0
   m_Name: Merlin The Wizard
   m_TagString: Player
@@ -92,10 +93,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.8698961
+  m_Radius: 0.54061055
   m_Height: 3
   m_Direction: 1
-  m_Center: {x: 0, y: 1.0999999, z: 0.30204004}
+  m_Center: {x: 0, y: 1.0999999, z: 0.22104406}
 --- !u!195 &4948661027415878102
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -209,6 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePosition: {x: 0, y: 0, z: 0}
   player: {fileID: 391388804566692001}
+  spellLock: 0
   abilityImage1: {fileID: 0}
   abilityMana1: 30
   cooldown1: 12
@@ -245,17 +247,126 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4894cb1280fc20458e9ed9c291d9628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireballClip: {fileID: 8300000, guid: cdec6821f3dd53a4da984a8f7756fd79, type: 3}
   energyDrain: {fileID: 2187337636361731068, guid: 5295684c3b2c86b4bb2f59e521cec06d, type: 3}
   spikeTerrain: {fileID: 2145672077063550724, guid: a6849fcc0116af348ab114cddffe131c, type: 3}
   coneDetection: {fileID: 2321504498440668317, guid: e73277e81b41c134496d972d5b302149, type: 3}
   enemiesDetected: []
   meteorShower: {fileID: 8530466834705495050, guid: 2409fa95f5cf6ff4a9bebedd643f90be, type: 3}
+  passiveCount: 0
+  passiveHealAmount: 20
+  passiveHealMultiplier: 0.1
   duration1: 0
   totalDuration1: 5
+  fireballSpeedBuff: 2
   attackBuff: 10
+  energyDrainHeal: 20
+  energyDrainHealMultiplier: 0.2
+  energyDrainDamage: 40
+  energyDrainDamageMultiplier: 0.1
+  energyDrainRange: 3.75
+  spikeTerrainDamage: 30
+  spikeTerrainMultiplier: 0.1
+  spikeTerrainStunDuration: 1
   meteorShowerDamage: 40
-  meteorShowerMultiplier: 0
+  meteorShowerMultiplier: 0.25
   meteorShowerRange: 6.25
+--- !u!82 &1766068544737885431
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391388804566787201}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: f190f899bab50bc4181f60554e7f3daf, type: 2}
+  m_audioClip: {fileID: 8300000, guid: cdec6821f3dd53a4da984a8f7756fd79, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.6
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &391388804566787203
 GameObject:
   m_ObjectHideFlags: 0

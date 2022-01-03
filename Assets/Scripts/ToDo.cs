@@ -62,7 +62,7 @@ public class ToDo
     ----Healing Ally NPC
     ----Healing VFX delete gameobject;
     Final build: put items in right hiding environment
-    NPC Movements
+    ----NPC Movements
     ----Scripts/Sentences above NPC's
     ----Dragon Boss Sounds
     ----Dragon Boss Icon Change
@@ -98,7 +98,7 @@ public class ToDo
     ----UI Ability Font
 
     Don't forget: Sorting Order of UI;
-    Merlin Cchar:
+    Merlin Char:
     ----Sound effects on fireball
     ----Spells animation
     ----New spells scripts

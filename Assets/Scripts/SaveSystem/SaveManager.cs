@@ -6,9 +6,12 @@ using System.Xml.Serialization;
 using System.IO;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour
 {
+    private Scene sceneName;
+
     private PlayerStats playerStats;
     private GameObject player;
     private Transform playerPosition;
@@ -41,6 +44,8 @@ public class SaveManager : MonoBehaviour
 
     private void Start()
     {
+        sceneName = SceneManager.GetActiveScene();
+
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
         player = GameObject.FindGameObjectWithTag("Player");
@@ -354,29 +359,37 @@ public class SaveManager : MonoBehaviour
             root.AppendChild(enemyElement);
         }
         //NPC Info
-        XmlElement npcElement, npcPosXElement, npcPosYElement, npcPosZElement;
+        //XmlElement npcElement, npcPosXElement, npcPosYElement, npcPosZElement;
 
-        for (int i = 0; i < saveData.npcPositionX.Count; i++)
-        {
-            npcElement = xmlDocument.CreateElement("NPC");
-            npcPosXElement = xmlDocument.CreateElement("NPCPositionX");
-            npcPosYElement = xmlDocument.CreateElement("NPCPositionY");
-            npcPosZElement = xmlDocument.CreateElement("NPCPositionZ");
+        //for (int i = 0; i < saveData.npcPositionX.Count; i++)
+        //{
+        //    npcElement = xmlDocument.CreateElement("NPC");
+        //    npcPosXElement = xmlDocument.CreateElement("NPCPositionX");
+        //    npcPosYElement = xmlDocument.CreateElement("NPCPositionY");
+        //    npcPosZElement = xmlDocument.CreateElement("NPCPositionZ");
 
-            npcPosXElement.InnerText = saveData.npcPositionX[i].ToString();
-            npcPosYElement.InnerText = saveData.npcPositionY[i].ToString();
-            npcPosZElement.InnerText = saveData.npcPositionZ[i].ToString();
+        //    npcPosXElement.InnerText = saveData.npcPositionX[i].ToString();
+        //    npcPosYElement.InnerText = saveData.npcPositionY[i].ToString();
+        //    npcPosZElement.InnerText = saveData.npcPositionZ[i].ToString();
 
-            npcElement.AppendChild(npcPosXElement);
-            npcElement.AppendChild(npcPosYElement);
-            npcElement.AppendChild(npcPosZElement);
+        //    npcElement.AppendChild(npcPosXElement);
+        //    npcElement.AppendChild(npcPosYElement);
+        //    npcElement.AppendChild(npcPosZElement);
 
-            root.AppendChild(npcElement);
-        }
+        //    root.AppendChild(npcElement);
+        //}
 
         xmlDocument.AppendChild(root);
 
-        xmlDocument.Save(Application.dataPath + "/SavedDataXML.text");
+        if (sceneName.name == "Arthur")
+        {
+            xmlDocument.Save(Application.dataPath + "/ArthurSavedDataXML.text");
+        }
+        if (sceneName.name == "Merlin")
+        {
+            xmlDocument.Save(Application.dataPath + "/MerlinSavedDataXML.text");
+        }
+
         if (File.Exists(Application.dataPath + "/SavedDataXML.text"))
         {
             Debug.Log("file saved");
@@ -386,13 +399,26 @@ public class SaveManager : MonoBehaviour
 
     public void LoadFromXML()
     {
-        if (File.Exists(Application.dataPath + "/SavedDataXML.text"))
+        if (File.Exists(Application.dataPath + "/ArthurSavedDataXML.text") || File.Exists(Application.dataPath + "/MerlinSavedDataXML.text"))
         {
             //Load the variables
 
             SaveData saveData = new SaveData();
             XmlDocument xmlDocument = new XmlDocument();
-            xmlDocument.Load(Application.dataPath + "/SavedDataXML.text");
+
+            if (sceneName.name == "Arthur")
+            {
+                xmlDocument.Load(Application.dataPath + "/ArthurSavedDataXML.text");
+
+            }
+
+            if (sceneName.name == "Merlin")
+            {
+                xmlDocument.Load(Application.dataPath + "/MerlinSavedDataXML.text");
+
+            }
+
+            //xmlDocument.Load(Application.dataPath + "/SavedDataXML.text");
 
             //Get the saved data from the file
 

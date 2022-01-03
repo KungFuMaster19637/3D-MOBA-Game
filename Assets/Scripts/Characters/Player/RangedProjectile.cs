@@ -45,7 +45,6 @@ public class RangedProjectile : MonoBehaviour
                     {
                         damage = playerStatsScript.attackDamage;
 
-                        Debug.Log("Player damage: " + damage);
                         target.GetComponent<EnemyStats>().health -= ProjectileDamage(damage);
                         stopProjectile = true;
                         Destroy(gameObject);
@@ -59,7 +58,6 @@ public class RangedProjectile : MonoBehaviour
     {
         float totalDamage;
         totalDamage = 100 / (100 + target.GetComponent<EnemyStats>().defence) * incomingDamage;
-        Debug.Log("Projectile damage: " + totalDamage);
         return totalDamage;
     }
 }

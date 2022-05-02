@@ -16,6 +16,7 @@ public class EnemyCombat : MonoBehaviour
     private float rotateSpeedForAttack = 0.075f;
 
     private EnemyStats enemyStatsScript;
+    private EnemySounds enemySounds;
     private NavMeshAgent agent;
 
     //RaycastHit hit;
@@ -31,6 +32,7 @@ public class EnemyCombat : MonoBehaviour
     void Start()
     {
         enemyStatsScript = GetComponent<EnemyStats>();
+        enemySounds = GetComponent<EnemySounds>();
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
 
@@ -128,6 +130,11 @@ public class EnemyCombat : MonoBehaviour
         totalDamage = 100 / (100 + targetedPlayer.GetComponent<PlayerStats>().defence) * incomingDamage;
         //Debug.Log("Enemy damage: " + totalDamage);
         return totalDamage;
+    }
+
+    public void AttackPlayerSound()
+    {
+        StartCoroutine(enemySounds.PlayEnemyHit());
     }
 
     public void AttackPlayer()

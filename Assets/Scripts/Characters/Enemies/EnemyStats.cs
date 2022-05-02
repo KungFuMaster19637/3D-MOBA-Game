@@ -19,6 +19,8 @@ public class EnemyStats : MonoBehaviour
 
     [Header ("Components")]
     public GameObject healthBar;
+    [SerializeField] private EnemySounds enemySounds;
+
 
     public bool giveExpOnce;
     public bool dieOnce;
@@ -118,6 +120,7 @@ public class EnemyStats : MonoBehaviour
             if (this.CompareTag("Enemy") && !dieOnce)
             {
                 dieOnce = true;
+                StartCoroutine(enemySounds.PlayEnemyDie());
                 StartCoroutine(PlayDeathAnimation());
             }
         }

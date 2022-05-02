@@ -27,6 +27,7 @@ public class PlayerStats : MonoBehaviour
     [Header ("Components")]
     public GameObject healthBar;
     public GameOver gameOver;
+    public AudioListener audioListener;
 
     private Animator anim;
     private NavMeshAgent agent;
@@ -83,6 +84,7 @@ public class PlayerStats : MonoBehaviour
     private IEnumerator PlayDeathAnimation()
     {
         anim.SetBool("Dying", true);
+        audioListener.enabled = false;
         healthBar.SetActive(false);
         agent.isStopped = true;
         movement.canMove = false;

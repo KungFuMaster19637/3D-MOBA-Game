@@ -37,7 +37,7 @@ public class MerlinHoverUI : MonoBehaviour
             statsScript.spellPower * abilityManager.spikeTerrainMultiplier + " damage and stunning enemies in the cone for " + 
             abilityManager.spikeTerrainStunDuration + " seconds";
         ability4 = "Merlin casts the holy spell of Camelot, firing magic missiles from the skies dealing " + abilityManager.meteorShowerDamage + " + " +
-            statsScript.spellPower * abilityManager.meteorShowerMultiplier + " damage around him";
+            statsScript.spellPower * abilityManager.meteorShowerMultiplier + " damage per hit for 2 seconds around him";
     }
     public void OnMouseOver()
     {

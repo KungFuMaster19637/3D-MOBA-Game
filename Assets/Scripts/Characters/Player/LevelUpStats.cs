@@ -11,6 +11,7 @@ public class LevelUpStats : MonoBehaviour
     public float experience { get; set; }
     public TMP_Text lvlText;
     public Image expBarImage;
+    [SerializeField] private ExperienceEffect experienceEffect;
 
     private PlayerStats playerStats;
 
@@ -36,6 +37,7 @@ public class LevelUpStats : MonoBehaviour
     public void SetExperience(float exp)
     {
         experience += exp;
+        experienceEffect.PlayExperienceEffect(exp);
 
         float expNeeded = 20;
 

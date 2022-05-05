@@ -66,7 +66,8 @@ public class ToDo
     ----Scripts/Sentences above NPC's
     ----Dragon Boss Sounds
     ----Dragon Boss Icon Change
-
+    ----Experience Effect
+    Small camera bug (circle showing up when moving?)
 
     Feedback:
     ----Lighting (overexposed) 

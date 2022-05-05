@@ -33,6 +33,12 @@ public class Item : MonoBehaviour
         gameObject.GetComponent<Collider>().enabled = false;
         gameObject.transform.GetChild(0).transform.gameObject.SetActive(false);
     }
+
+    private void ItemExperience(float experience)
+    {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<LevelUpStats>().SetExperience(experience);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -40,36 +46,42 @@ public class Item : MonoBehaviour
             if (this.name == "HealthPotion" && itemDisplay.itemAmount[0] < 9)
             {
                 itemDisplay.AddItem(0);
+                ItemExperience(2);
                 ItemPickedUp();
             }
 
             if (this.name == "ManaPotion" && itemDisplay.itemAmount[1] < 9)
             {
                 itemDisplay.AddItem(1);
+                ItemExperience(2);
                 ItemPickedUp();
             }
 
             if (this.name == "StrengthPotion" && itemDisplay.itemAmount[2] < 9)
             {
                 itemDisplay.AddItem(2);
+                ItemExperience(2);
                 ItemPickedUp();
             }
 
             if (this.name == "DefencePotion" && itemDisplay.itemAmount[3] < 9)
             {
                 itemDisplay.AddItem(3);
+                ItemExperience(2);
                 ItemPickedUp();
             }
 
             if (this.name == "SpellPotion" && itemDisplay.itemAmount[4] < 9)
             {
                 itemDisplay.AddItem(4);
+                ItemExperience(2);
                 ItemPickedUp();
             }
 
             if (this.name == "Wheat" && itemDisplay.itemAmount[5] < 99)
             {
                 itemDisplay.AddItem(5);
+                ItemExperience(2);
                 questGiver.WheatAcquired();
                 ItemPickedUp();
             }
@@ -77,6 +89,7 @@ public class Item : MonoBehaviour
             if (this.name == "Iron" && itemDisplay.itemAmount[6] < 99)
             {
                 itemDisplay.AddItem(6);
+                ItemExperience(2);
                 questGiver.IronAcquired();
                 ItemPickedUp();
             }
@@ -84,30 +97,35 @@ public class Item : MonoBehaviour
             if (this.name == "Fowl" && itemDisplay.itemAmount[7] < 9)
             {
                 itemDisplay.AddItem(7);
+                ItemExperience(2);
                 ItemPickedUp();
             }
 
             if (this.name == "MagicalDonut" && itemDisplay.itemAmount[8] < 9)
             {
                 itemDisplay.AddItem(8);
+                ItemExperience(5);
                 ItemPickedUp();
             }
 
             if (this.name == "RiskyPotion" && itemDisplay.itemAmount[9] < 9)
             {
                 itemDisplay.AddItem(9);
+                ItemExperience(5);
                 ItemPickedUp();
             }
 
             if (this.name == "RingOfMana" && itemDisplay.itemAmount[10] < 99)
             {
                 itemDisplay.AddItem(10);
+                ItemExperience(5);
                 ItemPickedUp();
             }
 
             if (this.name == "HolyOrb" && itemDisplay.itemAmount[11] < 99)
             {
                 itemDisplay.AddItem(11);
+                ItemExperience(10);
                 ItemPickedUp();
             }
 

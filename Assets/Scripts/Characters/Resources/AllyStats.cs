@@ -9,11 +9,13 @@ public class AllyStats : PlayerStats
 
     private string childPain;
     private string childHealed;
+    private bool healedOnce;
 
     protected override void Start()
     {
         childPain = "Someone please heal me";
         childHealed = "Thank you very much";
+        healedOnce = false;
     }
     protected override void Update()
     {
@@ -21,6 +23,16 @@ public class AllyStats : PlayerStats
         if (health >= maxHealth)
         {
             childDialogue.text = childHealed;
+            if (!healedOnce)
+            {
+                AllyExperience();
+                healedOnce = true;
+            }
         }
+    }
+
+    private void AllyExperience()
+    {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<LevelUpStats>().SetExperience(5);
     }
 }

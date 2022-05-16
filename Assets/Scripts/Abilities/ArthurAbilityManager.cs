@@ -24,6 +24,7 @@ public class ArthurAbilityManager : MonoBehaviour
     public float attackBuff;
     private float attackBuffExtra;
     private bool ability1Pressed = false;
+    public GameObject ability1Icon;
 
 
     [Header("Ability 2")]
@@ -33,12 +34,14 @@ public class ArthurAbilityManager : MonoBehaviour
     public float duration2 = 0;
     public float totalDuration2;
     private bool ability2Pressed = false;
+    public GameObject ability2Icon;
 
     [Header ("Ability 3")]
     public bool damageBlocked = false;
     public float duration3 = 0;
     public float totalDuration3;
     private bool ability3Pressed = false;
+    public GameObject ability3Icon;
 
     [Header("Ability 4")]
     public float attackSpeedBuff;
@@ -46,6 +49,7 @@ public class ArthurAbilityManager : MonoBehaviour
     public float duration4 = 0;
     public float totalDuration4;
     private bool ability4Pressed = false;
+    public GameObject ability4Icon;
 
     private Animator anim;
 
@@ -134,6 +138,7 @@ public class ArthurAbilityManager : MonoBehaviour
         attackBuffExtra = statsScript.attackDamage * 0.1f;
         attackBuff += attackBuffExtra;
 
+        ability1Icon.SetActive(true);
         ability1Pressed = true;
         statsScript.attackDamage += attackBuff;
         agent.speed += movementSpeedBuff;
@@ -141,6 +146,7 @@ public class ArthurAbilityManager : MonoBehaviour
 
     public void DeactivateAbility1()
     {
+        ability1Icon.SetActive(false);
         ability1Pressed = false;
         statsScript.attackDamage -= attackBuff;
         agent.speed -= movementSpeedBuff;
@@ -165,6 +171,7 @@ public class ArthurAbilityManager : MonoBehaviour
                 ally.GetComponent<PlayerStats>().health += healAmount;
             }
         }
+        ability2Icon.SetActive(true);
         ability2Pressed = true;
 
         if (statsScript.health + healAmount > statsScript.maxHealth)
@@ -181,6 +188,7 @@ public class ArthurAbilityManager : MonoBehaviour
 
     public void DeactivateAbility2()
     {
+        ability2Icon.SetActive(false);
         ability2Pressed = false;
         statsScript.healthRegeneration -= regenerationBuff;
         duration2 = 0;
@@ -188,13 +196,14 @@ public class ArthurAbilityManager : MonoBehaviour
 
     public void ActivateAbility3()
     {
+        ability3Icon.SetActive(true);
         ability3Pressed = true;
         damageBlocked = true;
     }
 
     public void DeactivateAbility3()
     {
-        Debug.Log("deactivating ability 3");
+        ability3Icon.SetActive(false);
         ability3Pressed = false;
         damageBlocked = false;
         duration3 = 0;
@@ -203,13 +212,14 @@ public class ArthurAbilityManager : MonoBehaviour
     public void ActivateAbility4()
     {
         StartCoroutine(UltimateAnimation());
+        ability4Icon.SetActive(true);
         ability4Pressed = true;
         anim.SetFloat("AttackSpeed", attackSpeedBuff);
         statsScript.attackRange += attackRangeBuff;
     }
     public void DeactivateAbility4()
     {
-        Debug.Log("deactivating ability 4");
+        ability4Icon.SetActive(false);
         ability4Pressed = false;
         anim.SetFloat("AttackSpeed", statsScript.attackSpeed);
         statsScript.attackRange -= attackRangeBuff;

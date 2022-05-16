@@ -50,9 +50,9 @@ public class EnemyStats : MonoBehaviour
     Aggro Range: 8
 
     Dragonsouleater:
-    Health: 100
+    Health: 300
     Attack Damage: 60 
-    Attack Time: 2
+    Attack Time: 4
     Attack Range: 3
     Defence: 50
     Exp Value: 8

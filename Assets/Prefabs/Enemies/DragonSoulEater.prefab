@@ -375,6 +375,8 @@ GameObject:
   - component: {fileID: 4997365169633021489}
   - component: {fileID: 4997365169633021490}
   - component: {fileID: 7062201295182367086}
+  - component: {fileID: 292979594045163985}
+  - component: {fileID: 7791810853657437972}
   m_Layer: 8
   m_Name: DragonSoulEater
   m_TagString: Enemy
@@ -441,10 +443,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 464505370e45d4746a746ae8734ad047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  health: 100
+  maxHealth: 300
+  health: 300
   attackDamage: 60
-  attackTime: 2
+  attackTime: 4
   attackRange: 3
   defence: 50
   minGoldValue: 12
@@ -452,6 +454,7 @@ MonoBehaviour:
   expValue: 8
   isDead: 0
   healthBar: {fileID: 4997365170821575746}
+  enemySounds: {fileID: 7791810853657437972}
   giveExpOnce: 0
   dieOnce: 0
   anim: {fileID: 0}
@@ -524,6 +527,118 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyText: {fileID: 7529727919664770457}
   moneyEffect: {fileID: 3365946153935210003}
+--- !u!82 &292979594045163985
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341256338885340285}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: f190f899bab50bc4181f60554e7f3daf, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 64
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &7791810853657437972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341256338885340285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 722b856a7cb6a06489a4369f2fcb479d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHit1: {fileID: 8300000, guid: 395dc7cd4db29754e8aaf71c6b6ef91c, type: 3}
+  enemyHit2: {fileID: 8300000, guid: ef1d77512890334488aafdb9d8796b2f, type: 3}
+  enemyHit3: {fileID: 8300000, guid: c9986030e56636e4caec53875dcb9557, type: 3}
+  enemyDie: {fileID: 8300000, guid: b6be00928fbd2204fb722f11d5151670, type: 3}
 --- !u!1 &1964717699018182086
 GameObject:
   m_ObjectHideFlags: 0

@@ -687,6 +687,8 @@ GameObject:
   - component: {fileID: 5286797315972486341}
   - component: {fileID: 351190129682363516}
   - component: {fileID: 8780968344220934479}
+  - component: {fileID: 308549979212656500}
+  - component: {fileID: 2110732072302876452}
   m_Layer: 8
   m_Name: GreenBoar
   m_TagString: Enemy
@@ -769,6 +771,7 @@ MonoBehaviour:
   expValue: 4
   isDead: 0
   healthBar: {fileID: 2960102313130374599}
+  enemySounds: {fileID: 2110732072302876452}
   giveExpOnce: 0
   dieOnce: 0
   anim: {fileID: 0}
@@ -836,6 +839,118 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyText: {fileID: 8032000610803499573}
   moneyEffect: {fileID: 3008316141836364223}
+--- !u!82 &308549979212656500
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4702050560704081753}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: f190f899bab50bc4181f60554e7f3daf, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 64
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &2110732072302876452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4702050560704081753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 722b856a7cb6a06489a4369f2fcb479d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHit1: {fileID: 8300000, guid: 764943801d1e6cf47b19fbdea338552d, type: 3}
+  enemyHit2: {fileID: 8300000, guid: c86b1917b13f20d46af2aec442b03acb, type: 3}
+  enemyHit3: {fileID: 8300000, guid: 7cfa1c899a7223d4ca59c0953a6d1033, type: 3}
+  enemyDie: {fileID: 8300000, guid: 268a6f296776a9444ac84699c1ab8315, type: 3}
 --- !u!1 &4702050560704085001
 GameObject:
   m_ObjectHideFlags: 0

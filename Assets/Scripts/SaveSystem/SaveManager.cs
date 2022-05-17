@@ -61,7 +61,7 @@ public class SaveManager : MonoBehaviour
 
         items = GameObject.FindGameObjectsWithTag("Item");
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        Debug.Log("Enemies in scene: " + enemies.Length);
+        //Debug.Log("Enemies in scene: " + enemies.Length);
 
         //npcs = GameObject.FindGameObjectsWithTag("NPC");
     }

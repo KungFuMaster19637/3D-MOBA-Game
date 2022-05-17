@@ -12,9 +12,6 @@ public class EnemySounds : MonoBehaviour
     private AudioSource enemyAudio;
     private bool playDeadOnce;
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
         enemyAudio = GetComponent<AudioSource>();

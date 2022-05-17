@@ -9,7 +9,7 @@ public class MerlinAbilities : MonoBehaviour
     /*
     Ability names:
     Passive: Mana Reload: Every 3rd ability, restores health to Merlin
-    Ability 1: Fireball: Shoots a fireball in the direction of the enemy
+    Ability 1: Fireball: The fireballs of normal attacks becomes bigger and stronger
     Ability 2: Energy Drain: Damage all enemies in the area and restores mana based on enemies hit
     Ability 3: Spike Terrain: Summon a spiky terrain underneath and stun enemies for 1 second
     Ability 4: Meteor Shower: Deals massive amount of damage in massive aoe

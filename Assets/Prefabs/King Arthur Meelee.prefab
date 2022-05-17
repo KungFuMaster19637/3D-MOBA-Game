@@ -4203,7 +4203,7 @@ GameObject:
   - component: {fileID: 7654205170705035619}
   - component: {fileID: 2518545557309280869}
   - component: {fileID: 5839355088303869398}
-  - component: {fileID: 8672685556611021182}
+  - component: {fileID: 7352173210636705005}
   m_Layer: 0
   m_Name: King Arthur Meelee
   m_TagString: Player
@@ -4417,11 +4417,11 @@ MonoBehaviour:
   healthRegeneration: 5
   maxMana: 250
   mana: 250
-  manaRegeneration: 5
+  manaRegeneration: 3
   attackDamage: 30
   attackSpeed: 1
   attackTime: 1.4
-  attackRange: 3
+  attackRange: 2.5
   spellPower: 10
   defence: 50
   healthBar: {fileID: 0}
@@ -4571,7 +4571,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &8672685556611021182
+--- !u!114 &7352173210636705005
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4583,6 +4583,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9504f24d9b2ade42ba9a4b4613115ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idleSounds:
+  - {fileID: 8300000, guid: 422a2a5e3836fa54488d14c115f86cf6, type: 3}
+  - {fileID: 8300000, guid: d35104db8b0904e48bbee4d1809b3854, type: 3}
+  - {fileID: 8300000, guid: 22a8ae6fb2b515b4e8c59eddcd3a97e5, type: 3}
+  normalAttackSounds:
+  - {fileID: 8300000, guid: f8568e420ef71fe41a27bf500ff76b8a, type: 3}
+  - {fileID: 8300000, guid: 20c2830dbe97d4b42894c34e0efc1b2c, type: 3}
+  ability1Sounds:
+  - {fileID: 8300000, guid: 41b040f554eacf84083ad7b3fc2ee2b6, type: 3}
+  - {fileID: 8300000, guid: 3b2004cd82ddc5149b11ea3837013ce1, type: 3}
+  - {fileID: 8300000, guid: fa9190d05029cfa4fbf3ad905a816650, type: 3}
+  ability2Sounds:
+  - {fileID: 8300000, guid: bf418c092835b5f419bf2162e6abc7f3, type: 3}
+  - {fileID: 8300000, guid: bb79c6c4c724f2143b98c4c30c510b8d, type: 3}
+  - {fileID: 8300000, guid: a36d7ebfc25830343a0272121c96113d, type: 3}
+  ability3Sounds:
+  - {fileID: 8300000, guid: 3cb99aab42b2bd940bd803f20e75cdff, type: 3}
+  - {fileID: 8300000, guid: b3865df404ce86740adfd8b7c6285f19, type: 3}
+  - {fileID: 8300000, guid: 6a1e81d7a2385b645bd37b241fae2a15, type: 3}
+  ability4Sounds:
+  - {fileID: 8300000, guid: b3bb123f26ce25f43a9f88c60203288b, type: 3}
+  - {fileID: 8300000, guid: 9126fb6db063089448f0e1135f0d6b30, type: 3}
+  - {fileID: 8300000, guid: 82e6f565aa416bc47a9f09ce9f233ef7, type: 3}
 --- !u!1 &432909827400071669
 GameObject:
   m_ObjectHideFlags: 0

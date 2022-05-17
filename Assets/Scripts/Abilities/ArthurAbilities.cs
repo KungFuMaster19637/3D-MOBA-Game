@@ -16,6 +16,7 @@ public class ArthurAbilities: MonoBehaviour
     */
     ArthurAbilityManager abilityManager;
     PlayerStats statsScript;
+    PlayerSounds playerSounds;
 
     [Header("Ability 1")]
 
@@ -69,6 +70,7 @@ public class ArthurAbilities: MonoBehaviour
         targetCircle.GetComponent<Image>().enabled = false;
         abilityManager = GetComponent<ArthurAbilityManager>();
         statsScript = GetComponent<PlayerStats>();
+        playerSounds = GetComponent<PlayerSounds>();
     }
 
     void Update()
@@ -84,6 +86,7 @@ public class ArthurAbilities: MonoBehaviour
         if (Input.GetKey(ability1) && !isCooldown1 && abilityMana1 <= statsScript.mana)
         {
             abilityManager.ActivateAbility1();
+            playerSounds.AbilitySoundPlayed(1, 1);
             statsScript.mana -= abilityMana1;
             isCooldown1 = true;
             abilityImage1.fillAmount = 1;
@@ -121,6 +124,7 @@ public class ArthurAbilities: MonoBehaviour
         if (targetCircle.GetComponent<Image>().enabled == true && Input.GetMouseButtonDown(0))
         {
             abilityManager.ActivateAbility2();
+            playerSounds.AbilitySoundPlayed(1, 2);
             statsScript.mana -= abilityMana2;
             isCooldown2 = true;
             toggle2 = false;
@@ -147,6 +151,7 @@ public class ArthurAbilities: MonoBehaviour
         if (Input.GetKey(ability3) && !isCooldown3 && abilityMana3 <= statsScript.mana)
         {
             abilityManager.ActivateAbility3();
+            playerSounds.AbilitySoundPlayed(1, 3);
             statsScript.mana -= abilityMana3;
             isCooldown3 = true;
             abilityImage3.fillAmount = 1;
@@ -168,6 +173,7 @@ public class ArthurAbilities: MonoBehaviour
         if (Input.GetKey(ability4) && !isCooldown4 && abilityMana4 <= statsScript.mana)
         {
             abilityManager.ActivateAbility4();
+            playerSounds.AbilitySoundPlayed(1, 4);
             statsScript.mana -= abilityMana4;
             isCooldown4 = true;
             abilityImage4.fillAmount = 1;

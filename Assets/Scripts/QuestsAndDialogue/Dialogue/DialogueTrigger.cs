@@ -8,11 +8,11 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue blacksmithDialogue1;
 
     //Work in progress
-    public Dialogue bakerDialogue2;
-    public Dialogue blacksmithDialogue2;
+    //public Dialogue bakerDialogue2;
+    //public Dialogue blacksmithDialogue2;
 
-    public Dialogue bakerDialogue3;
-    public Dialogue blacksmithDialogue3;
+    //public Dialogue bakerDialogue3;
+    //public Dialogue blacksmithDialogue3;
 
 
     public void TriggerBakerDialogue()

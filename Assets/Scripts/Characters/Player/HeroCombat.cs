@@ -20,6 +20,7 @@ public class HeroCombat : MonoBehaviour
 
     private Movement moveScript;
     private PlayerStats statsScript;
+    private PlayerSounds playerSounds;
     private Animator anim;
 
     public GameObject targetedEnemy;
@@ -34,6 +35,7 @@ public class HeroCombat : MonoBehaviour
     {
         moveScript = GetComponent<Movement>();
         statsScript = GetComponent<PlayerStats>();
+        playerSounds = GetComponent<PlayerSounds>();
         anim = GetComponent<Animator>();
 
         anim.SetFloat("AttackSpeed", statsScript.attackSpeed);
@@ -54,17 +56,18 @@ public class HeroCombat : MonoBehaviour
         }
         if (targetedEnemy != null)
         {
-            anim.SetBool("Basic Attack", true);
+            //Caused ranged errors
+            //anim.SetBool("Basic Attack", true);
 
             if (gameObject.name == "King Arthur")
             {
                 if (targetedEnemy.tag == "Boss")
                 {
-                    statsScript.attackRange = 7;
+                    statsScript.attackRange = 7f;
                 }
                 if (targetedEnemy.tag == "Enemy")
                 {
-                    statsScript.attackRange = 3;
+                    statsScript.attackRange = 2.5f;
                 }
             }
             if (Vector3.Distance(gameObject.transform.position, targetedEnemy.transform.position) > statsScript.attackRange)
@@ -75,6 +78,8 @@ public class HeroCombat : MonoBehaviour
             else
             {
                 //Meelee
+                anim.SetBool("Basic Attack", true);
+
                 if (heroAttackType == HeroAttackType.Meelee)
                 {
 
@@ -92,7 +97,7 @@ public class HeroCombat : MonoBehaviour
                     }
                 }
 
-                //Ranged, Work in Progress
+                //Ranged
                 if (heroAttackType == HeroAttackType.Ranged)
                 {
 
@@ -118,7 +123,6 @@ public class HeroCombat : MonoBehaviour
     {
         float totalDamage;
         totalDamage = 100 / (100 + targetedEnemy.GetComponent<EnemyStats>().defence) * incomingDamage;
-        Debug.Log("Total damge: " +  totalDamage);
         return totalDamage;
     }
 
@@ -126,12 +130,12 @@ public class HeroCombat : MonoBehaviour
     {
         if (targetedEnemy != null)
         {
+            playerSounds.AbilitySoundPlayed(2, 0);
             if (targetedEnemy.GetComponent<Targetable>().enemyType == Targetable.EnemyType.Minion)
             {
                 targetedEnemy.GetComponent<EnemyStats>().health -= DamageCalculator(statsScript.attackDamage);
             }
         }
-
         performMeeleeAttack = true;
     }
 
@@ -141,12 +145,12 @@ public class HeroCombat : MonoBehaviour
     {
         if (targetedEnemy != null)
         {
+            playerSounds.AbilitySoundPlayed(2, 0);
             if (targetedEnemy.GetComponent<Targetable>().enemyType == Targetable.EnemyType.Minion)
             {
                 SpawnRangedProjectile("Minion", targetedEnemy);
             }
         }
-
         performRangedAttack = true;
     }
 

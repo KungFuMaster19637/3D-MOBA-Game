@@ -32,6 +32,7 @@ public class MerlinAbilityManager : MonoBehaviour
     public float totalDuration1;
     public float fireballSpeedBuff;
     public float attackBuff;
+    public GameObject ability1Icon;
 
     private bool ability1Pressed = false;
     private Vector3 objectScale;
@@ -123,6 +124,7 @@ public class MerlinAbilityManager : MonoBehaviour
     }
     public void ActivateAbility1()
     {
+        ability1Icon.SetActive(true);
         ability1Pressed = true;
         statsScript.attackDamage += attackBuff;
         heroCombatScript.projPrefab.GetComponent<RangedProjectile>().velocity += fireballSpeedBuff;
@@ -136,6 +138,7 @@ public class MerlinAbilityManager : MonoBehaviour
 
     public void DeactivateAbility1()
     {
+        ability1Icon.SetActive(false);
         ability1Pressed = false;
         statsScript.attackDamage -= attackBuff;
         heroCombatScript.projPrefab.GetComponent<RangedProjectile>().velocity -= fireballSpeedBuff;

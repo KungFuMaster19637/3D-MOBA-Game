@@ -15821,6 +15821,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 432909827400071667, guid: 7fc8a88e8c97ea3429d9a341f7686094, type: 3}
   m_PrefabInstance: {fileID: 6075331375734051853}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1998586656 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7352173210636705005, guid: 7fc8a88e8c97ea3429d9a341f7686094, type: 3}
+  m_PrefabInstance: {fileID: 6075331375734051853}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998586655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9504f24d9b2ade42ba9a4b4613115ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!195 &1998586661 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 6075331377207552209, guid: 7fc8a88e8c97ea3429d9a341f7686094, type: 3}
@@ -15899,9 +15910,9 @@ Light:
     m_Resolution: 2
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.031
-    m_NormalBias: 1.31
-    m_NearPlane: 0.2
+    m_Bias: 0.3
+    m_NormalBias: 0
+    m_NearPlane: 0.1
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -19390,6 +19401,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 266351799864430796, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 480901276679145089, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -19565,6 +19580,22 @@ PrefabInstance:
     - target: {fileID: 1225817084452304162, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1264598499441006308, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1264598499441006308, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1998586656}
+    - target: {fileID: 1264598499441006308, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: IdleSoundPlayed
+      objectReference: {fileID: 0}
+    - target: {fileID: 1264598499441006308, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerSounds, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1374836451295693612, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

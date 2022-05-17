@@ -29,7 +29,7 @@ public class ToDo
     ----Animation for spells
     ----heal VFX
     ----Player death 
-    sound fx
+    Sound fx
     ----Story line
     ----New map
     ----Inventory
@@ -40,7 +40,7 @@ public class ToDo
     ----Make Camera Roam
     ----Camera Fix wilderniss
     ----Teleporters
-    Environment Fix
+    ----Environment Fix
     ----Environment Music
     ----Quest Notification
     ----Quest Finish
@@ -67,7 +67,7 @@ public class ToDo
     ----Dragon Boss Sounds
     ----Dragon Boss Icon Change
     ----Experience Effect
-    Small camera bug (circle showing up when moving?)
+    ----Small camera bug (circle showing up when moving?)
 
     Feedback:
     ----Lighting (overexposed) 
@@ -110,6 +110,15 @@ public class ToDo
     ----Ability4
 
     Player SFX
+    Player Sounds:
+    Arthur
+    Battle Sounds
+    Idle Sounds (Use G to idle)
+    Extra sounds (shop, quest)
+    Merlin
+    Battle Sounds
+    Idle Sounds
+    Extra sounds (shop, quest)
 
 
     Extra's:

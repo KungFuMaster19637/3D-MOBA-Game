@@ -110,16 +110,20 @@ public class ToDo
     ----Ability4
 
     Player SFX
-    Player Sounds:
-    Arthur
-    Battle Sounds
-    Idle Sounds (Use G to idle)
-    Extra sounds (shop, quest)
-    Merlin
-    Battle Sounds
-    Idle Sounds
-    Extra sounds (shop, quest)
+    ----Volume Slider
+    ----Player Sounds:
+    ----Arthur
+    ----Battle Sounds
+    ----Idle Sounds (Use G to idle)
+    ----Extra sounds (shop, quest)
+    ----Merlin
+    ----Battle Sounds
+    ----Idle Sounds
+    ----Extra sounds (shop, quest)
 
+    ----Homescreen SFX
+
+    Remove Devs Tools (F for money and H for health down)
 
     Extra's:
     Empty room tutorial

@@ -33,6 +33,8 @@ public class PlayerStats : MonoBehaviour
     private NavMeshAgent agent;
     private Movement movement;
 
+    private bool dieOnce;
+
     protected virtual void Start()
     {
         //heroCombatScript = GameObject.FindGameObjectWithTag("Player").GetComponent<HeroCombat>();
@@ -43,6 +45,7 @@ public class PlayerStats : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         movement = GetComponent<Movement>();
 
+        dieOnce = false;
         health = maxHealth;
         mana = maxMana;
     }
@@ -65,11 +68,12 @@ public class PlayerStats : MonoBehaviour
         {
             health += healthRegeneration * Time.deltaTime;
         }
-        if (health <= 0)
+        if (health <= 0 && dieOnce == false)
         {
             Debug.Log("Player died");
             heroCombatScript.targetedEnemy = null;
             heroCombatScript.performMeeleeAttack = false;
+            dieOnce = true;
             StartCoroutine(PlayDeathAnimation());
         }
 

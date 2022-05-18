@@ -19539,6 +19539,18 @@ PrefabInstance:
       propertyPath: experienceEffect
       value: 
       objectReference: {fileID: 818527003}
+    - target: {fileID: 2577931112984227494, guid: ba0085a3103093648b05fc0afe061eac, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: fc0f77d0c251ae04d93eadb9f104f6e6, type: 2}
+    - target: {fileID: 3839482157039453123, guid: ba0085a3103093648b05fc0afe061eac, type: 3}
+      propertyPath: gameOver
+      value: 
+      objectReference: {fileID: 574015626}
+    - target: {fileID: 3839482157039453123, guid: ba0085a3103093648b05fc0afe061eac, type: 3}
+      propertyPath: audioListener
+      value: 
+      objectReference: {fileID: 646344182}
     - target: {fileID: 3925928691049657989, guid: ba0085a3103093648b05fc0afe061eac, type: 3}
       propertyPath: abilityImage1
       value: 
@@ -24133,6 +24145,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5250368541096582653, guid: 9d58ca83cbfac834da44bd55a5235c8f, type: 3}
+      propertyPath: playerDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: 2d288b39a95d73444b722e530ea27448, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d58ca83cbfac834da44bd55a5235c8f, type: 3}
 --- !u!4 &6170439045705352340 stripped

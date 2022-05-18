@@ -10,6 +10,8 @@ public class GameOver : MonoBehaviour
     public GameObject gameOverUI;
     public Image fader;
     public AnimationCurve curve;
+    [SerializeField] private AudioClip playerDeath;
+    [SerializeField] private AudioSource deathPlayer;
 
     public bool gameIsOver;
 
@@ -19,6 +21,11 @@ public class GameOver : MonoBehaviour
     }
     public IEnumerator PlayerDied()
     {
+        if (!gameObject.GetComponent<AudioListener>())
+        {
+            gameObject.AddComponent<AudioListener>();
+        }
+        deathPlayer.PlayOneShot(playerDeath);
         gameIsOver = true;
 
         float t = 0f;

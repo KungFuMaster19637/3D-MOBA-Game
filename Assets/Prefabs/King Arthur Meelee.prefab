@@ -4484,7 +4484,7 @@ AudioSource:
   m_GameObject: {fileID: 432909827400071667}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: f190f899bab50bc4181f60554e7f3daf, type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.5
@@ -4587,6 +4587,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 422a2a5e3836fa54488d14c115f86cf6, type: 3}
   - {fileID: 8300000, guid: d35104db8b0904e48bbee4d1809b3854, type: 3}
   - {fileID: 8300000, guid: 22a8ae6fb2b515b4e8c59eddcd3a97e5, type: 3}
+  - {fileID: 8300000, guid: 89aab449d5c5b4f44a32d51d7799c8e7, type: 3}
+  - {fileID: 8300000, guid: 15e0298083ee0af4989f96a0b96507a1, type: 3}
+  shopSounds:
+  - {fileID: 8300000, guid: a1e2b644b753c414ea47ba7d028a247d, type: 3}
+  - {fileID: 8300000, guid: dc395be9278f0da4b93926574682752b, type: 3}
   normalAttackSounds:
   - {fileID: 8300000, guid: f8568e420ef71fe41a27bf500ff76b8a, type: 3}
   - {fileID: 8300000, guid: 20c2830dbe97d4b42894c34e0efc1b2c, type: 3}
@@ -4606,6 +4611,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b3bb123f26ce25f43a9f88c60203288b, type: 3}
   - {fileID: 8300000, guid: 9126fb6db063089448f0e1135f0d6b30, type: 3}
   - {fileID: 8300000, guid: 82e6f565aa416bc47a9f09ce9f233ef7, type: 3}
+  deathSound: {fileID: 8300000, guid: b4d4e07c04829084188bdb063a61f864, type: 3}
 --- !u!1 &432909827400071669
 GameObject:
   m_ObjectHideFlags: 0

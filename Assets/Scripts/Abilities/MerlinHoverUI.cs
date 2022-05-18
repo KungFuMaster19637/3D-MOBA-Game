@@ -7,6 +7,7 @@ public class MerlinHoverUI : MonoBehaviour
 {
 
     public TMP_Text abilityDescription;
+    public TMP_Text abilityName;
     public GameObject descriptionUI;
 
     [Header("Merlin abilities")]
@@ -32,7 +33,7 @@ public class MerlinHoverUI : MonoBehaviour
         ability1 = "Merlin gains " + abilityManager.attackBuff + " attack and makes his basic attacks bigger and faster for " + 
             abilityManager.totalDuration1 + " seconds";
         ability2 = "Merlin summons an energy field that deals " + abilityManager.energyDrainDamage + " + " + statsScript.spellPower * abilityManager.energyDrainDamageMultiplier + 
-            " damage to all enemies in the area and healing himself for " + abilityManager.energyDrainHeal + " + " + statsScript.spellPower * abilityManager.energyDrainHealMultiplier;
+            " damage to all enemies in the area and heals himself for " + abilityManager.energyDrainHeal + " + " + statsScript.spellPower * abilityManager.energyDrainHealMultiplier;
         ability3 = "Merlin grows a cone of spike terrain dealing " + abilityManager.spikeTerrainDamage + " + " + 
             statsScript.spellPower * abilityManager.spikeTerrainMultiplier + " damage and stunning enemies in the cone for " + 
             abilityManager.spikeTerrainStunDuration + " seconds";
@@ -41,27 +42,31 @@ public class MerlinHoverUI : MonoBehaviour
     }
     public void OnMouseOver()
     {
-        Debug.Log("hovering over");
         descriptionUI.SetActive(true);
         if (gameObject.name == "Passive")
         {
             abilityDescription.text = passive;
+            abilityName.text = "Divine Spells";
         }
         if (gameObject.name == "Ability1")
         {
             abilityDescription.text = ability1;
+            abilityName.text = "Incinerate";
         }
         if (gameObject.name == "Ability2")
         {
             abilityDescription.text = ability2;
+            abilityName.text = "Energy Drain";
         }
         if (gameObject.name == "Ability3")
         {
             abilityDescription.text = ability3;
+            abilityName.text = "Spike Terrain";
         }
         if (gameObject.name == "Ability4")
         {
             abilityDescription.text = ability4;
+            abilityName.text = "Meteor Shower";
         }
     }
 

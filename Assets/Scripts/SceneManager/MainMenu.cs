@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
     private string merlin = "Merlin";
     private string arthur = "Arthur";
     private string tutorial = "Tutorial";
-    
+
+    [SerializeField] private AudioClip arthurSelect;
+    [SerializeField] private AudioClip merlinSelect;
+    [SerializeField] private AudioSource audioSelect;
 
     public GameObject mainMenu;
     public GameObject characterSelectMenu;
@@ -48,12 +52,14 @@ public class MainMenu : MonoBehaviour
 
     public void SelectArthur()
     {
+        audioSelect.PlayOneShot(arthurSelect);
         sceneFader.FadeTo(arthur);
     }
 
     public void SelectMerlin()
     {
-        //sceneFader.FadeTo(merlin);
+        audioSelect.PlayOneShot(merlinSelect);
+        sceneFader.FadeTo(merlin);
     }
 
 }

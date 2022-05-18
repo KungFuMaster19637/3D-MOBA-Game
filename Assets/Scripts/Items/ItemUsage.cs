@@ -28,8 +28,8 @@ public class ItemUsage : MonoBehaviour
     private string holyOrbText;
 
     //Potion Buffs
-    private int healthPotion = 100;
-    private int manaPotion = 60;
+    private int healthPotion = 80;
+    private int manaPotion = 40;
     private int strengthPotion = 10 , defencePotion = 10, spellPotion = 5;
     private int fowlBoost = 150;
     private int donutBoost = 50;
@@ -45,17 +45,17 @@ public class ItemUsage : MonoBehaviour
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         itemDisplayScript = itemDisplay.GetComponent<ItemDisplay>();
 
-        healthPotionText = "Restores 50 health (Max 9 storage)";
-        manaPotionText = "Restores 20 mana (Max 9 storage)";
-        strengthPotionText = "Increase attack permanently by 5 (Max 9 storage)";
-        defencePotionText = "Increase defence permanently by 5 (Max 9 storage)";
-        spellPotionText = "Increase spell power permanently by 5 (Max 9 storage)";
+        healthPotionText = "Restores " + healthPotion + " health (Max 9 storage)";
+        manaPotionText = "Restores " + manaPotion + " mana (Max 9 storage)";
+        strengthPotionText = "Increase attack permanently by " + strengthPotion + " (Max 9 storage)";
+        defencePotionText = "Increase defence permanently by " + defencePotion + " (Max 9 storage)";
+        spellPotionText = "Increase spell power permanently by " + spellPotion + " (Max 9 storage)";
         wheatText = "Some wheat";
         ironText = "Piece of iron chunk";
-        fowlText = "Some fowl to fill the stomach. Raises maximum health by 150";
-        donutText = "A magical donut with a special effect. Raises maximum mana by 50";
+        fowlText = "Some fowl to fill the stomach. Raises maximum health by " + fowlBoost;
+        donutText = "A magical donut with a special effect. Raises maximum mana by " + donutBoost;
         riskyPotionText = "What a weird smell, I wonder what effects it will give?";
-        ringOfManaText = "An odd ring. Increase mana regeneration permanently by 10";
+        ringOfManaText = "An odd ring. Increase mana regeneration permanently by  " + ringOfManaBoost;
         holyOrbText = "An orb to open the door to the Boss room";
     }
     public void OnMouseOver()

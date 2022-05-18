@@ -7,6 +7,7 @@ public class ArthurHoverUI : MonoBehaviour
 {
 
     public TMP_Text abilityDescription;
+    public TMP_Text abilityName;
     public GameObject descriptionUI;
 
     [Header ("Arthur abilities")]
@@ -45,22 +46,27 @@ public class ArthurHoverUI : MonoBehaviour
         if (gameObject.name == "Passive")
         {
             abilityDescription.text = passive;
+            abilityName.text = "Divine Blessing";
         }
         if (gameObject.name == "Ability1")
         {
             abilityDescription.text = ability1;
+            abilityName.text = "Charge Forward";
         }
         if (gameObject.name == "Ability2")
         {
             abilityDescription.text = ability2;
+            abilityName.text = "Lay On Hands";
         }
         if (gameObject.name == "Ability3")
         {
             abilityDescription.text = ability3;
+            abilityName.text = "Pridwen";
         }
         if (gameObject.name == "Ability4")
         {
             abilityDescription.text = ability4;
+            abilityName.text = "Excalibur";
         }
     }
 

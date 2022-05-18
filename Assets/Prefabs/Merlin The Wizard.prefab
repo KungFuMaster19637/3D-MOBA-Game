@@ -1739,7 +1739,7 @@ AudioSource:
   m_GameObject: {fileID: 4479548115984660176}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: f190f899bab50bc4181f60554e7f3daf, type: 2}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: fc0f77d0c251ae04d93eadb9f104f6e6, type: 2}
   m_audioClip: {fileID: 8300000, guid: cdec6821f3dd53a4da984a8f7756fd79, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.6
@@ -1838,13 +1838,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9504f24d9b2ade42ba9a4b4613115ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleSounds: []
+  idleSounds:
+  - {fileID: 8300000, guid: b0f61a0b0e701da4d893e971497d753d, type: 3}
+  - {fileID: 8300000, guid: e2b7a32983901a24da3b96c8e20b0c99, type: 3}
+  - {fileID: 8300000, guid: 51b9f075cc96e9e4a89b6322f9b5ae71, type: 3}
+  - {fileID: 8300000, guid: 45aab9ba4f0141840a6833b69a69475c, type: 3}
+  - {fileID: 8300000, guid: 484160c6d1db0304d8726fdb46a7d8ec, type: 3}
+  shopSounds:
+  - {fileID: 8300000, guid: 4d5fd49f773a1f44abe9ff8e5be2876f, type: 3}
+  - {fileID: 8300000, guid: 2d6910c9a1be45b4a9510d37ed38b5a2, type: 3}
   normalAttackSounds:
-  - {fileID: 0}
-  ability1Sounds: []
-  ability2Sounds: []
-  ability3Sounds: []
-  ability4Sounds: []
+  - {fileID: 8300000, guid: 37f6f6e3e3dab2d4d9a55881949c83dd, type: 3}
+  - {fileID: 8300000, guid: b41692c78d3a5cc42910255955727527, type: 3}
+  ability1Sounds:
+  - {fileID: 8300000, guid: f29f60af86809044f81f4e0c84b90fd7, type: 3}
+  - {fileID: 8300000, guid: 6e7921a24a5f6f244937ae0dbaf8427a, type: 3}
+  - {fileID: 8300000, guid: 6abcd9908c7285240bf4562c11484c70, type: 3}
+  ability2Sounds:
+  - {fileID: 8300000, guid: f3ea49d054da34a41851f5b4cc03e93e, type: 3}
+  - {fileID: 8300000, guid: 1deae285545b53b4791c3e3a28997ee1, type: 3}
+  - {fileID: 8300000, guid: 68bbb2c53fedd184180abdfd260f9ed5, type: 3}
+  ability3Sounds:
+  - {fileID: 8300000, guid: a65f081cd20c36947ac469cde6f96181, type: 3}
+  - {fileID: 8300000, guid: 749be819e58b7dc42a44ffe712414e99, type: 3}
+  - {fileID: 8300000, guid: e545ff48444cf704aa9031fa20f11ad3, type: 3}
+  ability4Sounds:
+  - {fileID: 8300000, guid: 03639fdf745f6a4479e48d61e01b9161, type: 3}
+  - {fileID: 8300000, guid: b937672f93583c648aa6e791aeb9898b, type: 3}
+  - {fileID: 8300000, guid: 4a82efc06b779ec4396664117036de38, type: 3}
+  deathSound: {fileID: 8300000, guid: 2d288b39a95d73444b722e530ea27448, type: 3}
 --- !u!1 &4479548115984660178
 GameObject:
   m_ObjectHideFlags: 0

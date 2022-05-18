@@ -7,15 +7,17 @@ public class MerlinAbilities : MonoBehaviour
 {
 
     /*
-    Ability names:
-    Passive: Mana Reload: Every 3rd ability, restores health to Merlin
-    Ability 1: Fireball: The fireballs of normal attacks becomes bigger and stronger
+    Ability names: 
+    Passive: Divine Spells: Every 3rd ability, restores health to Merlin
+    Ability 1: Incinerate: The fireballs of normal attacks becomes bigger and stronger
     Ability 2: Energy Drain: Damage all enemies in the area and restores mana based on enemies hit
     Ability 3: Spike Terrain: Summon a spiky terrain underneath and stun enemies for 1 second
     Ability 4: Meteor Shower: Deals massive amount of damage in massive aoe
     */
     MerlinAbilityManager abilityManager;
     PlayerStats statsScript;
+    PlayerSounds playerSounds;
+
 
     public Vector3 mousePosition;
     public Transform player;
@@ -91,6 +93,8 @@ public class MerlinAbilities : MonoBehaviour
 
         abilityManager = GetComponent<MerlinAbilityManager>();
         statsScript = GetComponent<PlayerStats>();
+        playerSounds = GetComponent<PlayerSounds>();
+
     }
 
     void Update()
@@ -154,8 +158,8 @@ public class MerlinAbilities : MonoBehaviour
         {
             //Disable all other UI
 
-
             abilityManager.ActivateAbility1();
+            playerSounds.AbilitySoundPlayed(1, 1);
             statsScript.mana -= abilityMana1;
             isCooldown1 = true;
             abilityImage1.fillAmount = 1;
@@ -207,6 +211,7 @@ public class MerlinAbilities : MonoBehaviour
             if (skillshot2.GetComponent<Image>().enabled == true && Input.GetMouseButtonDown(0))
             {
                 abilityManager.ActivateAbility2();
+                playerSounds.AbilitySoundPlayed(1, 2);
                 statsScript.mana -= abilityMana2;
                 isCooldown2 = true;
                 toggle2 = false;
@@ -259,6 +264,7 @@ public class MerlinAbilities : MonoBehaviour
             if (skillshot3.GetComponent<Image>().enabled == true && Input.GetMouseButton(0))
             {
                 abilityManager.ActivateAbility3();
+                playerSounds.AbilitySoundPlayed(1, 3);
                 statsScript.mana -= abilityMana3;
                 isCooldown3 = true;
                 toggle3 = false;
@@ -293,6 +299,7 @@ public class MerlinAbilities : MonoBehaviour
             if (skillshot4.GetComponent<Image>().enabled == true && Input.GetMouseButton(0))
             {
                 abilityManager.ActivateAbility4();
+                playerSounds.AbilitySoundPlayed(1, 4);
                 statsScript.mana -= abilityMana4;
                 isCooldown4 = true;
                 toggle4 = false;

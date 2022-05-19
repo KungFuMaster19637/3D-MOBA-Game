@@ -20,7 +20,7 @@ public class Mana : MonoBehaviour
         playerSlider2D = GetComponent<Slider>();
 
         playerSlider2D.maxValue = statsScript.maxMana;
-        statsScript.health = statsScript.maxMana;
+        statsScript.mana = statsScript.maxMana;
         maxManaText.text = statsScript.maxMana.ToString();
     }
 

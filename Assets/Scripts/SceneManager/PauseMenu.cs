@@ -19,7 +19,12 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
-        saveManager = GameObject.FindGameObjectWithTag("SaveManager").GetComponent<SaveManager>();
+        GameObject tempSave = GameObject.FindGameObjectWithTag("SaveManager");
+        if (tempSave != null)
+        {
+            saveManager = GameObject.FindGameObjectWithTag("SaveManager").GetComponent<SaveManager>();
+        }
+
         agent = GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>();
     }
     private void Update()

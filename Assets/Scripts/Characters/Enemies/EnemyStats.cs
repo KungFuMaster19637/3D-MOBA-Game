@@ -36,6 +36,8 @@ public class EnemyStats : MonoBehaviour
     [SerializeField] private DragonBossSounds dragonBossSounds;
 
 
+
+
     /*
     Enemy monster stats:
 
@@ -101,9 +103,7 @@ public class EnemyStats : MonoBehaviour
         {
             if (!giveExpOnce)
             {
-                Debug.Log("Exp gained: " + expValue);
                 int moneyGain = Random.Range(minGoldValue, maxGoldValue);
-                Debug.Log(moneyGain);
                 player.GetComponent<LevelUpStats>().SetExperience(expValue);
                 MoneyDisplay.AddMoney(moneyGain);
                 moneyEffect.PlayMoneyEffect(moneyGain);

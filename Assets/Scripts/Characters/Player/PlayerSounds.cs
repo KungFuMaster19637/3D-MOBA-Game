@@ -170,7 +170,6 @@ public class PlayerSounds : MonoBehaviour
     {
         //If the odds failed, return
         int oddsOfSound = Random.Range(0, odds);
-        Debug.Log(oddsOfSound);
         if (oddsOfSound == 0)
         {
             int randomSound = 0;
@@ -178,8 +177,6 @@ public class PlayerSounds : MonoBehaviour
             {
                 case 0:
                     randomSound = Random.Range(0, normalAttackSounds.Length);
-                    Debug.Log(randomSound);
-
                     playerAudio.PlayOneShot(normalAttackSounds[randomSound]);
                     break;
                 case 1:
@@ -195,7 +192,6 @@ public class PlayerSounds : MonoBehaviour
                     playerAudio.PlayOneShot(ability3Sounds[randomSound]);
                     break;
                 case 4:
-                    Debug.Log("here");
                     randomSound = Random.Range(0, ability4Sounds.Length);
                     playerAudio.PlayOneShot(ability4Sounds[randomSound]);
                     break;

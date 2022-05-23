@@ -5,7 +5,7 @@ using System;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] private ItemDisplay itemDisplay;
+    public ItemDisplay itemDisplay;
     [SerializeField] private QuestGiver questGiver;
     public enum ItemType
     {
@@ -43,42 +43,42 @@ public class Item : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (this.name == "HealthPotion" && itemDisplay.itemAmount[0] < 9)
+            if (itemType == ItemType.HealthPotion && itemDisplay.itemAmount[0] < 9)
             {
                 itemDisplay.AddItem(0);
                 ItemExperience(2);
                 ItemPickedUp();
             }
 
-            if (this.name == "ManaPotion" && itemDisplay.itemAmount[1] < 9)
+            if (itemType == ItemType.ManaPotion && itemDisplay.itemAmount[1] < 9)
             {
                 itemDisplay.AddItem(1);
                 ItemExperience(2);
                 ItemPickedUp();
             }
 
-            if (this.name == "StrengthPotion" && itemDisplay.itemAmount[2] < 9)
+            if (itemType == ItemType.StrengthPotion && itemDisplay.itemAmount[2] < 9)
             {
                 itemDisplay.AddItem(2);
                 ItemExperience(2);
                 ItemPickedUp();
             }
 
-            if (this.name == "DefencePotion" && itemDisplay.itemAmount[3] < 9)
+            if (itemType == ItemType.DefencePotion && itemDisplay.itemAmount[3] < 9)
             {
                 itemDisplay.AddItem(3);
                 ItemExperience(2);
                 ItemPickedUp();
             }
 
-            if (this.name == "SpellPotion" && itemDisplay.itemAmount[4] < 9)
+            if (itemType == ItemType.SpellPotion && itemDisplay.itemAmount[4] < 9)
             {
                 itemDisplay.AddItem(4);
                 ItemExperience(2);
                 ItemPickedUp();
             }
 
-            if (this.name == "Wheat" && itemDisplay.itemAmount[5] < 99)
+            if (itemType == ItemType.Wheat && itemDisplay.itemAmount[5] < 99)
             {
                 itemDisplay.AddItem(5);
                 ItemExperience(2);
@@ -86,7 +86,7 @@ public class Item : MonoBehaviour
                 ItemPickedUp();
             }
 
-            if (this.name == "Iron" && itemDisplay.itemAmount[6] < 99)
+            if (itemType == ItemType.Iron && itemDisplay.itemAmount[6] < 99)
             {
                 itemDisplay.AddItem(6);
                 ItemExperience(2);
@@ -94,35 +94,35 @@ public class Item : MonoBehaviour
                 ItemPickedUp();
             }
 
-            if (this.name == "Fowl" && itemDisplay.itemAmount[7] < 9)
+            if (itemType == ItemType.Fowl && itemDisplay.itemAmount[7] < 9)
             {
                 itemDisplay.AddItem(7);
                 ItemExperience(2);
                 ItemPickedUp();
             }
 
-            if (this.name == "MagicalDonut" && itemDisplay.itemAmount[8] < 9)
+            if (itemType == ItemType.MagicalDonut && itemDisplay.itemAmount[8] < 9)
             {
                 itemDisplay.AddItem(8);
                 ItemExperience(5);
                 ItemPickedUp();
             }
 
-            if (this.name == "RiskyPotion" && itemDisplay.itemAmount[9] < 9)
+            if (itemType == ItemType.RiskyPotion && itemDisplay.itemAmount[9] < 9)
             {
                 itemDisplay.AddItem(9);
                 ItemExperience(5);
                 ItemPickedUp();
             }
 
-            if (this.name == "RingOfMana" && itemDisplay.itemAmount[10] < 99)
+            if (itemType == ItemType.RingOfMana && itemDisplay.itemAmount[10] < 99)
             {
                 itemDisplay.AddItem(10);
                 ItemExperience(5);
                 ItemPickedUp();
             }
 
-            if (this.name == "HolyOrb" && itemDisplay.itemAmount[11] < 99)
+            if (itemType == ItemType.HolyOrb && itemDisplay.itemAmount[11] < 99)
             {
                 itemDisplay.AddItem(11);
                 ItemExperience(10);

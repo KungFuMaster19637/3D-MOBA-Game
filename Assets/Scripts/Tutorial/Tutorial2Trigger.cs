@@ -77,6 +77,29 @@ public class Tutorial2Trigger : MonoBehaviour
     {
         if (merlinAbilities != null)
         {
+            if (Input.GetKeyDown(merlinAbilities.ability1))
+            {
+                ability1Clicked = true;
+                CheckIfAllClicked();
+            }
+
+            if (merlinAbilities.skillshot2.GetComponent<Image>().enabled == true && Input.GetMouseButtonDown(0))
+            {
+                ability2Clicked = true;
+                CheckIfAllClicked();
+            }
+
+            if (merlinAbilities.skillshot3.GetComponent<Image>().enabled == true && Input.GetMouseButtonDown(0))
+            {
+                ability3Clicked = true;
+                CheckIfAllClicked();
+            }
+
+            if (merlinAbilities.skillshot4.GetComponent<Image>().enabled == true && Input.GetMouseButtonDown(0))
+            {
+                ability4Clicked = true;
+                CheckIfAllClicked();
+            }
 
         }
     }

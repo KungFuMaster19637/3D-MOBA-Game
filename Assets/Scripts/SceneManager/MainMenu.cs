@@ -19,16 +19,27 @@ public class MainMenu : MonoBehaviour
     public GameObject characterSelectMenu;
     public SceneFader sceneFader;
 
+    private int sceneIndex;
+
     //Main menu screen
+
+    private void Start()
+    {
+        sceneIndex = 0;  
+    }
     public void StartGame()
     {
         //sceneFader.FadeTo(characterSelect);
         mainMenu.SetActive(false);
         characterSelectMenu.SetActive(true);
+        sceneIndex = 0;
     }
 
     public void Tutorial()
     {
+        mainMenu.SetActive(false);
+        characterSelectMenu.SetActive(true);
+        sceneIndex = 1;
         //sceneFader.FadeTo(tutorial);
     }
 
@@ -54,13 +65,35 @@ public class MainMenu : MonoBehaviour
     public void SelectArthur()
     {
         audioSelect.PlayOneShot(arthurSelect);
-        sceneFader.FadeTo(arthur);
+        switch (sceneIndex)
+        {
+            case 0: sceneFader.FadeTo(arthur);
+                break;
+            case 1: sceneFader.FadeTo(arthurTutorial);
+                break;
+            case 2: 
+                break;
+            default: 
+                break;
+
+        }
     }
 
     public void SelectMerlin()
     {
         audioSelect.PlayOneShot(merlinSelect);
-        sceneFader.FadeTo(merlin);
+        switch (sceneIndex)
+        {
+            case 0: sceneFader.FadeTo(merlin);
+                break;
+            case 1: sceneFader.FadeTo(merlinTutorial);
+                break;
+            case 2:
+                break;
+            default:
+                break;
+
+        }
     }
 
 }

@@ -80,7 +80,6 @@ public class MerlinAbilityManager : MonoBehaviour
         }
         if (duration1 >= totalDuration1)
         {
-            Debug.Log("deactivating");
             DeactivateAbility1();
         }
         MerlinPassive();

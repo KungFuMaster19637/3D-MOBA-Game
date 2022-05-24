@@ -15,7 +15,7 @@ public class TutorialManager : MonoBehaviour
     public int tutorialCounter;
 
     [Header("Tutorial 1")]
-    public GameObject markedArea;
+    [SerializeField] private GameObject markedArea;
     private bool finalSentence1;
 
     [Header("Tutorial 2")]
@@ -66,16 +66,22 @@ public class TutorialManager : MonoBehaviour
 
     Abilities:
     The player has access to 4 abilities and 1 passive. These are essential for fighting enemies that you encounter! 
-    By hovering over the abilities, the player can read their effects. The passive is like it says, a passive, that can't be triggered by pressing keys. 
     Pressing A-Z-E-R (or Q-W-E-R), depending on your keyboard layout will trigger the abilities. Sometimes the player has to use their left-click to fully activate their ability. 
+    The player also has a level, that determines how strong he is. Leveling up increases the stats of the player a tiny bit.
+    The player can hover over its stats and abilities to get more information. 
     Try out all the abilities one by one!
 
     Items:
-
+    Items can be picked up from the ground by walking over it. Picking up and item gives experience. 
+    After they are picked up, they will enter your inventory. The player can hover over the items in the inventory to see their effects.
+    If the player wants to consume an item, it has to click on the item in the inventory. Health and Mana potions cannot be consumed when the player has max Health or Mana.
+    Pick up all the items! 
 
     Fighting:
     Aside from abilities, the player has also access to normal attacks, which can be used when right-clicking an enemy. 
     Enemies will attack if the player enters their aggresion zone. By running out of this zone the player can avoid fighting them. 
+    The player can use the previously obtained items while fighting to give themselves a boost. 
+    When enemies die, they give experience to the player. Additionally drop gold, that can be used in shops to purchase items.
     Try to defeat all the enemies!
 
     Completed:
@@ -87,7 +93,14 @@ public class TutorialManager : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(IE_Init());
+    }
+
+    private IEnumerator IE_Init()
+    {
         sentences = new Queue<string>();
+        markedArea.SetActive(false);
+        tutorialExit.SetActive(false);
 
         finalSentence1 = false;
         finalSentence2 = false;
@@ -95,6 +108,7 @@ public class TutorialManager : MonoBehaviour
         finalSentence4 = false;
 
         tutorialCounter = 0;
+        yield return new WaitForSeconds(2f);
         StartTutorial(tutorials[tutorialCounter]);
     }
 
@@ -118,6 +132,10 @@ public class TutorialManager : MonoBehaviour
     {
         if (sentences.Count == 1 && tutorialCounter != 0)
         {
+            if (tutorialCounter == 1)
+            {
+                markedArea.SetActive(true);
+            }
             if (tutorialCounter == 3)
             {
                 tutorial3Trigger.SpawnItems();

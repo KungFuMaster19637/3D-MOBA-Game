@@ -115,7 +115,7 @@ MonoBehaviour:
   target: {fileID: 0}
   targetSet: 1
   targetType: Minion
-  velocity: 6.2
+  velocity: 10.2
   stopProjectile: 0
 --- !u!82 &5012801304182330395
 AudioSource:

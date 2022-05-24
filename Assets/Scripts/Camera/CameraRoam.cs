@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraRoam : MonoBehaviour
 {
-    public float cameSpeed = 20;
+    public float camSpeed = 20;
     public float screenSizeThickens = 10;
 
     [Header ("Castle Camera Limits")]
@@ -67,26 +67,26 @@ public class CameraRoam : MonoBehaviour
         //Up
         if (Input.mousePosition.y >= Screen.height - screenSizeThickens)
         {
-            pos.x -= cameSpeed * Time.deltaTime;
+            pos.x -= camSpeed * Time.deltaTime;
         }
 
 
         //Down
         if (Input.mousePosition.y <= screenSizeThickens)
         {
-            pos.x += cameSpeed * Time.deltaTime;
+            pos.x += camSpeed * Time.deltaTime;
         }
 
         //Right
         if (Input.mousePosition.x >= Screen.height - screenSizeThickens)
         {
-            pos.z += cameSpeed * Time.deltaTime;
+            pos.z += camSpeed * Time.deltaTime;
         }
 
         //Left
         if (Input.mousePosition.x <= screenSizeThickens)
         {
-            pos.z -= cameSpeed * Time.deltaTime;
+            pos.z -= camSpeed * Time.deltaTime;
         }
 
         //Y position locked

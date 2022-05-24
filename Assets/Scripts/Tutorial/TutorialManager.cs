@@ -29,6 +29,8 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private Tutorial4Trigger tutorial4Trigger;
     private bool finalSentence4;
 
+    [SerializeField] private GameObject tutorialExit;
+    [SerializeField] private SceneFader sceneFader;
     #region Singleton
     public static TutorialManager Instance { get; private set; }
 
@@ -125,6 +127,11 @@ public class TutorialManager : MonoBehaviour
             {
                 tutorial4Trigger.SpawnEnemies();
             }
+            if (tutorialCounter == 5)
+            {
+                tutorialExit.SetActive(true);
+            }
+
             continueButton.interactable = false;
             CheckLastSentence(tutorialCounter);
         }
@@ -229,9 +236,11 @@ public class TutorialManager : MonoBehaviour
             continueButton.interactable = true;
         }
     }
-
-
     #endregion
 
+    public void ExitTutorial()
+    {
+        sceneFader.FadeTo("MainMenu");
+    }
 
 }

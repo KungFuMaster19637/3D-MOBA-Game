@@ -5904,7 +5904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2436f6103008a3245a1e50dd0bfa4e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameSpeed: 20
+  camSpeed: 20
   screenSizeThickens: 10
   minCastleX: -115
   maxCastleX: -75

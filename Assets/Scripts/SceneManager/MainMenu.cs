@@ -8,7 +8,8 @@ public class MainMenu : MonoBehaviour
 {
     private string merlin = "Merlin";
     private string arthur = "Arthur";
-    private string tutorial = "Tutorial";
+    private string arthurTutorial = "ArthurTutorial";
+    private string merlinTutorial = "MerlinTutorial";
 
     [SerializeField] private AudioClip arthurSelect;
     [SerializeField] private AudioClip merlinSelect;

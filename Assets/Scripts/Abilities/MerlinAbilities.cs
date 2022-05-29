@@ -10,7 +10,7 @@ public class MerlinAbilities : MonoBehaviour
     Ability names: 
     Passive: Divine Spells: Every 3rd ability, restores health to Merlin
     Ability 1: Incinerate: The fireballs of normal attacks becomes bigger and stronger
-    Ability 2: Energy Drain: Damage all enemies in the area and restores mana based on enemies hit
+    Ability 2: Energy Drain: Damage all enemies in the area and restores health based on enemies hit
     Ability 3: Spike Terrain: Summon a spiky terrain underneath and stun enemies for 1 second
     Ability 4: Meteor Shower: Deals massive amount of damage in massive aoe
     */
@@ -28,7 +28,7 @@ public class MerlinAbilities : MonoBehaviour
     public Image abilityImage1;
     public float abilityMana1;
     public float cooldown1;
-    public KeyCode ability1;
+    public KeyCode ability1Key;
 
     private bool isCooldown1 = false;
 
@@ -37,7 +37,7 @@ public class MerlinAbilities : MonoBehaviour
     public Image abilityImage2;
     public float abilityMana2;
     public float cooldown2;
-    public KeyCode ability2;
+    public KeyCode ability2Key;
 
     private bool isCooldown2 = false;
     private bool toggle2 = false;
@@ -54,7 +54,7 @@ public class MerlinAbilities : MonoBehaviour
     public Image abilityImage3;
     public float abilityMana3;
     public float cooldown3;
-    public KeyCode ability3;
+    public KeyCode ability3Key;
 
     private bool isCooldown3 = false;
     private bool toggle3 = false;
@@ -68,7 +68,7 @@ public class MerlinAbilities : MonoBehaviour
     public Image abilityImage4;
     public float abilityMana4;
     public float cooldown4;
-    public KeyCode ability4;
+    public KeyCode ability4Key;
 
     private bool isCooldown4 = false;
     private bool toggle4 = false;
@@ -79,6 +79,12 @@ public class MerlinAbilities : MonoBehaviour
 
     void Start()
     {
+        ability1Key = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Ability 1"));
+        ability2Key = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Ability 2"));
+        ability3Key = KeyCode.E;
+        ability4Key = KeyCode.R;
+
+
         //Start game with cooldowns at 0
         spellLock = false;
         abilityImage1.fillAmount = 0;
@@ -154,7 +160,7 @@ public class MerlinAbilities : MonoBehaviour
 
     void Ability1()
     {
-        if (Input.GetKey(ability1) && !isCooldown1 && abilityMana1 <= statsScript.mana)
+        if (Input.GetKey(ability1Key) && !isCooldown1 && abilityMana1 <= statsScript.mana)
         {
             //Disable all other UI
 
@@ -181,7 +187,7 @@ public class MerlinAbilities : MonoBehaviour
     {
         if (!spellLock)
         {
-            if (Input.GetKey(ability2) && !isCooldown2 && abilityMana2 <= statsScript.mana)
+            if (Input.GetKey(ability2Key) && !isCooldown2 && abilityMana2 <= statsScript.mana)
             {
                 indicatorRangeCircle.GetComponent<Image>().enabled = true;
                 skillshot2.GetComponent<Image>().enabled = true;
@@ -191,7 +197,7 @@ public class MerlinAbilities : MonoBehaviour
                 toggle4 = false;
             }
 
-            if (Input.GetKeyDown(ability2) && !isCooldown2 && abilityMana2 <= statsScript.mana)
+            if (Input.GetKeyDown(ability2Key) && !isCooldown2 && abilityMana2 <= statsScript.mana)
             {
                 toggle2 = !toggle2;
             }
@@ -238,7 +244,7 @@ public class MerlinAbilities : MonoBehaviour
     {
         if (!spellLock)
         {
-            if (Input.GetKey(ability3) && !isCooldown3 && abilityMana3 <= statsScript.mana)
+            if (Input.GetKey(ability3Key) && !isCooldown3 && abilityMana3 <= statsScript.mana)
             {
                 skillshot3.GetComponent<Image>().enabled = true;
 
@@ -248,7 +254,7 @@ public class MerlinAbilities : MonoBehaviour
 
             }
 
-            if (Input.GetKeyDown(ability3) && !isCooldown3 && abilityMana3 <= statsScript.mana)
+            if (Input.GetKeyDown(ability3Key) && !isCooldown3 && abilityMana3 <= statsScript.mana)
             {
                 toggle3 = !toggle3;
             }
@@ -288,7 +294,7 @@ public class MerlinAbilities : MonoBehaviour
     { 
         if (!spellLock)
         {
-            if (Input.GetKey(ability4) && !isCooldown4 && abilityMana4 <= statsScript.mana)
+            if (Input.GetKey(ability4Key) && !isCooldown4 && abilityMana4 <= statsScript.mana)
             {
                 skillshot4.GetComponent<Image>().enabled = true;
                 //Disable all other UI
@@ -306,7 +312,7 @@ public class MerlinAbilities : MonoBehaviour
                 abilityImage4.fillAmount = 1;
             }
 
-            if (Input.GetKeyDown(ability4) && !isCooldown4 && abilityMana4 <= statsScript.mana)
+            if (Input.GetKeyDown(ability4Key) && !isCooldown4 && abilityMana4 <= statsScript.mana)
             {
                 toggle4 = !toggle4;
             }

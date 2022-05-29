@@ -4,15 +4,15 @@
     <CurrentHealth>530</CurrentHealth>
     <HealthRegeneration>5</HealthRegeneration>
     <MaxMana>250</MaxMana>
-    <CurrentMana>250</CurrentMana>
+    <CurrentMana>224,7075</CurrentMana>
     <ManaRegeneration>3</ManaRegeneration>
-    <AttackDamage>30</AttackDamage>
+    <AttackDamage>43</AttackDamage>
     <AttackSpeed>1</AttackSpeed>
     <AttackTime>1,4</AttackTime>
     <AttackRange>2,5</AttackRange>
-    <PlayerPositionX>-100,5211</PlayerPositionX>
+    <PlayerPositionX>-104,969</PlayerPositionX>
     <PlayerPositionY>-0,07667767</PlayerPositionY>
-    <PlayerPositionZ>-2,991395</PlayerPositionZ>
+    <PlayerPositionZ>-15,24867</PlayerPositionZ>
     <PlayerFillBar>0</PlayerFillBar>
     <PlayerExp>0</PlayerExp>
     <PlayerLevel>1</PlayerLevel>
@@ -106,7 +106,7 @@
   </Enemy>
   <Enemy>
     <EnemyName>DragonSoulEater</EnemyName>
-    <EnemyMaxHealth>100</EnemyMaxHealth>
+    <EnemyMaxHealth>300</EnemyMaxHealth>
     <EnemyCurrentHealth>100</EnemyCurrentHealth>
     <EnemyIsDead>False</EnemyIsDead>
     <EnemyPositionX>-171,6656</EnemyPositionX>
@@ -115,7 +115,7 @@
   </Enemy>
   <Enemy>
     <EnemyName>DragonSoulEater</EnemyName>
-    <EnemyMaxHealth>100</EnemyMaxHealth>
+    <EnemyMaxHealth>300</EnemyMaxHealth>
     <EnemyCurrentHealth>100</EnemyCurrentHealth>
     <EnemyIsDead>False</EnemyIsDead>
     <EnemyPositionX>-183,17</EnemyPositionX>
@@ -178,7 +178,7 @@
   </Enemy>
   <Enemy>
     <EnemyName>DragonSoulEater</EnemyName>
-    <EnemyMaxHealth>100</EnemyMaxHealth>
+    <EnemyMaxHealth>300</EnemyMaxHealth>
     <EnemyCurrentHealth>100</EnemyCurrentHealth>
     <EnemyIsDead>False</EnemyIsDead>
     <EnemyPositionX>-183,852</EnemyPositionX>
@@ -187,7 +187,7 @@
   </Enemy>
   <Enemy>
     <EnemyName>DragonSoulEater</EnemyName>
-    <EnemyMaxHealth>100</EnemyMaxHealth>
+    <EnemyMaxHealth>300</EnemyMaxHealth>
     <EnemyCurrentHealth>100</EnemyCurrentHealth>
     <EnemyIsDead>False</EnemyIsDead>
     <EnemyPositionX>-146,6523</EnemyPositionX>

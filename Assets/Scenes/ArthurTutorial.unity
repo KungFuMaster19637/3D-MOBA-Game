@@ -13593,7 +13593,7 @@ MonoBehaviour:
     - Go to the teleport area to exit the tutorial.
     tutorialFinished: 0
   tutorialCounter: 0
-  markedArea: {fileID: 0}
+  markedArea: {fileID: 1002767175}
   tutorial3Trigger: {fileID: 1582276642}
   tutorial4Trigger: {fileID: 619752917}
   tutorialExit: {fileID: 1482547819}
@@ -19790,6 +19790,14 @@ PrefabInstance:
     - target: {fileID: 6075331377207552236, guid: 7fc8a88e8c97ea3429d9a341f7686094, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6075331377207552236, guid: 7fc8a88e8c97ea3429d9a341f7686094, type: 3}
+      propertyPath: ability3Key
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 6075331377207552236, guid: 7fc8a88e8c97ea3429d9a341f7686094, type: 3}
+      propertyPath: ability4Key
+      value: 114
       objectReference: {fileID: 0}
     - target: {fileID: 6075331377207552236, guid: 7fc8a88e8c97ea3429d9a341f7686094, type: 3}
       propertyPath: abilityMana1

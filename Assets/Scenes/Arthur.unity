@@ -2849,7 +2849,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &139791770
 Transform:
   m_ObjectHideFlags: 0
@@ -6850,7 +6850,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &901889296
 Transform:
   m_ObjectHideFlags: 0
@@ -19015,10 +19015,18 @@ PrefabInstance:
       propertyPath: arthurAbilities
       value: 
       objectReference: {fileID: 1358349519}
+    - target: {fileID: 3745369097421191296, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4577476098600268750, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
       propertyPath: playerSounds
       value: 
       objectReference: {fileID: 1998586656}
+    - target: {fileID: 5433074731544204959, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6053283481720320538, guid: 66d37c9376fae0a44a199b4567e408ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 

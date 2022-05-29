@@ -1623,18 +1623,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a99c612f988d3a42bd78afbbdd4c2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 300
-  health: 300
+  maxHealth: 375
+  health: 375
   healthRegeneration: 5
-  maxMana: 350
-  mana: 350
+  maxMana: 400
+  mana: 400
   manaRegeneration: 4
   attackDamage: 20
   attackSpeed: 0.5
   attackTime: 1
   attackRange: 10
-  spellPower: 30
-  defence: 10
+  spellPower: 50
+  defence: 15
   healthBar: {fileID: 4651657496284760113}
   gameOver: {fileID: 0}
   audioListener: {fileID: 0}
@@ -1670,11 +1670,11 @@ MonoBehaviour:
   player: {fileID: 4479548115985015536}
   spellLock: 0
   abilityImage1: {fileID: 0}
-  abilityMana1: 30
+  abilityMana1: 20
   cooldown1: 12
   ability1: 97
   abilityImage2: {fileID: 0}
-  abilityMana2: 10
+  abilityMana2: 35
   cooldown2: 5
   ability2: 122
   skillshot2: {fileID: 3752294525493158791}
@@ -1682,13 +1682,13 @@ MonoBehaviour:
   ability2Canvas: {fileID: 4458780721424840438}
   maxAbility2Distance: 5
   abilityImage3: {fileID: 0}
-  abilityMana3: 10
+  abilityMana3: 40
   cooldown3: 5
   ability3: 101
   ability3Canvas: {fileID: 4000976574480642355}
   skillshot3: {fileID: 4770823897111683403}
   abilityImage4: {fileID: 0}
-  abilityMana4: 10
+  abilityMana4: 50
   cooldown4: 5
   ability4: 114
   ability4Canvas: {fileID: 4827812403687026902}

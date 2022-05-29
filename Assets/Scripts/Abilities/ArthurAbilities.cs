@@ -23,7 +23,7 @@ public class ArthurAbilities: MonoBehaviour
     public Image abilityImage1;
     public float abilityMana1;
     public float cooldown1;
-    public KeyCode ability1;
+    public KeyCode ability1Key;
 
     private bool isCooldown1 = false;
 
@@ -32,7 +32,7 @@ public class ArthurAbilities: MonoBehaviour
     public Image abilityImage2;
     public float abilityMana2;
     public float cooldown2;
-    public KeyCode ability2;
+    public KeyCode ability2Key;
 
     private bool isCooldown2 = false;
     private bool toggle2 = false;
@@ -46,7 +46,7 @@ public class ArthurAbilities: MonoBehaviour
     public Image abilityImage3;
     public float abilityMana3;
     public float cooldown3;
-    public KeyCode ability3;
+    public KeyCode ability3Key;
 
     private bool isCooldown3 = false;
 
@@ -55,12 +55,17 @@ public class ArthurAbilities: MonoBehaviour
     public Image abilityImage4;
     public float abilityMana4;
     public float cooldown4;
-    public KeyCode ability4;
+    public KeyCode ability4Key;
 
     private bool isCooldown4 = false;
 
     void Start()
     {
+        ability1Key = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Ability 1"));
+        ability2Key = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Ability 2"));
+        ability3Key = KeyCode.E;
+        ability4Key = KeyCode.R;
+
         //Start game with cooldowns at 0
         abilityImage1.fillAmount = 0;
         abilityImage2.fillAmount = 0;
@@ -83,7 +88,7 @@ public class ArthurAbilities: MonoBehaviour
 
     void Ability1()
     {
-        if (Input.GetKey(ability1) && !isCooldown1 && abilityMana1 <= statsScript.mana)
+        if (Input.GetKey(ability1Key) && !isCooldown1 && abilityMana1 <= statsScript.mana)
         {
             abilityManager.ActivateAbility1();
             playerSounds.AbilitySoundPlayed(1, 1);
@@ -106,7 +111,7 @@ public class ArthurAbilities: MonoBehaviour
 
     void Ability2()
     {
-        if (Input.GetKeyDown(ability2) && !isCooldown2 && abilityMana2 <= statsScript.mana)
+        if (Input.GetKeyDown(ability2Key) && !isCooldown2 && abilityMana2 <= statsScript.mana)
         {
             toggle2 = !toggle2;
         }
@@ -148,7 +153,7 @@ public class ArthurAbilities: MonoBehaviour
     void Ability3()
     {
 
-        if (Input.GetKey(ability3) && !isCooldown3 && abilityMana3 <= statsScript.mana)
+        if (Input.GetKey(ability3Key) && !isCooldown3 && abilityMana3 <= statsScript.mana)
         {
             abilityManager.ActivateAbility3();
             playerSounds.AbilitySoundPlayed(1, 3);
@@ -170,7 +175,7 @@ public class ArthurAbilities: MonoBehaviour
     }
     void Ability4()
     {
-        if (Input.GetKey(ability4) && !isCooldown4 && abilityMana4 <= statsScript.mana)
+        if (Input.GetKey(ability4Key) && !isCooldown4 && abilityMana4 <= statsScript.mana)
         {
             abilityManager.ActivateAbility4();
             playerSounds.AbilitySoundPlayed(1, 4);

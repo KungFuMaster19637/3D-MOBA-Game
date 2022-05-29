@@ -45,7 +45,7 @@ public class Tutorial2Trigger : MonoBehaviour
     {
         if (arthurAbilities != null)
         {
-            if (Input.GetKeyDown(arthurAbilities.ability1))
+            if (Input.GetKeyDown(arthurAbilities.ability1Key))
             {
                 ability1Clicked = true;
                 CheckIfAllClicked();
@@ -57,13 +57,13 @@ public class Tutorial2Trigger : MonoBehaviour
                 CheckIfAllClicked();
             }
 
-            if (Input.GetKeyDown(arthurAbilities.ability3))
+            if (Input.GetKeyDown(arthurAbilities.ability3Key))
             {
                 ability3Clicked = true;
                 CheckIfAllClicked();
             }
 
-            if (Input.GetKeyDown(arthurAbilities.ability4))
+            if (Input.GetKeyDown(arthurAbilities.ability4Key))
             {
                 ability4Clicked = true;
                 CheckIfAllClicked();
@@ -77,7 +77,7 @@ public class Tutorial2Trigger : MonoBehaviour
     {
         if (merlinAbilities != null)
         {
-            if (Input.GetKeyDown(merlinAbilities.ability1))
+            if (Input.GetKeyDown(merlinAbilities.ability1Key))
             {
                 ability1Clicked = true;
                 CheckIfAllClicked();

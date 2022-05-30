@@ -134,6 +134,9 @@ public class ToDo
 
 
     Remove Devs Tools (F for money and H for health down)
+    Different MouseArrow
+    Game Icon
+    Game Name
 
     Extra's:
     Empty room tutorial

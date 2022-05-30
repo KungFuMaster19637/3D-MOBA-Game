@@ -532,6 +532,7 @@ public class SaveManager : MonoBehaviour
 
             //Enemy Info
             XmlNodeList loadEnemy = xmlDocument.GetElementsByTagName("Enemy");
+
             if (loadEnemy.Count != 0)//if there are enemies saved
             {
                 for (int i = 0; i < loadEnemy.Count; i++)
@@ -634,24 +635,38 @@ public class SaveManager : MonoBehaviour
             //Items Picked Up
             for (int i = 0; i < saveData.isPickedUp.Count; i++)
             {
+                //Item picked up in active scene
                 if (items[i].GetComponent<Item>().isPickedUp)
                 {
+                    //Item not picked up in loaded scene
                     if (!saveData.isPickedUp[i])
                     {
                         RespawnItem(items[i]);
                     }
                 }
+                //Item not picked up in active scene
+                else
+                {
+                    //Item picked up loaded scene
+                    if (saveData.isPickedUp[i])
+                    {
+                        DespawnItem(items[i]);
+                    }
+                }
+
             }
 
             //Enemy Info
             for (int i = 0; i < saveData.enemyMaxHealth.Count; i++)
             {
                 Debug.Log("Max health units: " + saveData.enemyMaxHealth.Count);
+
+                //Enemy dead in active scene
                 if (enemies[i].GetComponent<EnemyStats>().isDead)
                 {
+                    //Enemy alive in loaded scene
                     if (!saveData.enemyIsDead[i])
                     {
-                        //Debug.Log("enemy died??");
                         float enemyPosX = saveData.enemyPositionX[i];
                         float enemyPosY = saveData.enemyPositionY[i];
                         float enemyPosZ = saveData.enemyPositionZ[i];
@@ -661,22 +676,22 @@ public class SaveManager : MonoBehaviour
                         enemies[i].transform.position = new Vector3(enemyPosX, enemyPosY, enemyPosZ);
                     }
                 }
+
+                //Enemy alive in active scene
                 else
                 {
-                    //Debug.Log("Repositioning enemy number: " + i);
-                    float enemyPosX = saveData.enemyPositionX[i];
-                    float enemyPosY = saveData.enemyPositionY[i];
-                    float enemyPosZ = saveData.enemyPositionZ[i];
+                    //Enemy died in loaded scene
+                    if (saveData.enemyIsDead[i])
+                    {
+                        float enemyPosX = saveData.enemyPositionX[i];
+                        float enemyPosY = saveData.enemyPositionY[i];
+                        float enemyPosZ = saveData.enemyPositionZ[i];
+                        enemies[i].GetComponent<EnemyStats>().health = saveData.enemyCurrentHealth[i];
 
-                    enemies[i].GetComponent<EnemyStats>().health = saveData.enemyCurrentHealth[i];
-                    enemies[i].transform.position = new Vector3(enemyPosX, enemyPosY, enemyPosZ);
+                        DespawnEnemy(enemies[i]);
+                        enemies[i].transform.position = new Vector3(enemyPosX, enemyPosY, enemyPosZ);
+                    }
                 }
-
-                if (saveData.enemyIsDead[i])
-                {
-                    Debug.Log("Enemy: " + saveData.enemyName[i] + " is dead");
-                }
-
             }
         }
         else
@@ -711,12 +726,23 @@ public class SaveManager : MonoBehaviour
         }
     }
 
+    #region Item
     private void RespawnItem(GameObject item)
     {
         item.GetComponent<Item>().isPickedUp = false;
         item.GetComponent<Collider>().enabled = true;
         item.gameObject.transform.GetChild(0).transform.gameObject.SetActive(true);
     }
+
+    private void DespawnItem(GameObject item)
+    {
+        item.GetComponent<Item>().isPickedUp = true;
+        item.GetComponent<Collider>().enabled = false;
+        item.gameObject.transform.GetChild(0).transform.gameObject.SetActive(false);
+    }
+    #endregion
+
+    #region Enemy
     private void RespawnEnemy(GameObject enemy)
     {
         Debug.Log("respawning enemy");
@@ -733,4 +759,18 @@ public class SaveManager : MonoBehaviour
 
         enemy.gameObject.transform.GetChild(0).transform.gameObject.SetActive(true);
     }
+    private void DespawnEnemy(GameObject enemy)
+    {
+        Debug.Log("despawning enemy");
+        enemy.GetComponent<EnemyCombat>().enabled = false;
+        enemy.GetComponent<EnemyStats>().dieOnce = true;
+        enemy.GetComponent<EnemyStats>().giveExpOnce = true;
+        enemy.GetComponent<EnemyStats>().isDead = true;
+        enemy.GetComponent<EnemyStats>().healthBar.SetActive(false);
+        enemy.GetComponent<Collider>().enabled = false;
+        enemy.GetComponent<NavMeshAgent>().enabled = false;
+
+        enemy.gameObject.transform.GetChild(0).transform.gameObject.SetActive(false);
+    }
+    #endregion
 }

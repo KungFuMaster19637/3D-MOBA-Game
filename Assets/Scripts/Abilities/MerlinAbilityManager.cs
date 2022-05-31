@@ -186,7 +186,15 @@ public class MerlinAbilityManager : MonoBehaviour
             if (enemy.CompareTag("Enemy"))
             {
                 enemy.GetComponent<EnemyStats>().health -= SpellCalculator(energyDrainDamage + statsScript.spellPower * energyDrainDamageMultiplier, enemy.gameObject);
-                statsScript.health += (energyDrainHeal + statsScript.spellPower * energyDrainHealMultiplier); 
+
+                if (statsScript.health + (energyDrainHeal + statsScript.spellPower * energyDrainHealMultiplier) > statsScript.maxHealth)
+                {
+                    statsScript.health = statsScript.maxHealth;
+                }
+                else
+                {
+                    statsScript.health += (energyDrainHeal + statsScript.spellPower * energyDrainHealMultiplier); 
+                }
             }
         }
 

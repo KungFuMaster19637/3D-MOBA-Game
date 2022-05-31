@@ -168,6 +168,7 @@ public class ItemUsage : MonoBehaviour
             Debug.Log("Drank Strength potion");
 
             itemDisplayScript.UseItem(2);
+            descriptionUI.SetActive(false);
         }
 
         if (gameObject.name == "DefencePotion" && itemDisplayScript.itemAmount[3] > 0)
@@ -175,6 +176,7 @@ public class ItemUsage : MonoBehaviour
             playerStats.defence += defencePotion;
 
             itemDisplayScript.UseItem(3);
+            descriptionUI.SetActive(false);
         }
 
         if (gameObject.name == "SpellPotion" && itemDisplayScript.itemAmount[4] > 0)
@@ -182,6 +184,7 @@ public class ItemUsage : MonoBehaviour
             playerStats.spellPower += spellPotion;
 
             itemDisplayScript.UseItem(4);
+            descriptionUI.SetActive(false);
         }
         if (gameObject.name == "Fowl" && itemDisplayScript.itemAmount[7] > 0)
         {
@@ -196,6 +199,7 @@ public class ItemUsage : MonoBehaviour
             playerStats.mana += donutBoost;
 
             itemDisplayScript.UseItem(8);
+            descriptionUI.SetActive(false);
         }
         if (gameObject.name == "RiskyPotion" && itemDisplayScript.itemAmount[9] > 0)
         {
@@ -204,12 +208,14 @@ public class ItemUsage : MonoBehaviour
             playerStats.spellPower += riskyPotionSpellPower;
 
             itemDisplayScript.UseItem(9);
+            descriptionUI.SetActive(false);
         }
         if (gameObject.name == "RingOfMana" && itemDisplayScript.itemAmount[10] > 0)
         {
             playerStats.manaRegeneration += ringOfManaBoost;
 
             itemDisplayScript.UseItem(10);
+            descriptionUI.SetActive(false);
         }
 
     }

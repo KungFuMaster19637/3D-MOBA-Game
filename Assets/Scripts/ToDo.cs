@@ -137,12 +137,31 @@ public class ToDo
     Different MouseArrow
     Game Icon
     Game Name
+    Add Cheating tools
+
+    Feedback 2:
+    Castle Terrain
+    ----Mana/healthbar -> use level bar
+    ----Inventory -> smaller and on 1 line/ Minimap different? 
+    Leaves behind screen / too fast
+    Interact -> different (no button) -> F to interact (extra ability)
+    Tutorial expansion 
+    Lighting Improvements
+    Introdution to character (text or video/cutscene)
+    Mouse too fast??
+    Tutorial to unlock camera
+    Zoomout minimap?
+    More Buildings and streets (expand castle?)
+    Change icon when hovering over enemy to attack
+    Nerf Merlin stats
+    Tree's in the way (make invisible)
 
     Extra's:
+    Display text above Player's head
     Empty room tutorial
     Medic Area
-    More characters
-    Infinite mobs room
+    ////More characters
+    ////Infinite mobs room
     Nightmode
     (Merlin, Lancelot, Mordred)
 

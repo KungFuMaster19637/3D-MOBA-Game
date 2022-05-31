@@ -11,6 +11,8 @@ public class QuestGiver : MonoBehaviour
     public IronMiner ironQuest;
     public DragonSlayer dragonQuest;
 
+    public bool wheatQuestCompleted = false;
+    public bool ironQuestCompleted = false;
     public GameObject dragonQuestActivate;
 
     public GameObject player;
@@ -152,6 +154,7 @@ public class QuestGiver : MonoBehaviour
     }
 
     //Claim Quest rewards
+
     public void ClaimWheatReward()
     {
         player.GetComponent<LevelUpStats>().SetExperience(wheatQuest.experienceReward);
@@ -160,6 +163,7 @@ public class QuestGiver : MonoBehaviour
         {
             itemDisplay.UseItem(5);
         }
+        wheatQuestCompleted = true;
     }
 
     public void ClaimIronReward()
@@ -171,6 +175,7 @@ public class QuestGiver : MonoBehaviour
         {
             itemDisplay.UseItem(6);
         }
+        ironQuestCompleted = true;
     }
 
     public void ClaimDragonReward()

@@ -148,6 +148,11 @@ public class EnemyCombat : MonoBehaviour
                     targetedPlayer.GetComponent<PlayerStats>().health -= DamageCalculator(enemyStatsScript.attackDamage);
                 }
             }
+
+            if (targetedPlayer.name == "Merlin The Wizard")
+            {
+                targetedPlayer.GetComponent<PlayerStats>().health -= DamageCalculator(enemyStatsScript.attackDamage);
+            }
         }
 
         performMeeleeAttack = true;
